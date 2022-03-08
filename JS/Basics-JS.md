@@ -14,7 +14,9 @@
 
 * and much more!
 
-3. One of the defining features of JavaScript is its ability to respond to browser events. These events happen in real time and can be triggered by a wide variety of user interactions, including:
+## More About JS ##
+
+* One of the defining features of JavaScript is its ability to respond to browser events. These events happen in real time and can be triggered by a wide variety of user interactions, including:
 
 * the user clicking on a button
 
@@ -26,11 +28,16 @@
 
 * the user hovering over text on the webpage
 
-4. Functions in JS are reusable blocks of code, designed to perform a specific task.
+1. Functions in JS are reusable blocks of code, designed to perform a specific task.
 
-5. Functions allow us to write a chunk of code once that can be reused over and over again.
+2. Functions allow us to write a chunk of code once that can be reused over and over again.
 
-6. Events allow JS to respond to user behaviors like, the user hovering their mouse over an html element or resizing their window.
+3. Events allow JS to respond to user behaviors like, the user hovering their mouse over an html element or resizing their window.
 
-7. When an event is fired the function is executed.
+4. When an event is fired the function is executed.
 
+## Usage ##
+
+JavaScript was initially a language used to interact with HTML, but it has expanded beyond and is now a general-purpose language.
+
+You can now build web applications, browser games, desktop applications and even VR/AR experiences using JS.
