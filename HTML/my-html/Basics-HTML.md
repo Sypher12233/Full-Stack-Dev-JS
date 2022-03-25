@@ -43,6 +43,7 @@
 6. Line Break
 7. Head
 8. Anchor
+9. Tables
 
 > Simply an element is - a unit of content in an HTML document formed by HTML tags and the text or media it contains.
 
@@ -267,3 +268,263 @@ Let’s review what you’ve learned this lesson:
 ## Debugging ##
 
 > The [Markup Validation Service](https://validator.w3.org/) webpage takes an HTML document as an input, goes through it, and gives you a report to tell you what is wrong with your HTML.
+
+## Table Element ##
+
+* Some data is naturally tabular in nature, meaning that a table is often the best way of presenting the data.
+
+### Creating a Table ###
+
+* Before displaying data, we must first create the table that will contain the data by using the `<table>` element.
+* The `<table>` element will contain all of the tabular data we plan on displaying.
+
+### Table Rows ###
+
+* The first step in entering data into the table is to add rows using the table row element: `<tr>`.
+
+### Table Data ###
+
+* Each cell element must also be defined. In HTML, you can add data using the table data element: `<td>`.
+* Like the following:
+
+```HTML
+<tr>
+  <td>Adam's Greenwoods</td>
+    <td>14</td>
+    <td>Package Items</td>
+    </tr>
+```
+
+### Table Headings ###
+
+* To add titles to rows and columns, you can use the table heading element: `<th>`.
+* The table heading element is used just like a table data element, except with a relevant title. Just like table data, a table heading must be placed within a table row.
+* Note, also, the use of the scope attribute, which can take one of two values:
+
+```TEXT
+row - this value makes it clear that the heading is for a row.
+col - this value makes it clear that the heading is for a column.
+```
+
+```HTML
+<tr>
+  <th scope='col'>Company Name</th>
+    <th scope='col'>Number of Items to Ship</th>
+    <th scope='col'>Next Action</th>
+    </tr>
+```
+
+### Spanning Columns ###
+
+* Data can span columns using the `colspan` attribute. The attribute accepts an integer (greater than or equal to 1) to denote the number of columns it spans across.
+* In the example below the data 'Adam's Greenwoods' spans two(2) columns.
+
+```HTML
+<td colspan='2'>Adam's Greenwoods</td>
+```
+
+### Spanning Rows ###
+
+* Data can also span multiple rows using the rowspan attribute.
+* The rowspan attribute is used for data that spans multiple rows (perhaps an event goes on for multiple hours on a certain day). It accepts an integer (greater than or equal to 1) to denote the number of rows it spans across.
+
+```HTML
+<tr> <!-- Row 2 -->
+    <th>Morning</th>
+    <td rowspan="2">Work</td>
+    <td rowspan="3">Relax</td>
+  </tr>
+```
+
+### Table Body ###
+
+* Over time, a table can grow to contain a lot of data and become very long. When this happens, the table can be sectioned off so that it is easier to manage.
+* Long tables can be sectioned off using the table body element: `<tbody>`.
+
+### Table Head ###
+
+* When a table’s body is sectioned off, however, it also makes sense to section off the table’s column headings using the `<thead>` element.
+
+```HTML
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th scope="col">Saturday</th>
+      <th scope="col">Sunday</th>
+    </tr>
+  </thead>
+  <tbody>
+    </tbody>
+```
+
+### Table Footer ###
+
+* The bottom part of a long table can also be sectioned off using the `<tfoot>` element.
+
+```HTML
+<table>
+  <tfoot>
+    <tr>
+      <th>Total</th>
+      <td>$22M</td>
+      <td>$12.5M</td>
+    </tr>
+  </tfoot>
+</table>
+```
+
+### Styling with CSS ###
+
+* Tables, by default, are very bland. They have no borders, the font color is black, and the typeface is the same type used for other HTML elements.
+* CSS, or Cascading Style Sheets, is a language that web developers use to style the HTML content on a web page. You can use CSS to style tables.
+
+```CSS
+table, th, td {
+  border: 1px solid black;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  text-align: center;
+}
+```
+
+#### Review: HTML Tables ###
+
+* Let’s review what we’ve learned so far:
+
+* The `<table>` element creates a table.
+* The `<tr>` element adds rows to a table.
+* To add data to a row, you can use the `<td>` element.
+* Table headings clarify the meaning of data. Headings are added with the `<th>` element.
+* Table data can span columns using the colspan attribute.
+* Table data can span rows using the rowspan attribute.
+* Tables can be split into three main sections: a head, a body, and a footer.
+* A table’s head is created with the `<thead>` element.
+* A table’s body is created with the `<tbody>` element.
+* A table’s footer is created with the `<tfoot>` element.
+* All the CSS properties you learned about in this course can be applied to tables and their data.
+
+## Semantic HTML ##
+
+> Introduction;
+
+* Introduction to Semantic HTML
+When building web pages, we use a combination of non-semantic HTML and Semantic HTML. The word semantic means “relating to meaning,” so semantic elements provide information about the content between the opening and closing tags.
+
+### Elements ###
+
+1. `<header>`
+2. `<nav>`
+3. `<Main>`
+4. `<Footer>`
+5. `<Section>`
+6. `<Article>`
+7. `<Aside>`
+8. `<Audio>`
+9. `<video>`
+
+* Elements such as `<div>` and `<span>` are not semantic elements since they provide no context as to what is inside of those tags.
+* For example, instead of using a `<div>` element to contain our header information, we could use a `<header>` element, which is used as a heading section.
+
+### Header and Nav ###
+
+* A `<header>` is a container usually for either navigational links or introductory content containing `<h1>` to `<h6>` headings.
+* A `<nav>` is used to define a block of navigation links such as menus and tables of contents. It is important to note tha `<nav>` can be used inside of the `<header>` element but can also be used on its own.
+
+* Let’s take a look at the example below:
+
+```HTML
+<header> 
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>      
+    </ul>
+  </nav>
+</header>.
+```
+
+### Main and Footer ###
+
+* These elements along with `<nav>` and `<header>` help describe where an element is located based on conventional web development standards.
+* The element `<main>` is used to encapsulate the dominant content within a webpage. This tag is separate from the `<footer>` and the `<nav>` of a web page since these elements don’t contain the principal content.
+* The content at the bottom of the subject information is known as the footer, indicated by the `<footer>` element. The footer contains information such as:
+
+```HTML
+* Contact information
+* Copyright information
+* Terms of use
+* Site Map
+* Reference to top of page links
+For example:
+
+<footer>
+  <p>Email me at Codey@Codecademy.com</p>
+</footer>
+```
+
+* The `<footer>` tag is separate from the `<main>` element and typically located at the bottom of the content.
+
+### Article and Section ###
+
+* `<section> and <article>` tags go into the `<body>` tag.
+* `<section>` defines elements in a document, such as chapters, headings, or any other area of the document with the same theme. For example, content with the same theme such as articles about cricket can go under a single `<section>`.
+* The `<article>` element holds content that makes sense on its own. `<article>` can hold content such as articles, blogs, comments, magazines, etc.
+
+```HTML
+<section>
+  <h2>Fun Facts About Cricket</h2>
+  <article>
+    <p>A single match of cricket can last up to 5 days.</p>
+  </article>
+</section>
+```
+
+* It is important to note that a `<section>` element could also be placed in an `<article>` element depending on the context.
+* The `<aside>` element is used to mark additional information that can enhance another element but isn’t required in order to understand the main content. This element can be used alongside other elements such as `<article>` or `<section>`.
+* With `<aside>`, we learned that we can put additional information next to a main piece of content, but what if we wanted to add an image or illustration? That is where `<figure>` and `<figcaption>` come in.
+* `<figure>` is an element used to encapsulate media such as an image, illustration, diagram, code snippet, etc, which is referenced in the main flow of the document.
+* `<figcaption>` is an element used to describe the media in the `<figure>` tag. Usually, `<figcaption>` will go inside `<figure>`. This is different than using a `<p>` element to describe the content; if we decide to change the location of `<figure>`, the paragraph tag may get displaced from the figure while a `<figcaption>` will move with the figure. This is useful for grouping an image with a caption.
+
+```HTML
+<figure>
+  <img src="overwatch.jpg">
+  <figcaption>This picture shows characters from Overwatch.</figcaption>
+</figure>
+```
+
+## Audio and Attributes ##
+
+* The `<audio>` element is used to embed audio content into a document. Like `<video>`, `<audio>` uses src to link the audio source.
+* Most attributes go in the opening tag of `<audio>`. For example, here’s how we could add both autoplay functionality and audio controls:
+
+```HTML
+<audio autoplay controls>
+  <source src="iAmAnAudioFile.mp3" type="audio/mp3">
+</audio>
+```
+
+## Video and Embed ##
+
+* We can use a `<video>` attribute to add a video to our webpage.
+* Some attributes that can alter a video playback include:
+* controls: When added in, a play/pause button will be added onto the video along with volume control and a fullscreen option.
+* autoplay: The attribute which results in a video automatically playing as soon as the page is loaded.
+* loop: This attribute results in the video continuously playing on repeat.
+* Below is an example of `<video>` being used with the controls attribute:
+* Another tag that can be used to incorporate media content into a page is the `<embed>` tag, which can embed any media content including videos, audio files, and gifs from an external source.
+
+```HTML
+<video src="coding.mp4" controls>Video not supported</video>
+<embed src="download.gif"/>
+```
+
+### Review: Semantic HTML ###
+
+* `<header>`, `<nav>` , `<main>` and `<footer>` create the basic structure of the webpage.
+* `<section>` defines elements in a document, such as chapters, headings, or any other area of the document with the same theme.
+* `<article>` holds content that makes sense on its own such as articles, blogs, comments, etc.
+* `<aside>` contains information that is related to the main content, but not required in order to understand the dominant information.
+* `<figure>` encapsulates all types of media.
+* `<figcaption>` is used to describe the media in `<figure>`.
+* `<video>`, `<embed>`, and `<audio>` elements are used for media files.
