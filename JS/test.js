@@ -23,3 +23,4 @@ function numberDigits(x) {
 };
 
 console.log(numberDigits(-70));
+console.log(process.env.PWD);

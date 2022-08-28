@@ -2001,3 +2001,131 @@ console.log(numberDigits(-70));
 ```
 
 ## Running JavaScript in the Browser Console ##
+
+Learn how to run JavaScript code in your browser.
+
+Along with `HTML` and `CSS`, `JavaScript (JS)` makes up one of the core languages in web development. JS code is normally added using the HTML `<script>` element for executing in web browsers, but most modern browsers also provide a console as part of their developer tools where we can directly write and run JS, typically for testing and debugging purposes. The console is essentially a `REPL` [(Read-Evaluate-Print-Loop)](https://en.wikipedia.org/wiki/Read–eval–print_loop) that allows us to execute JS within the context of the page, such as modifying the page’s `DOM` [(Document Object Model)](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction) or logging to the console. The console itself is also the place to view the messages that were logged by JS code, as well as any other information that the browser had documented, including network requests and security errors.
+
+In this article, we’ll walk through how to open the developer console and run JS code right in your browser!
+
+### Example #1: Performing basic arithmetic ###
+
+Remember that the console is a REPL, so we can run JS code, such as arithmetic expressions, by typing it after the > prompt and hitting Enter/Return. The expression will be evaluated, and the return value is printed to the console on the next line following the < arrow:
+
+basic_arithmetic
+
+Similarly, we can use comparison operators to compare values, which will evaluate to true or false:
+
+expression_evaluation
+
+In some newer browsers, you may notice that the console displays a preview of the return value as you’re typing, even before you hit Enter/Return.
+
+### Example #2: Calling and writing functions ###
+
+In addition to performing basic arithmetic, we can also execute any other valid JS code, such as calling functions and methods. A list of the built-in functions and objects that are available to use in the console can be found in the MDN web docs. For example, Math.sqrt() returns the square root of a number:
+
+calling_methods
+
+The console object can also be accessed in the web browser’s console. Most frequently, it is used to output text and data, such as for debugging purposes:
+
+Notice that two new lines appear after running the previous code, one preceded by the < arrow and one without. This is because console.log() simply prints the message to the console and does not return anything. Thus, the first line we see is the logged message, and the second line that starts with < is the return value, or undefined.
+
+We can also write our own functions in the console. In the example below, we define a function called addTwo() which logs a message to the console, then returns the input number plus 2:
+
+Because the function declaration itself does not evaluate to any value, undefined is returned and printed to the console after the < arrow.
+
+When we call the addTwo() function, Evaluating... is first outputted to the console from our console.log() call. Then, the function’s return value—which is what the function call evaluates to—will get printed after the < arrow:
+
+### Example #3: Interacting with the page’s DOM ###
+
+As we’ve seen so far, we can run JS in the console completely independent of the page we have opened in the browser. But what makes the console particularly useful is that we could also directly inspect and modify the page’s DOM if we wanted to. Let’s look at a simple example using a blank webpage.
+
+To bring up a blank page, we can enter about:blank into the browser’s address bar. We can confirm that there is no HTML inside the `<body>` element of the page by checking document.body.innerHTML in the console:
+
+We can also write JS code to modify the page’s DOM, such as adding a heading element inside the body, as seen below. Once we run the following code, the change will immediately be reflected on the page opened in the browser:
+
+The console also recognizes $() as an alias for document.querySelector() to select an element. This shorthand resembles jQuery syntax and helps make manipulating the DOM through the console even more efficient:
+
+In the code above, we used the shorthand $() syntax to select the `<body>` element and set the color property to "blue". This statement returns the value "blue" to the console, and the color change is immediately reflected on the webpage.
+
+Conclusion
+
+As we can see, the console provides a quick and convenient way of running any JS code in the browser, whether independent of or directly related to the page content. If any edits are made to the page, the changes are temporary and will be gone upon refreshing, which works great for testing purposes when you don’t want to modify the actual code. Combined with the other developer tools offered by browsers, we can see how the console can quickly become an essential part of a developer’s toolbox!
+
+## Introduction to JavaScript Runtime Environments ##
+
+An introduction to the Node runtime environment and a browser’s runtime environment.
+
+What is a **Runtime Environment**?
+
+A runtime environment is where your program will be executed. It determines what global objects your program can access and it can also impact how it runs. This article covers the two JavaScript runtime environments:
+
+* the runtime environment of a browser (like Chrome, or Firefox)
+* the Node runtime environment
+
+### A Browser’s Runtime Environment ###
+
+The most common place where JavaScript code is executed is in a browser. For example, using any text editor, you could create a file on your own computer called my_website.html and put the following HTML code inside:
+
+```html
+<!-- my_website.html -->
+<html>
+  <body>
+    <h1> My Website </h1>
+    <script> window.alert('Hello World'); </script>
+  </body>
+</html>
+```
+
+Save your file, then open your favorite browser. Most browsers will allow you to load websites that you have created locally by going to the menu File > Open File > my_website.html.
+
+Upon loading, the embedded `<script></script>` will execute and the `window.alert()` method will create a pop-up box in your browser with the text "Hello World". How is this possible? Where did the window.alert() method come from and how can it control your browser?
+
+The answer is that you are executing this code in the browser’s runtime environment. The window.alert() method is built into this environment and any program executed in a browser has access to this method. In fact, the window object provides access to a huge amount of data and functionality relating to the open browser window beyond just .alert().
+
+> Try replacing window.alert() with window.prompt() or window.confirm()
+
+Applications created for and executed in the browser are known as front-end applications. For a long time, JavaScript code could only be executed in a browser and was used exclusively for creating front-end applications. In order to create back-end applications that could run on a computer WITHOUT a browser, you would need to use other programming languages such as Java or PHP.
+
+### The Node Runtime Environment ###
+
+In 2009, the Node runtime environment was created for the purpose of executing JavaScript code without a browser, thus enabling programmers to create full-stack (front-end and back-end) applications using only the JavaScript language.
+
+Node is an entirely different runtime environment, meaning that browser-environment data values and functions, like window.alert(), can’t be used. Instead, the Node runtime environment gives back-end applications access to a variety of features unavailable in a browser, such as access to the server’s file system, database, and network.
+
+For example, suppose you created a file called my-app.js. We can check to see the directory that this file is located in using the Node runtime environment variable process:
+
+```js
+// my-app.js
+console.log(process.env.PWD);
+```
+
+Notice that we are using console.log now instead of window.alert() since the window object isn’t available
+process is an object containing data relating to the JavaScript file being executed. process.env is an object containing environment variables such as process.env.PWD which contains the current working directory (and stands for “Print Working Directory”).
+
+To execute the JavaScript code in this file, first make sure that you have set up Node on your computer. Then, open up a terminal and run the following command:
+
+```js
+$ node my-app.js
+/path/to/working/directory
+```
+
+The node command tells your computer to execute the my-app.js file in the Node environment. You can also use the node command without a file argument to open up the Node Read-Eval-Print-Loop (REPL):
+
+```zsh
+$ node
+> process.env.HOME
+'/home/ccuser'
+```
+
+### Summary ###
+
+A runtime environment is where your program will be executed. JavaScript code may be executed in one of two runtime environments:
+
+* a browser’s runtime environment
+* the Node runtime environment
+
+In each of these environments, different data values and functions are available, and these differences help distinguish front-end applications from back-end applications.
+
+* Front-end JavaScript applications are executed in a browser’s runtime environment and have access to the window object.
+* Back-end JavaScript applications are executed in the Node runtime environment and have access to the file system, databases, and networks attached to the server.
