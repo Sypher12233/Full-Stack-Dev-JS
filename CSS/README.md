@@ -15,8 +15,10 @@
 * Links and Buttons
 * Breadcrumbs
 * Grids and Spacing
-* Flexbox
 * Grid Essentials
+* Flexbox
+* Sizing Elements
+* Media Queries
 
 ## Setup and Syntax ##
 
@@ -1674,7 +1676,7 @@ a:hover {
 
 The first rule sets link colors to blue by default, and when a user mouses over a link, the second rule will override the color attribute of the `<a>` tag and cause the text to turn orange. When the user moves the cursor away from the link, the text color will revert to blue.
 
-In addition to any text style changes when hovering over a link, the user’s cursor should change from the default appearance to a pointing hand. The CSS `cursor` property is used to control this behavior. For example, to add this behavior to all `<a>` tags, the following rule could be used:
+In addition to any text style changes when hovering over a link, the user’s cursor should change from the default appearance to a pointng hand. The CSS `cursor` property is used to control this behavior. For example, to add this behavior to all `<a>` tags, the following rule could be used:
 
 ```CSS
 a {
@@ -2413,75 +2415,416 @@ In the example above, a div with three smaller images will display from top to b
 * `flex-flow` is used to specify `flex-wrap` and `flex-direction` in one declaration.
 * `Flex containers` can be nested inside of each other by declaring `display: flex` or `display: inline-flex` for children of flex containers.
 
----
+## Sizing Elements ##
 
-## Grid Essentials ##
+Relative Measurements
+Modern technology allows users to browse the Internet via multiple devices, such as desktop monitors, mobile phones, tablets, and more. Devices of different screen sizes, however, pose a problem for web developers: how can we ensure that a website is readable and visually appealing across all devices, regardless of screen size?
 
-> Introduction to Grids
+The answer: responsive design! Responsive design refers to the ability of a website to resize and reorganize its content based on:
 
-Introduction to Grids
-Using CSS, you can elegantly lay out elements on a web page. There is no simple answer for how best to do this — depending on what content you are trying to display, multiple different techniques can work well. The Box Model and Display and Positioning explain some possible ways to style layout.
+* The size of other content on the website.
+* The size of the screen the website is being viewed on.
 
-In this lesson, we introduce a powerful tool called CSS Grid. The grid can be used to layout entire web pages. Whereas Flexbox is mostly useful for positioning items in a one-dimensional layout, CSS grid is most useful for two-dimensional layouts, providing many tools for aligning and moving elements across both rows and columns.
+In this lesson, we’ll size HTML content relative to other content on a website.
 
-By the end of this lesson, you will understand how to use these properties to create grid layouts:
+You’ve probably noticed the unit of `pixels`, or `px`, used in websites. Pixels are used to size content to exact dimensions. For example, if you want a div to be exactly 500 pixels wide and 100 pixels tall, then the unit of px can be used. Pixels, however, are fixed, `hard coded` values. When a screen size changes (like switching from landscape to portrait view on a phone), elements sized with pixels can appear too small, overflow the screen, or become completely illegible.
 
-1. grid-template-columns
-1. grid-template-rows
-1. grid-template
-1. grid-template-area
-1. row-gap / column-gap / gap
-1. grid-row-start / grid-row-end
-1. grid-column-start / grid-column-end
-1. grid-area
+With CSS, you can avoid hard coded measurements and use *relative measurements* instead. Relative measurements offer an advantage over `hard coded` measurements, as they allow for the proportions of a website to remain intact regardless of screen size or layout.
 
-### Creating a Grid ###
+> Below are a few relative sizing elements;
 
-To set up a grid, you need to have both a grid container and grid items. The grid container will be a parent element that contains grid items as children and applies overarching styling and positioning to them.
+1. em
+2. rem
+3. Percentages: Height and Width
 
-To turn an HTML element into a grid container, you must set the element’s display property to one of two values:
+### 1. Em ###
 
-* `grid` — for a block-level grid.
-* `inline-grid` — for an inline grid.
+Incorporating relative sizing starts by using units other than pixels. One unit of measurement you can use in CSS to create relatively-sized content is the em, written as `em` in CSS.
 
-Then, you can assign other properties to lay out the grid to suit your needs.
+Historically, the `em` represented the width of a capital letter M in the typeface and size being used. That is no longer the case.
 
-### Creating Columns ###
+Today, the `em` represents the `font-size` of the current element or the default base font-size set by the browser if none is given. For example, if the base font of a browser is 16 pixels (which is normally the default size of text in a browser), then `1 em` is equal to `16` pixels. `2 ems` would equal `32` pixels, and so on.
 
-By default, grids contain only one column. If you were to start adding items, each item would be put on a new row; that’s not much of a grid! To change this, we need to explicitly define the number of rows and columns in our grid.
-
-We can define the columns of our grid by using the CSS property `grid-template-columns`. Below is an example of this property in action:
+Let’s take a look at two examples that show how em can be used in CSS.
 
 ```CSS
-.grid {
-  display: grid;
+.heading {
+  font-size: 2em;
+}
+```
+
+In the example above, no base font has been specified, therefore the `font size` of the heading element will be set relative to the default font size of the browser. Assuming the default font size is 16 pixels, then the font size of the heading element will be 32 pixels.
+
+```CSS
+.splash-section {
+  font-size: 18px;
+}
+ 
+.splash-section h1 {
+  font-size: 1.5em;
+}
+```
+
+The example above shows how to use ems without relying on the default font size of the browser. Instead, a base font size (18px) is defined for all text within the splash-section element. The second CSS rule will set the font size of all h1 elements inside of splash-section relative to the base font of splash-section (18 pixels). The resulting font size of h1 elements will be 27 pixels.
+
+### 2. Rem ###
+
+The second relative unit of measurement in CSS is the `rem`, coded as `rem`.
+
+`Rem` stands for `root em`. It acts similar to em, but instead of checking parent elements to size font, it checks the root element. The root element is the `<html>` tag.
+
+Most browsers set the font size of `<html>` to 16 pixels, so by default rem measurements will be compared to that value. To set a different font size for the root element, you can add a CSS rule.
+
+```CSS
+html {
+  font-size: 20px;
+}
+ 
+h1 {
+  font-size: 2rem;
+}
+```
+
+In the example above, the font size of the root element, `<html>`, is set to 20 pixels. All subsequent rem measurements will now be compared to that value and the size of h1 elements in the example will be 40 pixels.
+
+One advantage of using `rems` is that all elements are compared to the same font size value, making it easy to predict how large or small font will appear. If you are interested in sizing elements consistently across an entire website, the `rem` measurement is the best unit for the job. If you’re interested in sizing elements in comparison to other elements nearby, then the `em` unit would be better suited for the job.
+
+### 3. Percentages: Height & Width ###
+
+To size non-text HTML elements relative to their parent elements on the page you can use  `percentages`.
+
+Percentages are often used to size box-model values, like `width` and `height`, `padding`, `border`, and `margins`. They can also be used to set positioning properties (`top`, `bottom`, `left`, `right`).
+
+To start, let’s size the height and width of an element using percentages.
+
+```CSS
+.main {
+  height: 300px;
   width: 500px;
-  grid-template-columns: 100px 200px;
+}
+ 
+.main .subsection {
+  height: 50%;
+  width: 50%;
 }
 ```
 
-This property creates two changes. First, it defines the number of columns in the grid; in this case, there are two. Second, it sets the width of each column. The first column will be 100 pixels wide and the second column will be 200 pixels wide.
+In the example above, `.main` and `.subsection` each represent `divs`. The .subsection div is nested within the .main div. Note that the dimensions of the parent `div (.main)` have been set to a height of 300 pixels and a width of 500 pixels.
 
-We can also define the size of our columns as a percentage of the entire grid’s width.
+When percentages are used, elements are sized relative to the dimensions of their parent element (also known as a container). Therefore, the dimensions of the .subsection div will be 150 pixels tall and 250 pixels wide. Be careful, a child element’s dimensions may be set erroneously if the dimensions of its parent element aren’t set first.
+
+> Note:Because the box model includes padding, borders, and margins, setting an element’s width to 100% may cause content to overflow its parent container. While tempting, 100% should only be used when content will not have `padding`, `border`, or `margin`.
+
+### 4. Percentages: Padding & Margin ###
+
+Percentages can also be used to set the `padding` and `margin` of elements.
+
+When `height` and `width` are set using percentages, you learned that the dimensions of child elements are calculated based on the dimensions of the parent element.
+
+When percentages are used to set `padding` and `margin`, however, they are calculated based only on the width of the parent element.
+
+For example, when a property like `margin-left` is set using a percentage (say 50%), the element will be moved halfway to the right in the parent container (as opposed to the child element receiving a margin half of its parent’s margin).
+
+Vertical padding and margin are also calculated based on the width of the parent. Why? Consider the following scenario:
+
+* A container div is defined, but its height is not set (meaning it’s flat).
+* The container then has a child element added within. The child element does have a set height. This causes the height of its parent container to stretch to that height.
+* The child element requires a change, and its height is modified. This causes the parent container’s height to also stretch to the new height. This cycle occurs endlessly whenever the child element’s height is changed!
+
+In the scenario above, an unset height (the parent’s) results in a constantly changing height due to changes to the child element. This is why vertical padding and margin are based on the width of the parent, and not the height.
+
+> Note: When using relative sizing, ems and rems should be used to size text and dimensions on the page related to text size (i.e. padding around text). This creates a consistent layout based on text size. Otherwise, percentages should be used.
+
+## Other Topics ##
+  
+1. Width: Minimum & Maximum
+1. Height: Minimum & Maximum
+1. Scalling Images & Videos
+1. Scaling Background Images
+1. Review: Relative Measurements
+
+### 1. Width: Minimum & Maximum ###
+
+Although relative measurements provide consistent layouts across devices of different screen sizes, elements on a website can lose their integrity when they become too small or large. You can limit how wide an element becomes with the following properties:
+
+* `min-width` — ensures a minimum width for an element.
+* `max-width` — ensures a maximum width for an element.
 
 ```CSS
-.grid {
-  display: grid;
-  width: 1000px;
-  grid-template-columns: 20% 50%;
+p {
+  min-width: 300px;
+  max-width: 600px;
 }
 ```
 
-In this example, the grid is 1000 pixels wide. Therefore, the first column will be 200 pixels wide because it is set to be 20% of the grid’s width. The second column will be 500 pixels wide.
+In the example above, when the browser is resized, the width of paragraph elements will not fall below 300 pixels, nor will their width exceed 600 pixels.
 
-We can also mix and match these two units. In the example below, there are three columns of width 20 pixels, 40 pixels, and 60 pixels:
+When a browser window is narrowed or widened, text can become either very compressed or very spread out, making it difficult to read. These two properties ensure that content is legible by limiting the minimum and maximum widths.
+
+Note: The unit of `pixels` is used to ensure hard limits on the dimensions of the element(s).
+
+### 2. Height: Minimum & Maximum ###
+
+You can also limit the minimum and maximum height of an element.
+
+* `min-height` — ensures a minimum height for an element’s box.
+* `max-height` — ensures a maximum height for an element’s box.
 
 ```CSS
-.grid {
-  display: grid;
-  width: 100px;
-  grid-template-columns: 20px 40% 60px;
+p {
+  min-height: 150px;
+  max-height: 300px;
 }
 ```
 
-Notice that in this example, the total width of our columns (120 pixels) exceeds the width of the grid (100 pixels). This might make our grid cover other elements on the page! In a later exercise, we will discuss how to avoid overflow.
+In the example above, the height of all paragraphs will not shrink below 150 pixels and the height will not exceed 300 pixels.
+
+What will happen to the contents of an element if the `max-height` property is set too low for that element? It’s possible that content will overflow outside of the element, resulting in content that is not legible.
+
+### 3. Scaling Images and Videos ###
+
+Many websites contain a variety of different media, like images and videos. When a website contains such media, it’s important to make sure that it is scaled proportionally so that users can correctly view it.
+
+```CSS
+.container {
+  width: 50%;
+  height: 200px;
+  overflow: hidden;
+}
+ 
+.container img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+```
+
+In the example above, `.container` represents a `container div`. It is set to a width of `50%` (half of the browser’s width, in this example) and a height of `200 pixels`. Setting overflow to hidden ensures that any content with dimensions larger than the container will be hidden from view.
+
+The second CSS rule ensures that images scale with the width of the container. The height property is set to auto, meaning an image’s height will automatically scale proportionally with the width. Finally, the last line will display images as block level elements (rather than inline-block, their default state). This will prevent images from attempting to align with other content on the page (like text), which can add unintended margin to the images.
+
+It’s worth memorizing the entire example above. It represents a very common design pattern used to scale images and videos proportionally.
+
+> Note: The example above scales the width of an image (or video) to the width of a container. If the image is larger than the container, the vertical portion of the image will overflow and will not display. To swap this behavior, you can set `max-height` to `100%` and `width` to `auto` (essentially swapping the values). This will scale the height of the image with the height of the container instead. If the image is larger than the container, the horizontal portion of the image will overflow and not display.
+
+### 4. Scaling Background Images ###
+
+Background images of HTML elements can also be scaled responsively using CSS properties.
+
+```CSS
+body {
+  background-image: url('#');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+```
+
+In the example above, the first CSS declaration sets the background image (# is a placeholder for an image URL in this example). The second declaration instructs the CSS compiler to not repeat the image (by default, images will repeat). The third declaration centers the image within the element.
+
+The final declaration, however, is the focus of the example above. It’s what scales the background image. The image will cover the entire background of the element, all while keeping the image in proportion. If the dimensions of the image exceed the dimensions of the container then only a portion of the image will display.
+
+### 5. Review: Relative Measurements ###
+
+Let’s review what you learned:
+
+* Content on a website can be sized relative to other elements on the page using relative measurements.
+* The unit of `em` sizes font relative to the font size of a parent element.
+* The unit of `rem` sizes font relative to the font size of a root element. That root element is the `<html>` element.
+* `Percentages` are commonly used to size `box-model features`, like the `width`, `height`, `padding`, or `margin` of an element.
+* When percentages are used to size width and height, child elements will be sized relative to the dimensions of their parent (remember that parent dimensions must first be set).
+* Percentages can be used to set padding and margin. Horizontal and vertical padding and margin are set relative to the width of a parent element.
+* The minimum and maximum width of elements can be set using `min-width` and `max-width`.
+* The minimum and maximum height of elements can be set using `min-height` and `max-height`.
+* When the height of an image or video is set, then its width can be set to `auto` so that the media scales proportionally. Reversing these two properties and values will also achieve the same result.
+* A background image of an HTML element will scale proportionally when its `background-size` property is set to `cover`.
+
+Relative units of measurement are a first step towards incorporating responsive design in a website. When combined with more advanced responsive techniques, you can create a seamless user experience regardless of a device’s screen size.
+
+## Media Queries ##
+
+CSS uses media queries to adapt a website’s content to different screen sizes. With media queries, CSS can detect the size of the current screen and apply different CSS styles depending on the width of the screen.
+
+```CSS
+@media only screen and (max-width: 480px) {
+  body {
+    font-size: 12px;
+  }
+}
+```
+
+The example above demonstrates how a media query is applied. The media query defines a rule for screens smaller than 480 pixels (approximately the width of many smartphones in landscape orientation).
+
+> Let’s break this example down into its parts:
+
+* `@media` — This keyword begins a media query rule and instructs the CSS compiler on how to parse the rest of the rule.
+* `only screen` — Indicates what types of devices should use this rule. In early attempts to target different devices, CSS incorporated different media types (screen, print, handheld). The rationale was that by knowing the media type, the proper CSS rules could be applied. However, `“handheld”` and `“screen”` devices began to occupy a much wider range of sizes and having only one CSS rule per media device was not sufficient. screen is the media type always used for displaying content, no matter the type of device. The `only` keyword is added to indicate that this rule only applies to one media type (screen).
+* and `(max-width : 480px)` — This part of the rule is called a media feature, and instructs the CSS compiler to apply the CSS styles to devices with a width of `480` pixels or `smaller`. Media features are the conditions that must be met in order to render the CSS within a media query.
+* CSS rules are nested inside of the media query’s curly braces. The rules will be applied when the media query is met. In the example above, the text in the `body` element is set to a `font-size` of 12px when the user’s screen is less than `480px`.
+
+1. Responsive Web Design
+2. Viewport Meta Tag
+3. Range
+4. Dots Per Inch (DPI)
+5. And Operator
+6. Comma separated list
+7. Breakpoints
+8. Review: Media Queries
+
+### 1. Responsive Web Design ###
+
+When someone visits a website, it’s possible they are viewing it on a phone, tablet, computer, or even a TV monitor. Because screen sizes can vary greatly across different devices, it’s important for websites to resize and reorganize their content to best fit screens of all sizes.
+
+When a website doesn’t respond to different screen sizes, the website may look odd or become indecipherable on certain devices. This usually occurs on smaller screens, like phones. When a website responds to the size of the screen it’s viewed on, it’s called a responsive website.
+
+Because websites can be displayed on thousands of different screen sizes, they must be able to respond to a change in screen size and adapt the content so that users can access it.
+When someone visits a website, it’s possible they are viewing it on a phone, tablet, computer, or even a TV monitor. Because screen sizes can vary greatly across different devices, it’s important for websites to resize and reorganize their content to best fit screens of all sizes.
+
+When a website doesn’t respond to different screen sizes, the website may look odd or become indecipherable on certain devices. This usually occurs on smaller screens, like phones. When a website responds to the size of the screen it’s viewed on, it’s called a responsive website.
+
+Because websites can be displayed on thousands of different screen sizes, they must be able to respond to a change in screen size and adapt the content so that users can access it.
+
+### 2. Viewport Meta Tag ###
+
+Thus far, we have been learning about creating responsive web designs with CSS. However, in order for us to enable this responsive CSS to work, we need to get familiar with the HTML viewport meta tag!
+
+Let’s start with the viewport, which is the total viewable area for a user, this area varies depending on device. The viewport is smaller on a mobile device and larger on a desktop.
+
+Based on the size of the viewport, the meta tag `(<meta>)` is used to instruct the browser on how to render the webpage’s scale and dimensions. For instance, say if a web page is 960px and the device is 320px wide. Adding the viewport meta tag will squish the content down until it is 320px — there is no need for the user to zoom out and view the whole page!
+
+Inside the `<head>` element, we will find where the `<meta>` tag syntax is implemented:
+
+```HTML
+<!DOCTYPE html> 
+<html lang="en"> 
+  <head> 
+    ...
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    ...
+  </head> 
+```
+
+We can break down the added  `<meta>` tag into the following essential components:
+
+* the `name="viewport"` attribute: tells the browser to display the web page at the same width as its screen
+* the content attribute: defines the values for the `<meta>` tag, including width and `initial-scale` the `width=device-width` key-value pair: controls the size of the viewport in which it sets the width of the viewport to equal the width of the device
+* the `initial-scale=1` key-value pair: sets the initial zoom level (Read more about scale at [MDN’s viewport documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Viewport_meta_tag#viewport_basics) .
+
+The viewport meta tag allows our web pages to be responsive and adapt a site’s contents to the users’ screen size. We’ll explore more on actually implementing this responsiveness in the later exercises, but for now, we need to first include the meta tag in our HTML file!
+
+### 3. Range ###
+
+Specific screen sizes can be targeted by setting multiple `width` and `height` media features. `min-width` and `min-height` are used to set the `minimum width` and `minimum height`, respectively. Conversely, `max-width` and `max-height` set the `maximum width` and `maximum height`, respectively.
+
+By using multiple widths and heights, a range can be set for a media query.
+
+```CSS
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+    /* ruleset for 320px - 480px */
+}
+```
+
+The example above would apply its CSS rules only when the screen size is between 320 pixels and 480 pixels. Notice the use of a second `and` keyword after the min-width media feature. This allows us to chain two requirements together.
+
+The example above can be written using two separate rules as well:
+
+```CSS
+@media only screen and (min-width: 320px) { 
+    /* ruleset for >= 320px */
+}
+ 
+ 
+@media only screen and (min-width: 480px) { 
+    /* ruleset for >= 480px */
+}
+```
+
+The first media query in the example above will apply CSS rules when the size of the screen meets or exceeds 320 pixels. The second media query will then apply CSS rules when the size of the screen meets or exceeds 480 pixels, meaning that it can override CSS rules present in the first media query or apply additional CSS rules that are not already present in the first.
+
+Both examples above are valid, and it is likely that you will see both patterns used when reading another developer’s code.
+
+### 4. Dots Per Inch (DPI) ###
+
+Another media feature we can target is screen resolution. Many times we will want to supply higher quality media (images, video, etc.) only to users with screens that can support high resolution media. Targeting screen resolution also helps users avoid downloading high resolution (large file size) images that their screen may not be able to properly display.
+
+To target by resolution, we can use `the min-resolution` and `max-resolution` media features. These media features accept a resolution value in either `dots per inch (dpi)` or `dots per centimeter (dpc)`. Learn more about resolution measurements here.
+
+```CSS
+@media only screen and (min-resolution: 300dpi) {
+    /* CSS for high resolution screens */
+}
+```
+
+The media query in the example above targets high resolution screens by making sure the screen resolution is at least 300 dots per inch. If the screen resolution query is met, then we can use CSS to display high resolution images and other media.
+
+### 5. And Operator ###
+
+In previous exercises, we chained multiple media features of the same type in one media query by using the __and__ operator. It allowed us to create a range by using `min-width` and `max-width` in the same media query.
+
+The __and__ operator can be used to require multiple media features. Therefore, we can use the __and__ operator to require both a `max-width` of `480px` and to have a `min-resolution` of `300dpi`.
+
+For example:
+
+```CSS
+@media only screen and (max-width: 480px) and (min-resolution: 300dpi) {
+    /* CSS ruleset */
+}
+```
+
+By placing the __and__ operator between the two media features, the browser will require __both__ media features to be true before it renders the CSS within the media query. The __and__ operator can be used to chain as many media features as necessary.
+
+### 6. Comma Separated List ###
+
+If only __one__ of multiple media features in a media query must be met, media features can be separated in a __comma separated__ list.
+
+For example, if we needed to apply a style when only one of the below is true:
+
+* The screen is more than 480 pixels wide
+* The screen is in landscape mode
+We could write:
+
+```CSS
+@media only screen and (min-width: 480px), (orientation: landscape) {
+    /* CSS ruleset */
+}
+```
+
+In the example above, we used a comma (`,`) to separate multiple rules. The example above requires only one of the media features to be true for its CSS to apply.
+
+Note that the second media feature is orientation. The orientation media feature detects if the page has more width than height. If a page is wider, it’s considered landscape, and if a page is taller, it’s considered portrait.
+
+### 7. Breakpoints ###
+
+We know how to use media queries to apply CSS rules based on screen size and resolution, but how do we determine what queries to set?
+
+The points at which media queries are set are called __breakpoints__. Breakpoints are the screen sizes at which your web page does not appear properly. For example, if we want to target tablets that are in landscape orientation, we can create the following breakpoint:
+
+```CSS
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    /* CSS ruleset */
+}
+```
+
+The example above creates a screen size range the size of a tablet in landscape mode and also identifies the orientation.
+
+However, setting breakpoints for every device imaginable would be incredibly difficult because there are many devices of differing shapes and sizes. In addition, new devices are released with new screen sizes every year.
+
+Rather than set breakpoints based on specific devices, the best practice is to resize your browser to view where the website naturally breaks based on its content. The dimensions at which the layout breaks or looks odd become your media query breakpoints. Within those breakpoints, we can adjust the CSS to make the page resize and reorganize.
+
+By observing the dimensions at which a website naturally breaks, you can set media query breakpoints that create the best possible user experience on a project by project basis, rather than forcing every project to fit a certain screen size. Different projects have different needs, and creating a responsive design should be no different.
+
+Check out this [list](https://content.codecademy.com/courses/freelance-1/unit-5/screen-sizes.png?_gl=1*x9bmy8*_ga*NDY3MTkyNDQyMi4xNjU2MTU0NDI3*_ga_3LRZM6TM9L*MTY1NjUxODQ1Ny4yMC4xLjE2NTY1MTkxMzUuNjA.) of breakpoints by device widths. Use it as a reference of screen widths to test your website to make certain it looks great across a variety of devices.
+
+### 8. Review: Media Queries ###
+
+Throughout this lesson, you learned:
+
+* When a website responds to the size of the screen it’s viewed on, it’s called a __responsive website__.
+* You can write __media queries__ to help with different screen sizes.
+* Adding the viewport `<meta>` tag to our code allows us to control the width and scaling of the viewport so that it’s sized and scaled correctly on all devices.
+* Media queries require __media features__. Media features are the conditions that must be met to render the CSS within a media query.
+* Media features can detect many aspects of a user’s browser, including the screen’s width, height, resolution, orientation, and more.
+* The and operator requires multiple media features to be true at once.
+* A comma separated list of media features only requires one media feature to be true for the code within to be applied.
+* The best practice for identifying where media queries should be set is by resizing the browser to determine where the content naturally breaks. Natural breakpoints are found by resizing the browser.
+* With your knowledge of media queries and CSS, you can make websites that look great on any device, from a small phone to a huge television. By making your websites responsive, you’ll make it possible for any of your users to have a great experience.
