@@ -42,7 +42,7 @@ JavaScript was initially a language used to interact with HTML, but it has expan
 
 You can now build web applications, browser games, desktop applications and even VR/AR experiences using JS.
 
-## Introduction to JavaScript ##
+## Introduction: JavaScript Syntax, Part I ##
 
 1. Console
 2. Comments
@@ -2129,3 +2129,33 @@ In each of these environments, different data values and functions are available
 
 * Front-end JavaScript applications are executed in a browser’s runtime environment and have access to the window object.
 * Back-end JavaScript applications are executed in the Node runtime environment and have access to the file system, databases, and networks attached to the server.
+
+## Introduction: JavaScript Syntax, Part II ##
+
+1. Arrays
+
+### 1. Arrays ###
+
+Organizing and storing data is a foundational concept of programming.
+
+One way we organize data in real life is by making lists. Let’s make one here:
+
+New Year's Resolutions:
+
+1. Keep a journal 
+2. Take a falconry class
+3. Learn to juggle
+
+Let’s now write this list in JavaScript, as an array:
+
+```js
+let newYearsResolutions = ['Keep a journal', 'Take a falconry class', 'Learn to juggle'];
+```
+
+Arrays are JavaScript’s way of making lists. Arrays can store any data types (including `strings`, `numbers`, and `booleans`). Like lists, arrays are ordered, meaning each item has a _numbered position_.
+
+Here’s an array of the concepts we’ll cover:
+
+```js
+let concepts = ['creating arrays', 'array structures', 'array manipulation'];
+```
