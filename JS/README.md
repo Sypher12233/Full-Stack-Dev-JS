@@ -4811,7 +4811,7 @@ Output:
 Carrots, Hummus, Pesto and Rigatoni
 ```
 
-## Review: JavaScript Syntax, Part II ##
+### Review: JavaScript Syntax, Part II ###
 
 **In this unit, you learned more JavaScript syntax.**
 
@@ -4828,3 +4828,18 @@ If you are interested in learning more about these topics, here are some additio
 Codecademy Project - Create your own library of methods, [Lodash](https://www.codecademy.com/content-items/fb6220182ee4317cc3eaf380b71175de?preview=true)
 [MDN Guide to Objects](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects)
 [Digital Ocean Tutorial for Iteration Methods](https://www.digitalocean.com/community/tutorials/how-to-use-array-methods-in-javascript-iteration-methods)
+
+
+##  Building Interactive Websites ##
+
+In this unit, you will learn how to use JavaScript to build interactive websites.
+The goal of this unit is to learn how JavaScript is used to add interactive experiences to a website.
+
+After this unit, you will be able to:
+
+* Add JavaScript to a website for interactivity
+* Describe what the DOM is
+* Explain what DOM Events are
+* Create forms using HTML and validate them using JavaScript
+
+You will put all of this knowledge into practice with an upcoming Portfolio Project. You can complete the Portfolio Project either in parallel with or after taking the prerequisite content — it’s up to you!
