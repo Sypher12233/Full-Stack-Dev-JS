@@ -331,7 +331,7 @@ After the variable is declared, the string value 'Arya' is printed to the consol
 There are a few general rules for naming variables:
 
 * Variable names cannot start with numbers.
-* Variable names are case sensitive, so myName and myname would be different variables. It is bad practice to create two variables that have the same name using different cases.
+* Variable names are case sensitive, so `myName` and `myname` would be different variables. It is bad practice to create two variables that have the same name using different cases.
 * Variable names cannot be the same as keywords. For a comprehensive list of keywords check out  [MDN’s keyword documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Keywords).
 
 In the next exercises, we will learn why ES6’s `let` and `const` are the preferred variable keywords by many programmers. Because there is still a ton of code written prior to ES6, it’s helpful to be familiar with the pre-ES6 `var` keyword.
@@ -2135,7 +2135,6 @@ In each of these environments, different data values and functions are available
 
 1. ### Learn JavaScript Syntax: Arrays ###
 
-
 2. Create an Array
 3. Accessing Elements
 4. Update Elements
@@ -2143,10 +2142,10 @@ In each of these environments, different data values and functions are available
 6. The .length property
 7. The .push() Method
 8. The .pop() Method
-9.  More Array Methods
+9. More Array Methods
 10. Arrays and Functions
 11. Nested Arrays
-12. Review Arrays 
+12. Review Arrays
 
 #### 1. Arrays ####
 
@@ -2156,7 +2155,7 @@ One way we organize data in real life is by making lists. Let’s make one here:
 
 New Year's Resolutions:
 
-1. Keep a journal 
+1. Keep a journal
 2. Take a falconry class
 3. Learn to juggle
 
@@ -2387,7 +2386,7 @@ In the second `console.log()` statement, we have two bracket notations chained t
 * We can also change an item in an array using its index, with syntax like `myArray[0] = 'new string'`;
 * Arrays have a `length` property, which allows you to see how many items are in an array.
 * Arrays have their own methods, including `.push()` and `.pop()`, which add and remove items from an array, respectively.
-* Arrays have many methods that perform different tasks, such as `.slice()` and `.shift()`, you can find documentation at the [Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) website. 
+* Arrays have many methods that perform different tasks, such as `.slice()` and `.shift()`, you can find documentation at the [Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) website.
 * Some built-in methods are mutating, meaning the method will change the array, while others are not mutating. You can always check the documentation.
 * Variables that contain arrays can be declared with let or const. Even when declared with const, arrays are still mutable. However, a variable declared with const cannot be reassigned.
 * Arrays mutated inside of a function will keep that change even outside the function.
@@ -2396,7 +2395,7 @@ In the second `console.log()` statement, we have two bracket notations chained t
 
 Learning how to work with and manipulate arrays will help you work with chunks of data!
 
-2. ### Learn JavaScript Syntax: Loops ###
+### Learn JavaScript Syntax: Loops ###
 
 1. Loops
 2. The For Loop
@@ -2407,6 +2406,7 @@ Learning how to work with and manipulate arrays will help you work with chunks o
 7. Do...While Statements
 8. The break Keyword
 9. Review: Loops
+
 #### 1. Loops ####
 
 A _loop_ is a programming tool that repeats a set of instructions until a specified condition, called a _stopping condition_ is reached. As a programmer, you’ll find that you rely on loops all the time! You’ll hear the generic term iterate when referring to loops; _iterate_ simply means “to repeat”.
@@ -2419,14 +2419,15 @@ As illustrated in the diagram, loops iterate or repeat an action until a specifi
 
 Instead of writing out the same code over and over, loops allow us to tell computers to repeat a given block of code on its own. One way to give computers these instructions is with a `for` loop.
 
-The typical `for` loop includes an __*iterator variable*__ that usually appears in all three expressions. The iterator variable is initialized, checked against the stopping condition, and assigned a new value on each loop iteration. Iterator variables can have any name, but it’s best practice to use a descriptive variable name.
+The typical `for` loop includes an _**iterator variable**_ that usually appears in all three expressions. The iterator variable is initialized, checked against the stopping condition, and assigned a new value on each loop iteration. Iterator variables can have any name, but it’s best practice to use a descriptive variable name.
 
 A `for` loop contains three expressions separated by ; inside the parentheses:
 
-* an __*initialization*__ starts the loop and can also be used to declare the iterator variable.
-* a __*stopping condition*__ is the condition that the iterator variable is evaluated against— if the condition evaluates to true the code block will run, and if it evaluates to false the code will stop.
-* an __*iteration statement*__ is used to update the iterator variable on each loop.
-* 
+* an _**initialization**_ starts the loop and can also be used to declare the iterator variable.
+* a _**stopping condition**_ is the condition that the iterator variable is evaluated against— if the condition evaluates to true the code block will run, and if it evaluates to false the code will stop.
+* an _**iteration statement**_ is used to update the iterator variable on each loop.
+*
+
 The for loop syntax looks like this:
 
 ```js
@@ -2493,7 +2494,7 @@ With for loops, it’s easier for us to work with elements in arrays.
 
 #### 5. Nested Loops ####
 
-When we have a loop running inside another loop, we call that a __*nested loop*__. One use for a nested for loop is to compare the elements in two arrays. For each round of the outer for loop, the inner for loop will run completely.
+When we have a loop running inside another loop, we call that a _**nested loop**_. One use for a nested for loop is to compare the elements in two arrays. For each round of the outer for loop, the inner for loop will run completely.
 
 Let’s look at an example of a nested for loop:
 
@@ -2513,11 +2514,11 @@ Let’s think about what’s happening in the nested loop in our example. For ea
 
 Now it’s your turn to write a nested loop!
 
-__Note:__ To exit out of an infinite loop in an exercise, __refresh the page__ - then fix the code for your loop(s).
+**Note:** To exit out of an infinite loop in an exercise, **refresh the page** - then fix the code for your loop(s).
 
 #### 6. The While Loop ####
 
-You’re doing great! We’re going to teach you about a different type of loop: the __while loop__. To start, let’s convert a for loop into a while loop:
+You’re doing great! We’re going to teach you about a different type of loop: the **while loop**. To start, let’s convert a for loop into a while loop:
 
 ```js
 // A for loop that prints 1, 2, and 3
@@ -2536,10 +2537,10 @@ while (counterTwo < 4) {
 Let’s break down what’s happening with our while loop syntax:
 
 * The `counterTwo` variable is declared before the loop. We can access it inside our while loop since it’s in the global scope.
-* We start our loop with the keyword while followed by our *__stopping condition__*, or test condition. This will be evaluated before each round of the loop. While the condition evaluates to true, the block will continue to run. Once it evaluates to `false` the loop will stop.
+* We start our loop with the keyword while followed by our **_stopping condition_**, or test condition. This will be evaluated before each round of the loop. While the condition evaluates to true, the block will continue to run. Once it evaluates to `false` the loop will stop.
 * Next, we have our loop’s code block which prints counterTwo to the console and increments `counterTwo`.
 
-What would happen if we didn’t increment `counterTwo` inside our block? If we didn’t include this, `counterTwo` would always have its initial value, `1`. That would mean the testing condition `counterTwo < 4` would always evaluate to `true` and our loop would never stop running! Remember, this is called an *__infinite loop__* and it’s something we always want to __avoid__. Infinite loops can take up all of your computer’s processing power potentially freezing your computer.
+What would happen if we didn’t increment `counterTwo` inside our block? If we didn’t include this, `counterTwo` would always have its initial value, `1`. That would mean the testing condition `counterTwo < 4` would always evaluate to `true` and our loop would never stop running! Remember, this is called an **_infinite loop_** and it’s something we always want to **avoid**. Infinite loops can take up all of your computer’s processing power potentially freezing your computer.
 
 So you may be wondering when to use a `while` loop! The syntax of a `while` loop is ideal when we don’t know in advance how many times the loop should run. Think of eating like a while loop: when you start taking bites, you don’t know the exact number you’ll need to become full. Rather you’ll eat while you’re hungry. In situations when we want a loop to execute an undetermined number of times, while loops are the best choice.
 
@@ -2584,7 +2585,7 @@ while (true === false){
 
 Imagine we’re looking to adopt a dog. We plan to go to the shelter every day for a year and then give up. But what if we meet our dream dog on day `65`? We don’t want to keep going to the shelter for the next `300` days just because our original plan was to go for a whole year. In our code, when we want to stop a `loop` from continuing to execute even though the original stopping condition we wrote for our loop hasn’t been met, we can use the keyword `break`.
 
-The `break` keyword allows programs to “__break__” out of the loop from within the loop’s block.
+The `break` keyword allows programs to “**break**” out of the loop from within the loop’s block.
 
 Let’s check out the syntax of a break keyword:
 
@@ -2601,7 +2602,7 @@ console.log('Orange you glad I broke out the loop!');
 
 This is the output for the above code:
 
-```
+```Text
 Banana.
 Banana.
 Banana.
@@ -2610,7 +2611,7 @@ Orange you glad I broke out the loop!
 
 `break` statements can be especially helpful when we’re looping through large data structures! With breaks, we can add test conditions besides the stopping condition, and exit the loop when they’re met.
 
-#### 9. Review: Loops
+#### 9. Review: Loops ####
 
 Great job! In this lesson, we learned how to write cleaner code with loops. You now know:
 
@@ -2625,7 +2626,7 @@ Great job! In this lesson, we learned how to write cleaner code with loops. You 
 
 ----
 
-3. ### The for...of Loop ###
+3 ### The for...of Loop ###
 
 A cleaner syntax for iterating through items, one by one.
 
@@ -2670,7 +2671,7 @@ Notice how the `for...of` loop has a simpler syntax which can be beneficial for 
 
 #### Iterating Through an Array ####
 
-One of the primary uses of the `for...of` loop is iterating through the items of an array. 
+One of the primary uses of the `for...of` loop is iterating through the items of an array.
 
 Let’s breakdown the syntax with a new example:
 
@@ -2862,9 +2863,9 @@ Congratulations! You have now been introduced to `for...of` and have successfull
 
 There are other for type loops in JavaScript that exist for different purposes, such as `for...in`. Be careful to choose the correct type of loop for your situation. The next time you need to iterate through an array, string, or array-like object and don’t need to access the index, consider trying out `for...of` to keep your code succinct and readable.
 
-4. ### Learn JavaScript Syntax: Objects ###
+### Learn JavaScript Syntax: Objects ###
 
-It’s time to learn more about the basic structure that permeates nearly every aspect of JavaScript programming: *__objects__*.
+It’s time to learn more about the basic structure that permeates nearly every aspect of JavaScript programming: **_objects_**.
 
 You’re probably already more comfortable with objects than you think, because JavaScript loves objects! Many components of the language are actually objects under the hood, and even the parts that aren’t— like strings or numbers— can still act like objects in some instances.
 
@@ -2954,7 +2955,7 @@ To use bracket notation to access an object’s property, we pass in the propert
 
 ![bracket notation](https://content.codecademy.com/courses/learn-javascript-objects/object%20access%20bracket.svg)
 
-We __must__ use bracket notation when accessing keys that have numbers, spaces, or special characters in them. Without bracket notation in these situations, our code would throw an error.
+We **must** use bracket notation when accessing keys that have numbers, spaces, or special characters in them. Without bracket notation in these situations, our code would throw an error.
 
 ```js
 let spaceship = {
@@ -3015,7 +3016,7 @@ delete spaceship.mission;  // Removes the mission property
 
 #### 5. Methods ####
 
-When the data stored on an object is a function we call that a method. A property is what an object __has__, while a method is what an object __does__.
+When the data stored on an object is a function we call that a method. A property is what an object **has**, while a method is what an object **does**.
 
 Do object methods seem familiar? That’s because you’ve been using them all along! For example console is a global javascript object and `.log()` is a method on that object. `Math` is also a global javascript object and `.floor()` is a method on it.
 
@@ -3143,7 +3144,7 @@ Let’s look at what happened in the code example:
 * When we passed spaceship into that function, obj became a reference to the memory location of the spaceship object, but not to the spaceship variable. This is because the obj parameter of the `tryReassignment()` function is a variable in its own right. The body of `tryReassignment()` has no knowledge of the spaceship variable at all!
 * When we did the reassignment in the body of `tryReassignment()`, the obj variable came to refer to the memory location of the object `{'identified' : false, 'transport type' : 'flying'}`, while the `spaceship` variable was completely unchanged from its earlier value.
 
-#### 8. Looping Through Objects ####1
+#### 8. Looping Through Objects ####
 
 Loops are programming tools that repeat a block of code until a condition is met. We learned how to iterate through arrays using their numerical indexing, but the key-value pairs in objects aren’t ordered! JavaScript has given us alternative solution for iterating through objects with the `for...in` syntax .
 
@@ -3182,7 +3183,7 @@ for (let crewMember in spaceship.crew) {
 
 Our `for...in` will iterate through each element of the `spaceship.crew` object. In each iteration, the variable `crewMember` is set to one of `spaceship.crew`‘s keys, enabling us to log a list of `crew members`’ `role` and `name`.
 
-#### 9. Review: Objects
+#### 9. Review: Objects ####
 
 * Objects store collections of key-value pairs.
 * Each key-value pair is a property—when a property is a function it is known as a method.
@@ -3194,7 +3195,7 @@ Our `for...in` will iterate through each element of the `spaceship.crew` object.
 * Objects are passed by reference— when we make changes to an object passed into a function, those changes are permanent.
 * We can iterate through objects using the `For...in` syntax.
 
-5. ### Learn JavaScript Syntax: Advanced Objects ###
+### Learn JavaScript Syntax: Advanced Objects ###
 
 > Advanced Objects Introduction
 
@@ -3267,7 +3268,7 @@ goat.diet();
 // Output: herbivore
 ```
 
-The `this` keyword references the _calling_ object which provides access to the calling object’s properties. In the example above, the calling object is `goat` and by using `this` we’re accessing the `goat` object itself, and then the `dietType` property of `goat` by using property __dot notation__.
+The `this` keyword references the _calling_ object which provides access to the calling object’s properties. In the example above, the calling object is `goat` and by using `this` we’re accessing the `goat` object itself, and then the `dietType` property of `goat` by using property **dot notation**.
 
 #### 2. Arrow Functions and this ####
 
@@ -3520,8 +3521,7 @@ Let’s review the concepts covered in this lesson:
 
 You’re ready to start leveraging more elegant code for creating and accessing objects in your code!
 
-
-6. ### Learn JavaScript Syntax: Iterators ###
+### Learn JavaScript Syntax: Iterators ###
 
 > Introduction to Higher Order Functions
 
@@ -3618,7 +3618,7 @@ Great job! By thinking about functions as data, and learning about higher-order 
 * Functions can be passed into other functions as parameters.
 * A higher-order function is a function that either accepts functions as parameters, returns a function, or both.
 
-7. ### Introduction to Iterators ###
+### Introduction to Iterators ###
 
 Imagine you had a grocery list and you wanted to know what each item on the list was. You’d have to scan through each row and check for the item. This common task is similar to what we have to do when we want to iterate over, or loop through, an array. One tool at our disposal is the `for` loop. However, we also have access to built-in array methods which make looping easier.
 
@@ -3840,19 +3840,19 @@ You have learned a number of useful methods in this lesson as well as how to use
 * All iterator methods take a callback function, which can be a pre-defined function, a function expression, or an arrow function.
 * You can visit the [Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) to learn more about iterator methods (and all other parts of JavaScript!).
 
-8. ### Thinking About Errors in Your Code Differently ###
+### Thinking About Errors in Your Code Differently ###
 
 **This article explains how errors in your code aren’t a bad thing, but rather an opportunity to learn. Additionally, it provided several steps to identify and fix these errors.**
 
 When you get started with coding, it’s inevitable that bugs will show up in your code. You’ll get unintended behaviors and you even get a long, possibly scary looking, error alongside your bug(s). Even when you’re a seasoned coder you’ll continue to encounter bugs and errors — that’s a good thing! It’s important to understand that making and debugging errors is part of the process and you won’t always know the solution right away. In this article, you learn how to find the bug that’s causing your error, and how to think about the debugging process differently.
 
-**Red is a Beautiful Color**
+> Red is a Beautiful Color
 
 Red can be a dangerous color. STOP, DANGER, DO NOT ENTER, all loud red signs telling us to turn around, don’t go in there, you’ll get hurt. It’s easy to carry this mindset over to coding that many new programmers get discouraged and distraught over the red error messages that appear in the terminal.
 
 They think, “oh no, I’ve done something wrong again” and “clearly coding isn’t for me, even the computer knows,” but that’s the wrong way of thinking! All programmers, even the most experienced ones, get errors all the time. Believe it or not, experienced programmers likely face far more errors than a new programmer ever will.
 
-**Errors in Your Code Mean You’re Trying To Do Something Cool**
+> Errors in Your Code Mean You’re Trying To Do Something Cool
 
 Consider the totally made up graph below:
 
@@ -3866,7 +3866,7 @@ Almost all major technology companies offer cash rewards to intrepid programmers
 
 Why do they do this? Why would a major technology company want its users to try to break their software? Because they understand that encountering bugs is one of the best ways you can improve your code. Bugs show you where the weaknesses are, make you really consider what you want your code to accomplish, and then guide you towards building more reliable and secure products.
 
-**Tools to Tackle Code Errors**
+> Tools to Tackle Code Errors
 
 Okay, okay, that makes sense! Error messages shouldn’t be scary, but tackling them and coming up with a solution is still a skill that must be developed. Being willing to tackle an error is a great first step, and having some tools at your disposal to debug is a great way to feel comfortable tackling even the gnarliest of bugs in the future.
 
@@ -3874,7 +3874,7 @@ Let’s outline a few steps you can take to solve any compiler errors that you m
 
 The following steps will guide you through a standard error that might get thrown your way as you learn to code, and they’ll show you that errors aren’t as scary as they seem. In fact, the steps are mostly a combination of reading the error carefully and copying and pasting it in a web search!
 
-1. Dissect the Error.
+1 Dissect the Error.
 
 When an error first appears on your screen, find the line in the error specific to your code. Lots of error messages have tons of boilerplate details that aren’t important to the actual error. You want to find the part of the error message that gives you insight about what happened. That line is generally at the top of the error stack trace.
 
@@ -3934,7 +3934,7 @@ The first line says that the JavaScript engine doesn’t think that `.filter()` 
 
 The code is calling `.filter()` on the students variable. Checking back in on the code, you can see that students is an object. This seems like a good place to start.
 
-2. Ask Yourself, Is the Solution In the Error?
+2 Ask Yourself, Is the Solution In the Error?
 
 Often, you’ll encounter syntax errors that will show exactly where the error occurred and what the error was. When you get these types of errors, you can go directly back to your code and fix them. Here’s an example of code that will throw a syntax error:
 
@@ -3956,7 +3956,7 @@ SyntaxError: Unexpected token ')'
 
 Notice that in this case, the compiler is pointing to the syntax issue with the `^` symbol, which sometimes makes it easier to debug. However, the issue is that there’s accidentally a comma (,) instead of a semicolon (;). Error messages can help, but you still need to use your developer knowledge to fix the error!
 
-3. Search on the Web for Instances of This Error.
+3 Search on the Web for Instances of This Error.
 
 Sometimes, step 2 will not apply, and you’ll have to dive a little deeper into the error. Let’s return to the honor roll error that came up in step one. Since the solution isn’t immediately obvious, you’ll need to do some research to understand why it flagged an error.
 
@@ -3970,7 +3970,7 @@ Aha! If you consult the `.filter()` documentation on MDN Web Docs you can confir
 
 Google is always a good place to check, but you can also reread documentation on MDN Web Docs or search directly on Stack Overflow, which is a wonderful community of programmers sharing knowledge and building cool stuff.
 
-4. Compare Different Use Cases to Yours.
+4 Compare Different Use Cases to Yours.
 
 Often you will not find someone who was trying to do the exact same thing you were trying to do, but who still encountered the same error. Read through their code a bit and see if it is comparable to yours. Even if their code is wildly different, the one or two lines that threw the error might be very similar to your code, so the solution may end up being the same.
 
@@ -3980,7 +3980,7 @@ The screenshot shows a suggested solution on the forum Stack Overflow and includ
 
 Even though the solution didn’t involve a students object, the answer does provide a quick way to make an Object work with the `.filter()` method. It’s worth a shot to try it!
 
-5. Try to implement the solution.
+5 Try to implement the solution.
 
 Tweak the code a bit to match your use case and try it out! Worst case is that the error doesn’t go away and then you can try again. Best case is that it’s fixed and you’ve learned what was causing your error!
 
@@ -4046,17 +4046,17 @@ console.log(honorRoll);
 
 In the process of figuring out this compiler error, you were able to learn how to use Array methods on objects, and how to think about your use of data types. See, every error is an opportunity to learn!
 
-6. If It Doesn’t Work, Repeat Steps 2-4.
+6 If It Doesn’t Work, Repeat Steps 2-4.
 
 Keep searching through Google and Stack Overflow. The answer will be there! Sometimes it’s helpful to Google parts of the error message, use `console.log()` to see the outputs, or to read about methods and data types at the website MDN Web Docs.
 
 The solutions to your errors are out there, and the process of finding them will make you a stronger and more confident programmer. As you grow and learn, expect to encounter countless errors, and expect each one to be its own unique learning opportunity.
 
-7. Ask The Question Yourself.
+7 Ask The Question Yourself.
 
 Okay, maybe the answer isn’t out there… yet. There is a wealth of information out on the web, but you might be the first one doing something completely new and shiny. It’s ok to ask for help. On the same sites and forums that you found help from, post a question. Ideally, you supply all the background information and provide relevant code that others can look at and do their best to help you out.
 
-**Wrap up**
+> Wrap up
 
 Remember that bugs are a good thing: finding bugs gives you the opportunity to make your code stronger and more secure. Debugging is a learning opportunity, and other programmers have encountered similar issues and had to ask a lot of the same questions before you. So don’t reinvent the wheel; instead, tap into the pool of solved bugs and learning opportunities available on sites like Stack Overflow, or other resources that can turn up in a web search.
 
@@ -4089,11 +4089,11 @@ ReferenceError: instrument is not defined
 
 What steps you would take to research a solution and try out your solution?
 
-**Your response**
+> Your response
 
 move instrument to global scope
 
-**Our answer**
+> Our answer
 
 Running the code results in the error ReferenceError: instrument is not defined. Since instrument is not a generic variable, you can search for something more generic like ReferenceError: x is not defined or ReferenceError: variable is not defined. When searching with the search phrase “ReferenceError: x is not defined JavaScript”, one answer is from a Mozilla documentation page. In the docs, it explains that the error appears if the variable is not available in the current scope. Their solution moves the variable to the global scope instead of the function scope, so we can try that.
 
@@ -4172,7 +4172,7 @@ ReferenceError: myVariable is not defined
 
 Using this stack trace, let’s answer three questions you should ask yourself every time you want to debug an error:
 
-* In what line did the error occur? You can almost always find this information on the first line of the stack trace in the following format <file path>/<file name>:<line number>. In this example, the location is app.js:1. This means that the error was thrown in the file named app.js on line 1.
+* In what line did the error occur? You can almost always find this information on the first line of the stack trace in the following format `<file path>/<file name>:<line number>`. In this example, the location is app.js:1. This means that the error was thrown in the file named app.js on line 1.
 * What type of error was thrown? The first word on the fifth line of the stack trace is the type of error that was thrown. In this case, the type of error was ReferenceError. We will discuss this error type in the next exercise.
 * What is the error message? The rest of the fifth line after the error type provides an error message, describing what went wrong. In this case, the description is myVariable is not defined.
 
@@ -4274,7 +4274,7 @@ Congratulations again on learning all of these new techniques. Let’s give them
 13. findMyKeys()
 14. dogFactory()
 
-### 1. Introduction ###
+### 1. Introduction: JS Tests ###
 
 In the exercises that follow, you will practice and reinforce your understanding of JavaScript scope, arrays, loops, iterators, and objects. We encourage you to review the relevant lessons, look things up in the MDN documentation, check out the hints and solution code if you get stuck, and, most of all, have fun!
 
@@ -4369,7 +4369,7 @@ function convertToBaby(namesArray) {
 }
 ```
 
-### 5. Fix The Broken Code! ###
+### 5. Fix The Broken Code ###
 
 > Instructions
 
@@ -4425,7 +4425,7 @@ const smallestPowerOfTwo = (arr) => {
 };
 ```
 
-### 6. declineEverything() and acceptEverything()
+### 6. declineEverything() and acceptEverything() ###
 
 > Instructions
 
@@ -4484,7 +4484,7 @@ const squareNums = nums => {
 console.log(squareNums(numbers));
 ```
 
-### 8. shoutGreetings()
+### 8. shoutGreetings() ###
 
 Instructions
 
@@ -4520,6 +4520,7 @@ Write a function `sortYears()` that takes in an array of years, and, using the b
 You can test your function when you’re ready by passing in the years array or by making your own array of years!
 
 > My Code;
+
 ```js
 function sortYears(arr) {
   return arr.sort().reverse()
@@ -4619,7 +4620,7 @@ function sortSpeciesByTeeth(arr) {
 }
 ```
 
-### 13. findMyKeys()
+### 13. findMyKeys() ###
 
 > Instructions
 
@@ -4641,7 +4642,7 @@ You can test your function when you’re ready by passing in the randomStuff arr
 const findMyKeys = arr => arr.indexOf('keys');
 ```
 
-### 14. dogFactory()
+### 14. dogFactory() ###
 
 > Instructions
 
@@ -4736,11 +4737,11 @@ console.log(factorial(6));
 
 Output:
 720
-``` 
+```
 
 Coding question
 
-2. Write a function `subLength()` that takes 2 parameters, a string and a single character. The function should search the string for the two occurrences of the character and return the length between them including the 2 characters. If there are less than 2 or more than 2 occurrences of the character the function should return 0.
+2 Write a function `subLength()` that takes 2 parameters, a string and a single character. The function should search the string for the two occurrences of the character and return the length between them including the 2 characters. If there are less than 2 or more than 2 occurrences of the character the function should return 0.
 
 Examples:
 
@@ -4772,9 +4773,9 @@ const subLength = (str, char) => {
 
 Output:
 6
-``` 
+```
 
-3. Coding question
+3 Coding question
 
 Write a function `groceries()` that takes an array of object literals of grocery items. The function should return a string with each item separated by a comma except the last two items should be separated by the word 'and'. Make sure spaces (' ') are inserted where they are appropriate.
 
@@ -4822,15 +4823,15 @@ Having completed this unit, you are now able to:
 * Read and write JavaScript syntax for arrays, loops, objects, and iterators
 * Debug JavaScript code and parse error messages
 * Solve code challenges related to the newly learned syntax
-* 
+*
+
 If you are interested in learning more about these topics, here are some additional resources:
 
 Codecademy Project - Create your own library of methods, [Lodash](https://www.codecademy.com/content-items/fb6220182ee4317cc3eaf380b71175de?preview=true)
 [MDN Guide to Objects](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects)
 [Digital Ocean Tutorial for Iteration Methods](https://www.digitalocean.com/community/tutorials/how-to-use-array-methods-in-javascript-iteration-methods)
 
-
-##  Building Interactive Websites ##
+## Building Interactive Websites ##
 
 In this unit, you will learn how to use JavaScript to build interactive websites.
 The goal of this unit is to learn how JavaScript is used to add interactive experiences to a website.
@@ -4889,7 +4890,7 @@ The `<script>` element allows you to add JavaScript code inside an HTML file. Be
 
 Frankly, without the `<script>` tag, websites would be unclickable and a bit boring.
 
-The `<script>` element, like most elements in HTML, has an opening and closing angle bracket. The closing tag marks the end of the content inside of the `<script>` element. Just like the `<style>` tag used to *embed* CSS code, you use the `<script>` tag to *embed* valid JavaScript code.
+The `<script>` element, like most elements in HTML, has an opening and closing angle bracket. The closing tag marks the end of the content inside of the `<script>` element. Just like the `<style>` tag used to _embed_ CSS code, you use the `<script>` tag to _embed_ valid JavaScript code.
 
 #### 3. The src attribute ####
 
@@ -4918,7 +4919,7 @@ Browsers come equipped with HTML parsers that help browsers render the elements 
 * The HTML parser does NOT process the next element in the HTML file until it loads and executes the `<script>` element, thus leading to a delay in load time and resulting in a poor user experience.
 * Additionally, scripts are loaded sequentially, so if one script depends on another script, they should be placed in that very order inside the HTML file.
 
-The GIF below displays two scripts being loaded. The first script makes a `Watering Can` appear, the second script makes a `Flower` appear. This shows how scripts are loaded sequentially, and how they pause the *HTML* parser, which is why “Blooming” appears at the end.
+The GIF below displays two scripts being loaded. The first script makes a `Watering Can` appear, the second script makes a `Flower` appear. This shows how scripts are loaded sequentially, and how they pause the _HTML_ parser, which is why “Blooming” appears at the end.
 
 ![Image showing a flower bloom](https://content.codecademy.com/courses/script/ScriptNoAttribute.gif)
 
@@ -4959,7 +4960,7 @@ Let’s review.
 * You link to external JavaScript files with the **src** attribute in the opening `<script>` tag.
 * By default, scripts are loaded and executed as soon as the HTML parser encounters them in the HTML file, the HTML parser waits to load the entire script before from proceeding to parse the rest of the page elements.
 * The `defer` attribute ensures that the entire HTML file has been parsed before the script is executed.
-* The `async` attribute will allow the *HTML parser* to continue parsing as the script is being downloaded, but will execute immediately after it has been downloaded.
+* The `async` attribute will allow the _HTML parser_ to continue parsing as the script is being downloaded, but will execute immediately after it has been downloaded.
 
 The old convention was to put scripts right before the `</body>` tag to prevent the script from blocking the rest of the HTML content. Now, the convention is to put the script tag in the `<head>` element and to use the `defer` and `async` attributes.
 
@@ -4974,11 +4975,11 @@ The old convention was to put scripts right before the `</body>` tag to prevent 
 
 #### 1. What is the DOM? ####
 
-The *Document Object Model*, abbreviated DOM, is a powerful tree-like structure that allows programmers to conceptualize hierarchy and access the elements on a web page.
+The _Document Object Model_, abbreviated DOM, is a powerful tree-like structure that allows programmers to conceptualize hierarchy and access the elements on a web page.
 
 The DOM is one of the better-named acronyms in the field of Web Development. In fact, a useful way to understand what DOM does is by breaking down the acronym but out of order:
 
-* The *DOM* is a logical tree-like **M**odel that organizes a web page’s HTML **D**ocument as an **O**bject.
+* The _DOM_ is a logical tree-like **M**odel that organizes a web page’s HTML **D**ocument as an **O**bject.
 
 The DOM is implemented by browsers to allow JavaScript to access, modify, and update the structure of an HTML web page in an organized way.
 
@@ -4992,9 +4993,9 @@ Tree-like modeling is used in many fields, including evolutionary science and da
 
 The DOM tree follows similar logic to that of a family tree. A family tree is made up of family members and their relationships to the family name. In computer science, we would call each family member a node.
 
-We define a *node* as an intersecting point in a tree that contains data.
+We define a _node_ as an intersecting point in a tree that contains data.
 
-In the DOM tree, the top-most node is called the *root node*, and it represents the HTML document. The descendants of the root node are the HTML tags in the document, starting with the `<html>` tag followed by the `<head>` and `<body>` tags and so on.
+In the DOM tree, the top-most node is called the _root node_, and it represents the HTML document. The descendants of the root node are the HTML tags in the document, starting with the `<html>` tag followed by the `<head>` and `<body>` tags and so on.
 
 ![(>)](https://static-assets.codecademy.com/Courses/Learn-JavaScript/DOM/domTreeEx2.svg)
 
@@ -5002,9 +5003,9 @@ In the DOM tree, the top-most node is called the *root node*, and it represents 
 
 Following the metaphor of a family tree, let’s define some key terminology in the DOM hierarchy:
 
-A *parent node* is any node that is a direct ancestor of another node.
+A _parent node_ is any node that is a direct ancestor of another node.
 
-A *child node* is a direct descendant of another node, called the parent node.
+A _child node_ is a direct descendant of another node, called the parent node.
 
 Knowing these terms will allow you to understand and discuss the DOM as a tree-like structure. In fact, you will also see this terminology used when referring to the nesting structure of HTML code. Programmers refer to elements nested inside other elements as the children elements and parent elements respectively.
 
@@ -5012,7 +5013,7 @@ Knowing these terms will allow you to understand and discuss the DOM as a tree-l
 
 As mentioned, a node is the equivalent of each family member in a family tree. A node is an intersecting point in a tree that also contains data.
 
-There are multiple types of node objects in the DOM tree. In our diagram, the node objects with the sharp-edge rectangles are [*Element*](https://developer.mozilla.org/en-US/docs/Web/API/Element) nodes, while the rounded edge rectangles are [*Text*](https://developer.mozilla.org/en-US/docs/Web/API/Text) nodes, because they represent the text inside the HTML paragraph elements.
+There are multiple types of node objects in the DOM tree. In our diagram, the node objects with the sharp-edge rectangles are [_Element_](https://developer.mozilla.org/en-US/docs/Web/API/Element) nodes, while the rounded edge rectangles are [_Text_](https://developer.mozilla.org/en-US/docs/Web/API/Text) nodes, because they represent the text inside the HTML paragraph elements.
 
 When trying to modify a web page, the script will mostly interact with the DOM element nodes and occasionally text nodes.
 
@@ -5043,7 +5044,7 @@ With this understanding, you can begin to leverage the power of scripting langua
 
 ### 3. The Document Keyword ###
 
-The *Document Object Model*, abbreviated DOM, is a powerful tree-like structure that organizes the elements on a web page and allows scripting languages to access them. This lesson will focus on some of the most useful methods and properties of the [DOM interface](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model) in JavaScript. This interface is implemented by every modern browser.
+The _Document Object Model_, abbreviated DOM, is a powerful tree-like structure that organizes the elements on a web page and allows scripting languages to access them. This lesson will focus on some of the most useful methods and properties of the [DOM interface](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model) in JavaScript. This interface is implemented by every modern browser.
 
 First things first! The `document` object in JavaScript is the door to the DOM structure. The `document` object allows you to access the root node of the DOM tree. Before you can access a specific element in the page, first you must access the document structure itself. The `document` object allows scripts to access children of the DOM as properties.
 
@@ -5059,7 +5060,7 @@ Similarly, you could access the `<title>` element with the `.title` property. He
 6. Create and Insert Elements
 7. Remove an Element
 8. Add Click Interactivity
-9. Review: JavaScript and the DOM 
+9. Review: JavaScript and the DOM
 
 #### 1. The Document Keyword ####
 
@@ -5070,6 +5071,7 @@ First things first! The `document` object in JavaScript is the door to the DOM s
 For example, if you want to access the `<body>` element from your script, you can access it as a property of the `document` object by using `document.body`. This property will return the body element of that DOM.
 
 Similarly, you could access the `<title>` element with the `.title` property. Here is a [comprehensive list](https://developer.mozilla.org/en-US/docs/Web/API/Document) of all document properties.
+
 #### 2. Tweak an Element ####
 
 When using the DOM in your script to access an HTML element, whether it’s an `<li>` element or the entire `<body>` element, you also have access to all of that element’s properties.
@@ -5137,7 +5139,7 @@ blueElement.style.backgroundColor = 'blue';
 
 Unlike CSS, the DOM `.style` property does not implement a hyphen such as `background-color`, but rather camel case notation, `backgroundColor`. Check out this [MDN reference page](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Properties_Reference) to see a list of how CSS properties are converted into JavaScript.
 
-The following *chaining* syntax would also work:
+The following _chaining_ syntax would also work:
 
 ```js
 document.querySelector('.blue').style.fontFamily = 'Roboto';
@@ -5145,7 +5147,7 @@ document.querySelector('.blue').style.fontFamily = 'Roboto';
 
 #### 5. Traversing the DOM ####
 
-Let’s recap the parent and children relationship in the DOM hierarchy. A *parent node* is any node that is a direct ancestor of another node. A *child node* is a direct descendant of another node, called the parent node.
+Let’s recap the parent and children relationship in the DOM hierarchy. A _parent node_ is any node that is a direct ancestor of another node. A _child node_ is a direct descendant of another node, called the parent node.
 
 These relationships follow the nested structure of the HTML code. Elements nested within one HTML element are children of that parent element.
 
@@ -5190,7 +5192,7 @@ paragraph.innerHTML = 'The text inside the paragraph';
 
 Above, we use the `.id` property to assign `'info'` as ID and the `.innerHTML` property to set `'The text inside the paragraph'` as the content of the `<p>` element.
 
-In order to create an element and add it to the web page, you must assign it to be the child of an element that already exists on the DOM, referred to as the parent element. We call this process *appending*. The `.appendChild()` method will add a child element as the parent element’s last child node. The following code appends the `<p>` element stored in the paragraph variable to the document body.
+In order to create an element and add it to the web page, you must assign it to be the child of an element that already exists on the DOM, referred to as the parent element. We call this process _appending_. The `.appendChild()` method will add a child element as the parent element’s last child node. The following code appends the `<p>` element stored in the paragraph variable to the document body.
 
 ```js
 document.body.appendChild(paragraph);
@@ -5262,7 +5264,7 @@ In this lesson, you manipulated a webpage structure by leveraging the Document O
 
 **What is an Event?**
 
-When you refresh your email inbox, double tap on a post, or scroll through a newsfeed — something cool happens in your browser. These actions are known as *events*!
+When you refresh your email inbox, double tap on a post, or scroll through a newsfeed — something cool happens in your browser. These actions are known as _events_!
 
 Events on the web are user interactions and browser manipulations that you can program to trigger functionality. Some other examples of events are:
 
@@ -5270,7 +5272,7 @@ Events on the web are user interactions and browser manipulations that you can p
 * Webpage files loading in the browser
 * A user swiping right on an image
 
-When a user does any of the above actions, they’re causing the event to be *fired* or be *triggered*. As in, “a click event fired when the button was clicked”. Being able to respond to these events makes your website interactive and therefore dynamic.
+When a user does any of the above actions, they’re causing the event to be _fired_ or be _triggered_. As in, “a click event fired when the button was clicked”. Being able to respond to these events makes your website interactive and therefore dynamic.
 
 1. "Firing" Events
 2. Event Handler Registration
@@ -5282,13 +5284,13 @@ When a user does any of the above actions, they’re causing the event to be *fi
 8. Keyboard Events
 9. Review: DOM Events with JavaScript
 
-#### 1. "Firing" Events
+#### 1. "Firing" Events ####
 
 After a specific event fires on a specific element in the [document object model](https://www.codecademy.com/paths/web-development/tracks/build-interactive-websites/modules/web-dev-interactive-websites/lessons/intro-dom/exercises/what-is-the-dom) (or DOM), an event handler function can be created to run as a response. In this lesson, we will learn about event handler functions that modify and update DOM elements after an event fires.
 
 Let’s compare the firing of events to something more familiar: a dog trained to eat when they hear the sound of a bell! (This is known as the [Pavlovian conditioning](https://en.wikipedia.org/wiki/Classical_conditioning)).
 
-As you can see in the diagram, the ringing of the bell is analogous to a JavaScript event *firing*. The dog is trained to anticipate the ringing of the bell and this action is analogous to creating an *event listener*. After the dog hears the bell, it’ll come over and eat its food! This response is like an *event handler function* that executes code which, in a website, could change an element’s color, text, and much more!”
+As you can see in the diagram, the ringing of the bell is analogous to a JavaScript event _firing_. The dog is trained to anticipate the ringing of the bell and this action is analogous to creating an _event listener_. After the dog hears the bell, it’ll come over and eat its food! This response is like an _event handler function_ that executes code which, in a website, could change an element’s color, text, and much more!”
 
 Most events in the browser take place without being noticed — the events are undetected because there is no event handler associated with the event to execute an action. Event handlers are crucial for creating interactive websites with JavaScript.
 
@@ -5298,7 +5300,7 @@ Most events in the browser take place without being noticed — the events are u
 
 You’re doing great! Now it’s time to dive into using event handler functions to create interactivity.
 
-Using the `.addEventListener()` method, we can have a DOM element listen for a specific event and execute a block of code when the event is detected. The DOM element that listens for an event is called the *event target* and the block of code that runs when the event happens is called the *event handler*.
+Using the `.addEventListener()` method, we can have a DOM element listen for a specific event and execute a block of code when the event is detected. The DOM element that listens for an event is called the _event target_ and the block of code that runs when the event happens is called the _event handler_.
 
 Let’s take a look at the code below:
 
@@ -5370,7 +5372,7 @@ function eventHandlerFunction(event){
 
 eventTarget.addEventListener('click', eventHandlerFunction);
 ```
- 
+
 In the example above, when the `'click'` event is triggered on the `eventTarget`, the `eventHandlerFunction` receives `event`, the Event object, which has information related to the `'click'` event. Then, we log the time it took for the event to be triggered since the document was loaded by accessing the `.timeStamp` property of the event object.
 
 There are pre-determined properties associated with event objects. You can call these properties to see information about the event, for example:
@@ -5381,7 +5383,7 @@ There are pre-determined properties associated with event objects. You can call 
 
 #### 6. Event Types ####
 
-Beyond the `click` event, there are all types of DOM events that can fire in a browser! It’s important to know *most* events in the DOM take place without being noticed because there are no event handlers connected to them.
+Beyond the `click` event, there are all types of DOM events that can fire in a browser! It’s important to know _most_ events in the DOM take place without being noticed because there are no event handlers connected to them.
 
 It’s also important to know some registered events don’t depend on user interactions to fire. For instance, the load event fires after website files completely load in the browser.
 
@@ -5395,7 +5397,7 @@ In the rest of this lesson, you’ll explore more user interaction event types l
 
 #### 7. Mouse Events ####
 
-When you use a mouse device on a website, *mouse events* fire. You’ve seen the `click` and `wheel` events, but, there are even more mouse events to explore!
+When you use a mouse device on a website, _mouse events_ fire. You’ve seen the `click` and `wheel` events, but, there are even more mouse events to explore!
 
 The `mousedown` event is fired when the user presses a mouse button down. This is different from a `click` event because `mousedown` doesn’t need the mouse button to be released to fire.
 
@@ -5415,7 +5417,7 @@ The `mouseout` event is fired when the mouse leaves an element.
 
 #### 8. Keyboard Events ####
 
-Other popular types of events are keyboard events! *keyboard events* are triggered by user interaction with keyboard keys in the browser.
+Other popular types of events are keyboard events! _keyboard events_ are triggered by user interaction with keyboard keys in the browser.
 
 The `keydown` event is fired while a user presses a key down.
 
@@ -5450,6 +5452,7 @@ Let’s review what you’ve learned:
 1. Introduction to Form Validation
 2. Introduction to HTML Forms
 3. Introduction to HTML Form Validation
+
 #### 1. Introduction to Form Validation ####
 
 Modern websites require a lot of information to function as intended. Information like our usernames, passwords, “friends”, “likes”, credit card information, and shopping orders all have to be provided by users on the front-end and sent to the web applications’ servers so they can be processed. This information is used to create a personalized experience for the user.
@@ -5458,7 +5461,7 @@ User information is traditionally collected using HTML forms. If you’ve ever e
 
 In order for the data submitted through forms to be useful, it’s essential that the information is valid—if you were allowed to accidentally submit your last name where your address was expected, your package would never show up!
 
-The process of checking that the information submitted through a form adheres to expectations is called *form validation*. In this lesson, we’ll explore the different techniques for validating form inputs.
+The process of checking that the information submitted through a form adheres to expectations is called _form validation_. In this lesson, we’ll explore the different techniques for validating form inputs.
 
 1. Why Validate Forms?
 2. Regular Expressions
@@ -5511,8 +5514,8 @@ No matter how complete the front-end validation of a website or application seem
 As the developer, once data is in the back-end, we have complete control over it, luckily. Back-end validation has several advantages:
 
 * It enables us to use validation code often on machines with more computing power.
-* It allows us to write validation code that a user can’t see—if malicious users can’t see exactly *how* we validate the data, it’s much more difficult for them to find ways around it.
-* We can validate the information against other data the front-end doesn’t have access to—for 
+* It allows us to write validation code that a user can’t see—if malicious users can’t see exactly _how_ we validate the data, it’s much more difficult for them to find ways around it.
+* We can validate the information against other data the front-end doesn’t have access to—for
 example, we can check our database to see if a given username is already in use.
 
 There are two main ways to validate inputs on the server-side. The first takes place while the user is still inputting data into the form on the front-end. We can make asynchronous requests to the server with pieces of their data and send feedback directly to the user before they’ve submitted. This is slower than front-end validation and can be a design challenge from a user-experience perspective.
@@ -5555,7 +5558,7 @@ In this lesson, we’ll go over the structure and syntax of a `<form>` and the m
 
 ##### 1. How a Form Works #####
 
-We can think of the internet as a network of computers which send and receive information. Computers need an *HTTP* request to know how to communicate. The *HTTP* request instructs the receiving computer how to handle the incoming information. More information can be found in our article about [HTTP requests](https://www.codecademy.com/articles/http-requests).
+We can think of the internet as a network of computers which send and receive information. Computers need an _HTTP_ request to know how to communicate. The _HTTP_ request instructs the receiving computer how to handle the incoming information. More information can be found in our article about [HTTP requests](https://www.codecademy.com/articles/http-requests).
 
 The `<form>` element is a great tool for collecting information, but then we need to send that information somewhere else for processing. We need to supply the `<form>` element with both the location of where the `<form>`‘s information goes and what HTTP request to make. Take a look at the sample `<form>` below:
 
@@ -5693,7 +5696,7 @@ To set the minimum and maximum values of the slider we assign values to the `min
 </form>
 ```
 
-The code above renders: 
+The code above renders:
 
 ![rendered slider for volume control](https://content.codecademy.com/courses/learn-html-forms/rangeInput%20-%20labeled.png)
 
@@ -5717,7 +5720,7 @@ So far the types of inputs we’ve allowed were all single choices. But, what if
 </form>
 ```
 
-Which renders: 
+Which renders:
 
 ![HTML form asking user to select pizza toppings and three topping selections as checkboxes](https://content.codecademy.com/courses/learn-html-forms/checkboxInput%20-%20labeled.png)
 
@@ -5802,11 +5805,11 @@ The `<datalist>` is used with an `<input type="text">` element. The `<input>` cr
 
 Notice, in the code above, we have an `<input>` that has a `list` attribute. The `<input>` is associated to the `<datalist>` via the `<input>`‘s `list` attribute and the `id` of the `<datalist>`.
 
-From the code provided, the following form is rendered: 
+From the code provided, the following form is rendered:
 
 ![input field with a label 'Ideal city to visit?'](https://content.codecademy.com/courses/learn-html-forms/datalist%20-%20concealed.png)
 
-And when field is selected: 
+And when field is selected:
 
 ![clicking on the input field reveals a dropdown](https://content.codecademy.com/courses/learn-html-forms/datalist%20-%20revealed.png)
 list
@@ -5889,11 +5892,11 @@ Using the `<form>` element in conjunction with the other elements listed above a
 
 #### 3. Introduction to HTML Form Validation ####
 
-Ever wonder how a login page actually works? Or why the combination of a username and password grants you access to a website? The answers lie in *validation*. Validation is the concept of checking user provided data against the required data.
+Ever wonder how a login page actually works? Or why the combination of a username and password grants you access to a website? The answers lie in _validation_. Validation is the concept of checking user provided data against the required data.
 
-There are different types of validation. One type is *server-side* validation, this happens when data is sent to another machine (typically a server) for validation. An example of this type of validation is the usage of a login page. The form on the login page accepts username and password input, then sends the data to a server that checks that the pair matches up correctly.
+There are different types of validation. One type is _server-side_ validation, this happens when data is sent to another machine (typically a server) for validation. An example of this type of validation is the usage of a login page. The form on the login page accepts username and password input, then sends the data to a server that checks that the pair matches up correctly.
 
-On the other hand, we use *client-side* validation if we want to check the data on the browser (the client). This validation occurs before data is sent to the server. Different browsers implement client-side validation differently, but it leads to the same outcome.
+On the other hand, we use _client-side_ validation if we want to check the data on the browser (the client). This validation occurs before data is sent to the server. Different browsers implement client-side validation differently, but it leads to the same outcome.
 
 Shared among the different browsers are the benefits of using HTML5’s built-in client-side validation. It saves us time from having to send information to the server and wait for the server to send back confirmation or rejection of the data. This can also help us protect our server from malicious code or data from a malicious user. It also allows us to quickly give feedback to users for specific fields rather than having them fill in a form again if the data they input into the form was rejected.
 
@@ -5941,12 +5944,11 @@ Another built-in validation we can use is to assign a minimum or maximum value f
 </form>
 ```
 
-If a user tries to submit an input that is less than 1 a warning will appear: 
+If a user tries to submit an input that is less than 1 a warning will appear:
 
 ![prompt on a number field for user to input a value greater than or equal to 1](https://content.codecademy.com/courses/learn-html-forms/min%20max%20attr.png)
 
 A similar message will appear if a user tries to input a number greater than 4. Let’s now see this action.
-
 
 ##### 3. Checking Text Length #####
 
@@ -5972,7 +5974,7 @@ Let’s add this validation to our `<form>`.
 
 ##### 4. Matching a Pattern #####
 
-In addition to checking the length of a text, we could also add a validation to check how the text was provided. For cases when we want user input to follow specific guidelines, we use the `pattern` attribute and assign it a *regular expression*, or regex. Regular expressions are a sequence of characters that make up a search pattern. If the input matches the regex, the form can be submitted.
+In addition to checking the length of a text, we could also add a validation to check how the text was provided. For cases when we want user input to follow specific guidelines, we use the `pattern` attribute and assign it a _regular expression_, or regex. Regular expressions are a sequence of characters that make up a search pattern. If the input matches the regex, the form can be submitted.
 
 Let’s say we wanted to check for a valid credit card number (a 14 to 16 digit number). We could use the regex: `[0-9]{14,16}` which checks that the user provided only numbers and that they entered at least 14 digits and at most 16 digits.
 
@@ -6054,7 +6056,7 @@ For example, the ADA requires on-ramps as an alternative way of accessing a stai
 
 Although the ADA has forced public and private spaces to incorporate accessibility best practices, one frontier that has been mostly untouched has been digital accessibility, or, accessibility in digital media, like websites and mobile apps. In this article, we’ll explore digital accessibility and why it is essential on the Internet.
 
-#### What is Digital Accessibility? ####
+> What is Digital Accessibility?
 
 Although the concept of digital accessibility refers specifically to digital media, it’s not much different from the general idea of accessibility.
 
@@ -6121,7 +6123,7 @@ New technologies, litigation, business strategies, and more continue to push the
 8. Best Practices
 9. Review: Accessible Design
 
-#### 1. Introduction ####
+> 1. Introduction
 
 In this lesson, you are going to learn about using contrast to create appealing, intuitive, and accessible designs.
 
@@ -6187,7 +6189,7 @@ Let’s take a look at an example:
 
 In this example, we have one main site heading. This content uses the `<h1>` element and is assigned the highest rank as it is the most important. Note that each web page should only contain one `<h1>` element.
 
-This `<h1>` is considered the label for the entire document and it should clearly define the purpose of the web page. After that, we use the <h2> element to assign the same level of importance to each sibling section.
+This `<h1>` is considered the label for the entire document and it should clearly define the purpose of the web page. After that, we use the `<h2>` element to assign the same level of importance to each sibling section.
 
 This provides our users with a clean and consistent level of hierarchy when viewing our websites and also conforms to today’s web standards by providing a clear content outline.
 
@@ -6233,7 +6235,8 @@ On the other hand, using colors that are too similar, or lacking adequate contra
 
 Let’s explore how users perceive colors, and how we can effectively make decisions on what colors to use to reduce issues with legibility.
 
-#### 7. Color Blindness
+#### 7. Color Blindness ####
+
 A user with color blindness has a reduced ability to differentiate between colors. In general, about 8% of men and 0.5% of women have a color vision deficiency.
 
 Designing color combinations for color-blind users can enhance the overall impact it will have on everyone visiting your site.
@@ -6319,7 +6322,7 @@ In this lesson, we will cover these practices:
 
 The quickest way of improving accessibility for screen readers is to use the appropriate tags for a given task.
 
-For example, developers should wrap a navigation bar in a `<header>` element. Although the navigation bar could be wrapped in a `<div>` element with a class="header", the *native semantics* of a `<header>` element allows someone using a screen reader to understand and navigate a web page more efficiently.
+For example, developers should wrap a navigation bar in a `<header>` element. Although the navigation bar could be wrapped in a `<div>` element with a class="header", the _native semantics_ of a `<header>` element allows someone using a screen reader to understand and navigate a web page more efficiently.
 
 ```html
 <div id="header">
@@ -6327,9 +6330,9 @@ For example, developers should wrap a navigation bar in a `<header>` element. Al
 </div>
 ```
 
-In the example above, header content is wrapped in a `<div>` element with `id="header"`. While this is valid HTML, an individual using a screen reader will not understand the purpose of the <div> and will have to piece the web page together as child elements are read out loud to them.
+In the example above, header content is wrapped in a `<div>` element with `id="header"`. While this is valid HTML, an individual using a screen reader will not understand the purpose of the `<div>` and will have to piece the web page together as child elements are read out loud to them.
 
-Native semantics of an element describes the element’s intended purpose. For example, the <header> element is intended to contain introductory and navigational elements such as a logo, links, or a search bar.
+Native semantics of an element describes the element’s intended purpose. For example, the `<header>` element is intended to contain introductory and navigational elements such as a logo, links, or a search bar.
 
 ```html
 <header>
@@ -6357,7 +6360,7 @@ To help add context to web page information, ARIA provides an HTML attribute cal
 
 In the example above, imagine the `...` represents an exercise’s code editor — the section of the page containing the files of code you edit in an exercise. The `role` for the div is set to `complementary`. Visually, it makes sense that the information in the code editor is related to the information in the narrative (what you are reading right now). A user who uses a screen reader does not receive that visual cue.
 
-Instead, the `role="complementary"` attribute and value can help a screen reader user understand that the information in the code editor is *complementary* (or supporting) to the information you are reading right now. It helps users of screen readers identify the relationship between the two sections of the page.
+Instead, the `role="complementary"` attribute and value can help a screen reader user understand that the information in the code editor is _complementary_ (or supporting) to the information you are reading right now. It helps users of screen readers identify the relationship between the two sections of the page.
 
 [This](https://www.w3.org/TR/html-aria/#allowed-aria-roles-states-and-properties) link has a list of acceptable ARIA roles, where you can read more about the `complementary` role and other roles as well.
 
@@ -6376,7 +6379,7 @@ We can instruct screen readers to skip reading unnecessary elements by setting t
 
 In the example above, the `<ol>` element is assigned a `role` of `presentation`, meaning a screen reader will not read the element’s name (“ordered list”). This is acceptable, as a user does not need to hear the element’s name (“ordered list”) to understand the content of a list.
 
-The `presentation` role skips over elements and their *necessary* children. The `<ol>` and `<ul>` elements require `<li>` children. Therefore, adding `role="presentation"` to an `<ol>` tag will cause the screen reader to skip directly to the text between the `<li>` tags (it will not read the names of the `<li>` elements).
+The `presentation` role skips over elements and their _necessary_ children. The `<ol>` and `<ul>` elements require `<li>` children. Therefore, adding `role="presentation"` to an `<ol>` tag will cause the screen reader to skip directly to the text between the `<li>` tags (it will not read the names of the `<li>` elements).
 
 ```html
 <div id="container" role="presentation">
@@ -6539,7 +6542,7 @@ What did you think about the experience when you changed the layout? Was it easi
 
 If you have ever made your own website, maybe for a course on Codecademy, or for your personal portfolio, try visiting it with a screen reader now. What is or is not possible for users visiting your site using a screen reader?
 
-##### Conclusion #####
+> Conclusion
 
 Of the websites that you visited, which one was easier or more accessible to visit? What issues did you face that you think would get better with more practice using a screen reader, and what issues were problems with the designs of the sites that you visited?
 
@@ -6592,7 +6595,7 @@ After this unit, you will be able to:
 
 #### 1. Introduction to Classes ####
 
-JavaScript is an *object-oriented programming* (OOP) language we can use to model real-world items. In this lesson, you will learn how to make *classes*. Classes are a tool that developers use to quickly produce similar objects.
+JavaScript is an _object-oriented programming_ (OOP) language we can use to model real-world items. In this lesson, you will learn how to make _classes_. Classes are a tool that developers use to quickly produce similar objects.
 
 Take, for example, an object representing a dog named `halley`. This dog’s `name` (a key) is `"Halley"` (a value) and has a `behavior` (another key) of `0` (another value). We create the `halley` object below:
 
@@ -6625,7 +6628,7 @@ After we lay the foundation for classes in the first few exercises, we will intr
 
 In the last exercise, you created a class called `Dog`, and used it to produce a `Dog` object.
 
-Although you may see similarities between class and object syntax, there is one important method that sets them apart. It’s called the *constructor* method. JavaScript calls the `constructor()` method every time it creates a new instance of a class.
+Although you may see similarities between class and object syntax, there is one important method that sets them apart. It’s called the _constructor_ method. JavaScript calls the `constructor()` method every time it creates a new instance of a class.
 
 ```js
 class Dog {
@@ -6646,7 +6649,7 @@ In the next exercise, you will learn how to create `Dog` instances.
 
 #### 3. Instance ####
 
-Now, we’re ready to create class instances. An *instance* is an object that contains the property names and methods of a class, but with unique property values. Let’s look at our `Dog` class example.
+Now, we’re ready to create class instances. An _instance_ is an object that contains the property names and methods of a class, but with unique property values. Let’s look at our `Dog` class example.
 
 ```js
 class Dog {
@@ -6667,7 +6670,6 @@ Below our `Dog` class, we use the `new` keyword to create an instance of our `Do
 * We use the `new` keyword to generate a new instance of the `Dog` class. The `new` keyword calls the `constructor()`, runs the code inside of it, and then returns the new instance.
 * We pass the `'Halley'` string to the `Dog` constructor, which sets the name property to `'Halley'`.
 * Finally, we log the value saved to the `name` key in our `halley` object, which logs `'Halley'` to the console.
-
 
 #### 4. Methods ####
 
@@ -6806,9 +6808,9 @@ class Cat {
 
 In the example above, we create a `Cat` class. It shares a couple of properties (`_name` and `_behavior`) and a method (`.incrementBehavior()`) with the Dog class from earlier exercises. The `Cat` class also contains one additional property (`_usesLitter`), that holds a boolean value to indicate whether a cat can use their litter box.
 
-When multiple classes share properties or methods, they become candidates for *inheritance* — a tool developers use to decrease the amount of code they need to write.
+When multiple classes share properties or methods, they become candidates for _inheritance_ — a tool developers use to decrease the amount of code they need to write.
 
-With inheritance, you can create a *parent* class (also known as a superclass) with properties and methods that multiple *child* classes (also known as subclasses) share. The child classes inherit the properties and methods from their parent class.
+With inheritance, you can create a _parent_ class (also known as a superclass) with properties and methods that multiple _child_ classes (also known as subclasses) share. The child classes inherit the properties and methods from their parent class.
 
 Let’s abstract the shared properties and methods from our `Cat` and `Dog` classes into a parent class called `Animal`.
 
@@ -7084,7 +7086,7 @@ Now that we’ve abstracted animal daycare features, it’s easy to see how you 
 
 Sometimes you will want a class to have methods that aren’t available in individual instances, but that you can call directly from the class.
 
-Take the `Date` class, for example — you can both create `Date` instances to represent whatever date you want, and call *static* methods, like `Date.now()` which returns the current date, directly from the class. The `.now()` method is static, so you can call it directly from the class, but not from an instance of the class.
+Take the `Date` class, for example — you can both create `Date` instances to represent whatever date you want, and call _static_ methods, like `Date.now()` which returns the current date, directly from the class. The `.now()` method is static, so you can call it directly from the class, but not from an instance of the class.
 
 Let’s see how to use the `static` keyword to create a static method called `generateName` method in our `Animal` class:
 
@@ -7122,9 +7124,9 @@ The example above will result in an error, because you cannot call `static` meth
 
 #### 12. Review: Classes ####
 
-* *Classes* are templates for objects.
-* Javascript calls a *constructor* method when we create a new instance of a class.
-* *Inheritance* is when we create a parent class with properties and methods that we can extend to child classes.
+* _Classes_ are templates for objects.
+* Javascript calls a _constructor_ method when we create a new instance of a class.
+* _Inheritance_ is when we create a parent class with properties and methods that we can extend to child classes.
 * We use the `extends` keyword to create a subclass.
 * The `super` keyword calls the `constructor()` of a parent class.
 * Static methods are called on the class, but not on instances of the class.
@@ -7139,28 +7141,29 @@ Article on implementing modules in a browser’s runtime environment using ES6 m
 
 #### What are Modules? ####
 
-*Modules* are reusable pieces of code in a file that can be exported and then imported for use in another file. A *modular* program is one whose components can be separated, used individually, and recombined to create a complex system.
+_Modules_ are reusable pieces of code in a file that can be exported and then imported for use in another file. A _modular_ program is one whose components can be separated, used individually, and recombined to create a complex system.
 
 Consider the diagram below of an imaginary program written in a file **my_app.js**:
 
 ![diagram of a modular program. separate modules are combined to create a complex program](https://static-assets.codecademy.com/Courses/Learn-JavaScript/Modules/modular-program-diagram.svg)
 
-> Note: The words “*module*” and “*file*” are often used *interchangeably*
+> Note: The words “_module_” and “_file_” are often used _interchangeably_
 
 Instead of having the entire program written within **my_app.js**, its components are broken up into separate modules that each handle a particular task. For example, the **database_logic.js** module may contain code for storing and retrieving data from a database. Meanwhile, the **date_formatting.js** module may contain functions designed to easily convert date values from one format to another (a common headache among programmers!).
 
-This modular strategy is sometimes called *separation of concerns* and is useful for a number of reasons. What do you think those reasons might be?
+This modular strategy is sometimes called _separation of concerns_ and is useful for a number of reasons. What do you think those reasons might be?
 
 By isolating code into separate files, called modules, you can:
-  * find, fix, and debug code more easily.
-  * reuse and recycle defined logic in different parts of your application.
-  * keep information private and protected from other modules.
-  * prevent pollution of the global namespace and potential naming collisions, by cautiously selecting variables and behavior we load into a program.
+
+* find, fix, and debug code more easily.
+* reuse and recycle defined logic in different parts of your application.
+* keep information private and protected from other modules.
+* prevent pollution of the global namespace and potential naming collisions, by cautiously selecting variables and behavior we load into a program.
 
 Implementing modules in your program requires a small bit of management. In the remainder of this article, we will be covering:
 
-  * How to use the ES6 **`export`** statement to *export* code from a file - meaning its functions and/or data can be used by other files/modules.
-  * How to use the ES6 **`import`** statement to *import* functions and/or data from another module.
+* How to use the ES6 **`export`** statement to _export_ code from a file - meaning its functions and/or data can be used by other files/modules.
+* How to use the ES6 **`import`** statement to _import_ functions and/or data from another module.
 
 #### Implementations of Modules in JavaScript: Node.js vs ES6 ####
 
@@ -7286,7 +7289,7 @@ Given that much of the code in these two programs is similar, creating this seco
 
 Having two identical, but separate, copies of a function can lead to maintenance issues in the future. For example, any bugs that may exist within the function would need to be fixed in two places rather than one.
 
-Instead, creating a single copy of **`toggleHiddenElement()`** within a module that *exports* it would allow these two websites to *import* and use the exact same function. With this approach, updates to the function only need to occur within the module that defines them, and all programs that import this function will receive the same update. Furthermore, additional functions could be exported by the module and used by both programs, further reducing repetition.
+Instead, creating a single copy of **`toggleHiddenElement()`** within a module that _exports_ it would allow these two websites to _import_ and use the exact same function. With this approach, updates to the function only need to occur within the module that defines them, and all programs that import this function will receive the same update. Furthermore, additional functions could be exported by the module and used by both programs, further reducing repetition.
 
 #### ES6 Named Export Syntax ####
 
@@ -7303,7 +7306,7 @@ modules/
 |-- dom-functions.js    <-- new module file
 ```
 
-Inside **dom-functions.js**, the functions you wish to reuse can be exported using the *named export* syntax below:
+Inside **dom-functions.js**, the functions you wish to reuse can be exported using the _named export_ syntax below:
 
 ```js
 export { resourceToExportA, resourceToExportB, ...}
@@ -7454,7 +7457,7 @@ Now, both of the imported functions can be called within **main.js** using their
 
 #### Default Exports and Imports ####
 
-So far, the examples shown have used the named export syntax, in which a module’s resources are exported individually by name. Every module also has the option to export a single value to represent the entire module called the *default export*. Often, though not always, the default export value is an object containing the entire set of functions and/or data values of a module.
+So far, the examples shown have used the named export syntax, in which a module’s resources are exported individually by name. Every module also has the option to export a single value to represent the entire module called the _default export_. Often, though not always, the default export value is an object containing the entire set of functions and/or data values of a module.
 
 The syntax for exporting a default object looks like this:
 
@@ -7478,7 +7481,7 @@ const resources = {
 export default resources;
 ```
 
-#### Importing default values. ####
+#### Importing default values ####
 
 The syntax for importing default exports looks like this:
 
@@ -7555,8 +7558,8 @@ Continue on to the challenges below before the final review at the end of the ar
 In this article, you have learned the following:
 
 * The benefits of implementing modular programs.
-* How to use the ES6 **`export`** statement to *export* code from a file - meaning its functions and/or data can be used by other files/modules.
-* How to use the ES6 **`import`** statement to *import* functions and/or data from another module.
+* How to use the ES6 **`export`** statement to _export_ code from a file - meaning its functions and/or data can be used by other files/modules.
+* How to use the ES6 **`import`** statement to _import_ functions and/or data from another module.
 * How to rename imported resources using the **`as`** keyword.
 * How to export and import a default value.
 
@@ -7580,19 +7583,19 @@ Sometimes, we’ve written code that successfully returns a value but a differen
 
 Rather, we’re going to focus on the errors that pop up when we’ve written code that causes our program to stop running, e.g. trying to reassign a `const` variable. Instead of returning anything, our program will not execute any more code past where the error occurred. For example, what if we tried to move our soup to the table but dropped it because it was too hot? Then our soup-making process is over— there would be no soup.
 
-We can’t always stop errors before they occur, but we can include a backup plan in our program to anticipate and respond to the errors to ensure that our program continues running. *Error handling* is the process of programmatically anticipating and addressing errors. In JavaScript, we handle errors using the keywords `try` and `catch`. We try to move the soup to the table, making sure there’s someone or something nearby to `catch` the soup in case we drop it.
+We can’t always stop errors before they occur, but we can include a backup plan in our program to anticipate and respond to the errors to ensure that our program continues running. _Error handling_ is the process of programmatically anticipating and addressing errors. In JavaScript, we handle errors using the keywords `try` and `catch`. We try to move the soup to the table, making sure there’s someone or something nearby to `catch` the soup in case we drop it.
 
 ![(>)](https://content.codecademy.com/courses/learn-javascript-error-handling/falling%20soup.svg)
 
-In this lesson we’ll learn more about errors and how to create a backup plan to allow our program to continue running. When you’re ready, let’s *try* to get a *handle* on these JavaScript errors!
+In this lesson we’ll learn more about errors and how to create a backup plan to allow our program to continue running. When you’re ready, let’s _try_ to get a _handle_ on these JavaScript errors!
 
 #### 2. Runtime Errors ####
 
-Errors contain useful messages that tell us why our program isn’t working or why the error was *thrown*. When an error is thrown, our program stops running and the console displays the error message in red text like so:
+Errors contain useful messages that tell us why our program isn’t working or why the error was _thrown_. When an error is thrown, our program stops running and the console displays the error message in red text like so:
 
 ![(>)](https://content.codecademy.com/courses/learn-javascript-error-handling/error_diagram.svg)
 
-When we execute code and a line of code throws an error, that error is referred to as a *runtime error*. In JavaScript, there are built-in error objects that have a `name` and `message` property which tell us what went wrong. Examples of built-in runtime errors include:
+When we execute code and a line of code throws an error, that error is referred to as a _runtime error_. In JavaScript, there are built-in error objects that have a `name` and `message` property which tell us what went wrong. Examples of built-in runtime errors include:
 
 * `ReferenceError`: when a variable or function cannot be found.
 * `TypeError`: when a value is not a valid type, see the example below:
@@ -7672,18 +7675,18 @@ console.log('The thrown error that was caught in the try...catch statement!');
 
 Now, let’s break down what happened in the `try...catch` statement above:
 
-* We have code that follows `try` inside curly braces `{}` known as the *`try` block*.
+* We have code that follows `try` inside curly braces `{}` known as the _`try` block_.
 * Inside the `try` block we insert code that we anticipate might throw an error.
 * Since we want to see what happens if an error is thrown in the `try` block, we throw an error with the message `'This error will get caught'`.
 * Following the `try` block is the `catch` statement which accepts the thrown error from the `try` block . The `e` represents the thrown error.
-* The curly braces that follow `catch(e)` is known as the *catch block* and contains code that executes to handle the error.
+* The curly braces that follow `catch(e)` is known as the _catch block_ and contains code that executes to handle the error.
 * Since the error is caught, our `console.log()` after the `try...catch` statement prints `'The thrown error that was caught in the try...catch statement!'`.
 
 Generally speaking, in a `try...catch` statement, we evaluate code in the `try` block and if the code throws an error, the code inside the `catch` block will handle the error for us. The provided example just showcases how a `try...catch` statement works because we know an error is being thrown. Let’s first practice writing our own `try...catch` statement and afterwards we will go over a more practical usage of `try...catch`.
 
 #### 6. Handling with try...catch ####
 
-In the previous exercise we caught an error that we threw, but we can also use a `try...catch` statement to handle built-in errors that are thrown by the *JavaScript engine* that is reading and evaluating our code.
+In the previous exercise we caught an error that we threw, but we can also use a `try...catch` statement to handle built-in errors that are thrown by the _JavaScript engine_ that is reading and evaluating our code.
 
 ```js
 const someVar = 'Cannot be reassigned';
@@ -7770,6 +7773,7 @@ After this unit, you will be able to:
 5. Tests As Documentation
 6. Regression
 7. Review: Why Tests
+
 #### 1. Introduction to tests ####
 
 Imagine checking your bank account online. You have $1,000. The website is updated overnight, and you check again in the morning. Your balance is $257.43. Where did your money go? Is that truly your balance?
@@ -7780,11 +7784,11 @@ Back at the bank a software error is found to be the cause. The bank’s develop
 
 Errors in software are inevitable. Unchecked, these errors can have painful and costly impacts on users and developers. In 2002, a study commissioned by the US Department of Commerce’s National Institute of Standards and Technology concluded that software errors cost the US economy about $59 billion annually.
 
-To avoid those costs, software professionals use *automated testing*. During and after production, they can run an *automated test suite* to give themselves confidence that their products are free of errors and work as expected.
+To avoid those costs, software professionals use _automated testing_. During and after production, they can run an _automated test suite_ to give themselves confidence that their products are free of errors and work as expected.
 
 This lesson will give you the knowledge and practice to discuss these concepts. By the end of this lesson you will be able to:
 
-* Define an *automated test suite*
+* Define an _automated test suite_
 * Describe how a test suite is used in software development
 * Explain the benefits of automated testing
 
@@ -7792,17 +7796,17 @@ This lesson will give you the knowledge and practice to discuss these concepts. 
 
 #### 2. Manual Testing ####
 
-*Software testing* is the process of assessing the completeness and quality of computer software. Usually this is done by running a part of a system (like a web application) and comparing the actual behavior to the expected behavior.
+_Software testing_ is the process of assessing the completeness and quality of computer software. Usually this is done by running a part of a system (like a web application) and comparing the actual behavior to the expected behavior.
 
-One way to perform software testing is *manual testing*. Manual testing is a form of testing done by a human interacting with a system. With web apps, this might be clicking, dragging, and typing through a webpage. A list of actions and expected behaviors would be given. If the observed behavior doesn’t match the expected behavior, the application has an error.
+One way to perform software testing is _manual testing_. Manual testing is a form of testing done by a human interacting with a system. With web apps, this might be clicking, dragging, and typing through a webpage. A list of actions and expected behaviors would be given. If the observed behavior doesn’t match the expected behavior, the application has an error.
 
-Errors, like the ones you may have found in the provided web app, are also called *bugs*. A bug is an error, fault, or flaw in software that makes a system behave in unexpected ways. As you read in the last exercise, these unexpected behaviors can cause harm to users. Ideally testing catches bugs before they are sent to users.
+Errors, like the ones you may have found in the provided web app, are also called _bugs_. A bug is an error, fault, or flaw in software that makes a system behave in unexpected ways. As you read in the last exercise, these unexpected behaviors can cause harm to users. Ideally testing catches bugs before they are sent to users.
 
 #### 3. Automated Testing ####
 
 How long did it take to manually test the application in the previous exercise? If you repeated the process 100 times, how often do you think you would make a mistake?
 
-In a company, someone must be paid to do that work, so every hour of manual testing has a cost. The cost of testing can be reduced and the quality can be improved with *automated testing*.
+In a company, someone must be paid to do that work, so every hour of manual testing has a cost. The cost of testing can be reduced and the quality can be improved with _automated testing_.
 
 Automated testing is the use of software to control the execution of tests and the comparison of actual behavior to expected behavior. All the testing you just did (and more) could be performed by a computer program.
 
@@ -7821,9 +7825,9 @@ Rather than hire a testing team at the end of development, professional develope
 
 #### 4. The Test Suite ####
 
-Tests are written with code, just like the rest of your web app. You can refer to the code defining your app as *implementation code*, and the code defining your tests as *test code*.
+Tests are written with code, just like the rest of your web app. You can refer to the code defining your app as _implementation code_, and the code defining your tests as _test code_.
 
-A collection of tests for a web application is called a *test suite*. In the last exercise, you ran a test suite with `npm test`. In that case the test suite contained all tests for the application.
+A collection of tests for a web application is called a _test suite_. In the last exercise, you ran a test suite with `npm test`. In that case the test suite contained all tests for the application.
 
 Test code is included with and structured similarly to implementation code. Often times changes to test code are associated with changes to implementation code and vice versa. Both are easier to maintain when they are stored in the same place.
 
@@ -7831,7 +7835,7 @@ For example, if implementation code is written in `index.js` then the correspond
 
 #### 5. Tests As Documentation ####
 
-Imagine explaining this Cake Bar app to someone else. How does it behave? Does it rely on other software? How do you run it on a computer? You could read every line in every file to figure that out. Or you could read the *documentation*.
+Imagine explaining this Cake Bar app to someone else. How does it behave? Does it rely on other software? How do you run it on a computer? You could read every line in every file to figure that out. Or you could read the _documentation_.
 
 Documentation is any content separate from implementation code that explains how it works or how to use it. It may provide more concise summaries and explanation than the implementation code can.
 
@@ -7858,7 +7862,7 @@ You can read the description in plain English terms: `it accepts the customer na
 
 The new “clear order” button feature has been implemented to satisfy the new test.
 
-When adding a new feature to your product, it’s possible that something will break. If that break occurs within a feature developed earlier, it is called *regression*. When functionality previously developed and tested stops working, you may say the *functionality regressed*.
+When adding a new feature to your product, it’s possible that something will break. If that break occurs within a feature developed earlier, it is called _regression_. When functionality previously developed and tested stops working, you may say the _functionality regressed_.
 
 Running an automated test suite is fast and repeatable, which means you can run tests after every change to confirm that old features still work. If they have regressed, the test output should notify you.
 
@@ -7873,7 +7877,7 @@ Writing automated tests takes time, but the cost is outweighed by the benefits. 
 You also learned
 
 * Where and why test code is stored alongside implementation code
-* Terms to help communicate the benefit of testing: *manual testing*, *automated testing*, *test suite*, *bug*, *documentation*, and *regression*
+* Terms to help communicate the benefit of testing: _manual testing_, _automated testing_, _test suite_, _bug_, _documentation_, and _regression_
 
 ### 3. Testing Types ###
 
@@ -7893,19 +7897,19 @@ Throughout this article, we will discuss how each of these types of tests can be
 
 #### Unit Tests ####
 
-A *unit test* covers the smallest possible unit of testable code, such as a single function. In order to keep the scope of a unit test focused on the unit being tested, any data or behavior from other units or external sources that the unit relies on should be replaced with fake (*mock*) data or behavior.
+A _unit test_ covers the smallest possible unit of testable code, such as a single function. In order to keep the scope of a unit test focused on the unit being tested, any data or behavior from other units or external sources that the unit relies on should be replaced with fake (_mock_) data or behavior.
 
 For example, in a weather application, we might have a number of functions that each handle a small piece of computation, such as converting fahrenheit to celsius or formatting incoming weather data from an API. Unit tests would be written first to ensure that these functions can perform independently before we move on to testing how they work together. Any data that might come in from an external database or API would be mocked.
 
 #### Integration Tests ####
 
-An *integration test* covers how the units of a particular program work with one another. When testing integrations with external services, only the handling of incoming data is tested while the data itself remains mocked.
+An _integration test_ covers how the units of a particular program work with one another. When testing integrations with external services, only the handling of incoming data is tested while the data itself remains mocked.
 
 For example, in a weather application, integration tests would be written to ensure that weather data fetched from an API will be properly formatted to be displayed to the user. It would also ensure that delays, errors, or invalid data from the external service would be handled properly once they are introduced. The data itself would be mocked.
 
 #### End to End Tests ####
 
-An *end to end test* (sometimes referred to as a *UI layer* test or *e2e*) automates user flow to test the application in the way that a real user would experience it. To closely match the end user’s experience, this type of testing would also test interactions with external services such as databases and APIs.
+An _end to end test_ (sometimes referred to as a _UI layer_ test or _e2e_) automates user flow to test the application in the way that a real user would experience it. To closely match the end user’s experience, this type of testing would also test interactions with external services such as databases and APIs.
 
 For example, in a weather application, end to end tests might be written to simulate a user searching for a particular location, selecting that location, choosing celsius or fahrenheit, and clicking through various aspects of the UI. In this test, the actual database and external API is used.
 
@@ -7922,7 +7926,7 @@ A typical developer’s feedback loop using these various test types might be:
 5. Repeat steps 1-4 until all tests pass.
 6. The pull request is allowed to be merged.
 
-#### Summary ####
+> Summary
 
 In this article, we learned about the different types of tests that are written and performed throughout the production process. These include:
 
@@ -7937,7 +7941,7 @@ Learn about software testing methodologies and some specific strategies that use
 
 Imagine this scenario: you’ve written some code for a new feature and it’s time to test it. You deploy your development version of the code and interact with all of the features of your application that were impacted. This could include features you built in the past and anything new. You repeat that process for different browsers and devices, and a few hours later, you’re confident that it’s ready to go. But then you deploy it to production and the error reports start to come in!
 
-This scenario describes the process of **manual testing**, which is time-consuming, can result in errors being overlooked, and can’t be repeated easily. To get around the issues related to manual testing, organizations generally use software to *automate* their testing processes to validate code.
+This scenario describes the process of **manual testing**, which is time-consuming, can result in errors being overlooked, and can’t be repeated easily. To get around the issues related to manual testing, organizations generally use software to _automate_ their testing processes to validate code.
 
 #### What is a software testing methodology? ####
 
@@ -7988,7 +7992,7 @@ Since BDD tests are driven by behavior, the language of the test cases are simpl
 
 It can be said that BDD is more specific than TDD. Changes to the code base, such as changing the design of the code, will not occur unless there is a relevant change in the product. Since those changes are feature-related, the unit of tests is called a “feature.” Test cases are related to whether or not the feature works, rather than if the individual functions or classes you are writing to develop features work. Altogether, the tests are about how the product behaves — not the nitty-gritty technical details.
 
-#### Review ####
+> Review
 
 Nice work, you now know more about software testing methodologies! Let’s quickly recap the main ideas:
 
@@ -8004,7 +8008,7 @@ As you continue with testing content, you’ll see TDD as the main methodology w
 1. Automate and Organize Tests
 2. WRITE EXPRESSIVE TESTS
 
-#### 1. Automate and Organize Tests
+#### 1. Automate and Organize Tests ####
 
 1. Introduction
 2. Install Mocha I
@@ -8015,7 +8019,7 @@ As you continue with testing content, you’ll see TDD as the main methodology w
 7. Teardown
 8. Hooks
 
-##### 1. Introduction #####
+##### 1. Introduction Testing #####
 
 Testing is an essential part of development. When used properly, testing can catch and identify issues with your implementation code before you deploy it to users. Instead of testing every function manually, developers automate their tests with a test framework.
 
@@ -8032,14 +8036,14 @@ In this lesson you will:
 
 Before writing any tests you’ll need to use [Node.js and npm](https://www.codecademy.com/articles/what-is-node) to set up a JavaScript project and install Mocha.
 
-* *Node* allows you to run JavaScript in the terminal
-* *npm* is a Node tool that allows you to download packages from the web, and manage them in a JavaScript project
-* *Mocha* is one of those packages and is used to test other JavaScript code
+* _Node_ allows you to run JavaScript in the terminal
+* _npm_ is a Node tool that allows you to download packages from the web, and manage them in a JavaScript project
+* _Mocha_ is one of those packages and is used to test other JavaScript code
 
 A JavaScript project is a directory of files. The following command creates a file **package.json** that can be used to manage packages for the project.
 
 ```zsh
-$ npm init
+npm init
 ```
 
 After running this command you will be prompted to enter information about your project. It’s okay to skip some fields if you’re not ready to enter that information.
@@ -8047,7 +8051,7 @@ After running this command you will be prompted to enter information about your 
 With your project setup, you can install packages.
 
 ```zsh
-$ npm install mocha -D
+npm install mocha -D
 ```
 
 Here’s what this command means:
@@ -8076,7 +8080,7 @@ After installing Mocha as a dependency we can run it in two ways.
 The first (and more tedious) method is to call it directly from **node_modules**:
 
 ```zsh
-$ ./node_modules/mocha/bin/mocha
+./node_modules/mocha/bin/mocha
 ```
 
 The second (and recommended) method is to add a script to **package.json**. In the scripts object in **package.json**, set the value of `"test"` to `mocha`. It should look like this:
@@ -8090,14 +8094,14 @@ The second (and recommended) method is to add a script to **package.json**. In t
 Now you can call Mocha with the following command:
 
 ```zsh
-$ npm test
+npm test
 ```
 
 Instead of manually running each test in the **test** directory, you can use this command to run the full test suite automatically.
 
 ##### 4. describe and it blocks #####
 
-In Mocha we group tests using the `describe` function and define tests using the `it` function. These two functions can be used to make your test suite *complete*, *maintainable*, and *expressive* in the following ways:
+In Mocha we group tests using the `describe` function and define tests using the `it` function. These two functions can be used to make your test suite _complete_, _maintainable_, and _expressive_ in the following ways:
 
 * Structure your test suite: you can organize tests into nested groups that reflect the structure of your implementation code.
 * Provide informative messages: you can define your tests using human-readable strings.
@@ -8117,7 +8121,7 @@ describe('Math', () => {
 });
 ```
 
-Both the `describe` and `it` functions accept two parameters: a descriptive string and a callback function. Though the functions are flexible, they are commonly used in the structure above: nest `describe` blocks to resemble the structure of your implementation code and write individual tests in `it` blocks. This makes your test suite *isolated*, *maintainable*, and *expressive*.
+Both the `describe` and `it` functions accept two parameters: a descriptive string and a callback function. Though the functions are flexible, they are commonly used in the structure above: nest `describe` blocks to resemble the structure of your implementation code and write individual tests in `it` blocks. This makes your test suite _isolated_, _maintainable_, and _expressive_.
 
 ##### 5. assert #####
 
@@ -8139,7 +8143,7 @@ if (a !== 3) {
 }
 ```
 
-`assert.ok()` allows you to compare values and throw errors as needed using one function call. The small, human-readable format of the functions will help you make a more *expressive* test suite.
+`assert.ok()` allows you to compare values and throw errors as needed using one function call. The small, human-readable format of the functions will help you make a more _expressive_ test suite.
 
 As a Node module, `assert` can be imported at the top of your files with
 
@@ -8159,13 +8163,13 @@ If an argument passed to `assert.ok()` evaluates to `false`, an `AssertionError`
 
 ##### 6. Setup, Exercise, and Verify #####
 
-In this exercise you will be separating a test into *setup*, *exercise*, and *verify* phases. This distinct and well-defined separation of steps makes your test more `reliable`, `maintainable`, and `expressive`.
+In this exercise you will be separating a test into _setup_, _exercise_, and _verify_ phases. This distinct and well-defined separation of steps makes your test more `reliable`, `maintainable`, and `expressive`.
 
 The phases are defined as follows:
 
-* *Setup* - create objects, variables, and set conditions that your test depends on
-* *Exercise* - execute the functionality you are testing
-* *Verify* - check your expectations against the result of the exercise phase. You can use the `assert` library here
+* _Setup_ - create objects, variables, and set conditions that your test depends on
+* _Exercise_ - execute the functionality you are testing
+* _Verify_ - check your expectations against the result of the exercise phase. You can use the `assert` library here
 
 Clear separation of each phase makes a test easier to read, change, and validate.
 
@@ -8179,12 +8183,12 @@ Running multiple tests can introduce issues if the tests make changes to the tes
 * changing read and write permissions on a file
 * editing records in a database
 
-To address this issue, we often add a *teardown* step to the end of our tests. The teardown phase makes our tests *isolated* by resetting the environment before the next test runs. This provides two key benefits:
+To address this issue, we often add a _teardown_ step to the end of our tests. The teardown phase makes our tests _isolated_ by resetting the environment before the next test runs. This provides two key benefits:
 
 * Changes to the environment caused by one test do not affect the other tests.
 * Isolated tests can be executed in any order!
 
-> Note: In some cases — including the previous exercises  — the teardown phase isn’t needed because there are no conditions to reset. 
+> Note: In some cases — including the previous exercises  — the teardown phase isn’t needed because there are no conditions to reset.
 
 ##### 8. Hooks #####
 
@@ -8192,7 +8196,7 @@ Over the last two exercises, we learned about the four main phases of a test: se
 
 While execution and verification are unique to each test, setup and teardown are often similar or even identical for multiple tests within a test suite. The Mocha test framework provides functions that enable us to reduce repetition, simplify the scope of each test, and more finely control the execution of our tests.
 
-These functions (also referred to as *hooks*) are:
+These functions (also referred to as _hooks_) are:
 
 * `beforeEach(callback)` - `callback` is run before each test
 * `afterEach(callback)` - `callback` is run after each test
@@ -8229,7 +8233,8 @@ In this example, while each `it()` block could have set the `testValue` to `5`, 
 
 Keep in mind that not all setup and teardown steps should be included in these hooks. Occasionally, you may find that you need to perform some unique setup or teardown for a single test that you don’t want to include in other tests.
 
-##### 9. Review
+##### 9. Review: Automate and Organize Tests #####
+
 You can now write tests with Mocha and Node’s `assert.ok()` ! In this lesson you learned to:
 
 * Install Mocha with npm
@@ -8250,11 +8255,11 @@ As you continue to write tests, remember to always evaluate them against [the ch
 6. assert.deepEqual II
 7. Other assert methods
 
-##### 1. Introduction #####
+##### 1. Introduction: Expressive Tests #####
 
-A good test framework is [fast, complete, reliable, isolated, maintainable, and expressive](https://www.codecademy.com/articles/tdd-u1-good-test). In this lesson you will learn how to use Node’s `assert` library to write more *expressive* tests.
+A good test framework is [fast, complete, reliable, isolated, maintainable, and expressive](https://www.codecademy.com/articles/tdd-u1-good-test). In this lesson you will learn how to use Node’s `assert` library to write more _expressive_ tests.
 
-An expressive test is easy to read and descriptive, making it useful as a form of documentation for your implementation code. One way to make a test more expressive is clarifying its *verify* phase — the step where expected outcome is compared to actual outcome.
+An expressive test is easy to read and descriptive, making it useful as a form of documentation for your implementation code. One way to make a test more expressive is clarifying its _verify_ phase — the step where expected outcome is compared to actual outcome.
 
 [Node.js](https://www.codecademy.com/articles/what-is-node) provides a library called `assert` with methods that help you write more expressive verification code. You can use the methods in this library in place of conditional statements to write less code and use human-readable language. It can be used within the Mocha testing framework, and you will be using both throughout this lesson.
 
@@ -8303,7 +8308,7 @@ assert.ok(landAnimals[2] == waterAnimals[2]);
 assert.equal(landAnimals[2], waterAnimals[2]);
 ```
 
-The second line is more *expressive*: instead of parsing the entire statement, a reader only needs to read the first two words to know the test is verifying equality!
+The second line is more _expressive_: instead of parsing the entire statement, a reader only needs to read the first two words to know the test is verifying equality!
 
 ##### 4. assert.strictEqual #####
 
@@ -8324,7 +8329,7 @@ If you need to be strict in evaluating equality, you can use assert.strictEqual(
 * `assert.equal()` performs a `==` comparison
 * `assert.strictEqual()` performs a `===` comparison
 
-Compare the following code to the first example. This code performs the same verifications, but it is more *expressive*. Without parsing any logic, a reader would know the intention of your tests by reading the method names.
+Compare the following code to the first example. This code performs the same verifications, but it is more _expressive_. Without parsing any logic, a reader would know the intention of your tests by reading the method names.
 
 ```js
 const a = 3;
@@ -8382,7 +8387,7 @@ If you’d like to learn more about `deepEqual()`, the documentation is availabl
 
 Node’s assert library includes more than the four methods covered so far. You can find them all in the [Node.js documentation](https://nodejs.org/api/assert.html).
 
-Many of the methods can be implemented using other methods, like using assert.ok(1 == 1) to implement `assert.equal(1,1)`. Although this can be used for many types of tests, more descriptive functions like `assert.equal`, `assert.strictEqual`, and `assert.deepEqual` allow us to be more *expressive*: the expected functionality of the implementation code is clear to anyone reading your tests.
+Many of the methods can be implemented using other methods, like using assert.ok(1 == 1) to implement `assert.equal(1,1)`. Although this can be used for many types of tests, more descriptive functions like `assert.equal`, `assert.strictEqual`, and `assert.deepEqual` allow us to be more _expressive_: the expected functionality of the implementation code is clear to anyone reading your tests.
 
 ##### 8. Review: Write Expressive Tests #####
 
@@ -8407,11 +8412,11 @@ As you continue to write tests, remember to always evaluate them against [the ch
 8. Edge Case
 9. Review: Learn TDD with Mocha
 
-#### 1. Introduction ####
+#### 1. Introduction: TDD ####
 
 Test-driven development (TDD) is a programming technique where you write test code before implementation code. Test code is written to define the desired behavior of your program. The test output provides descriptive error messages that inform the implementation of your program.
 
-**The Red-Green-Refactor Cycle**
+> The Red-Green-Refactor Cycle
 
 One of the driving forces of TDD is the red-green-refactor cycle. “Red” and “green” correspond to the color of the text that our test framework produces in the terminal while running the tests in our suite. Red signifies failing tests and green corresponds to passing tests.
 
@@ -8442,7 +8447,7 @@ The first step to writing a test with Mocha is to use `describe` and `it` blocks
 
 Before running our test, we would use an assert statement to compare the desired result of our method with the actual result.
 
-*The first step in developing this method would be writing a test that could look like this:*
+_The first step in developing this method would be writing a test that could look like this:_
 
 ```js
 describe('Phrase', () => {
@@ -8509,7 +8514,7 @@ We expected the result of passing `Nelson Mandela` to `Phrase.initials()` to be 
 
 Following TDD, the next step would be writing the minimum possible implementation code to make our test pass. In this example, that would involve adding a line of implementation code so that `.initials()` returns our expected result, which is `NM`.
 
-*The minimum possible implementation code to make the test pass:*
+_The minimum possible implementation code to make the test pass:_
 
 ```js
 const Phrase = {
@@ -8519,7 +8524,7 @@ const Phrase = {
 }
 ```
 
-Now our test would pass and we would be in the green. But that doesn’t mean our method is working as intended. If we entered “Jody Williams” our method would return ‘NM’, not ‘JW’. We will address this issue when it is time, but following TDD, now that we have progressed from the *red* to the *green*, we will move into the *refactor* phase.
+Now our test would pass and we would be in the green. But that doesn’t mean our method is working as intended. If we entered “Jody Williams” our method would return ‘NM’, not ‘JW’. We will address this issue when it is time, but following TDD, now that we have progressed from the _red_ to the _green_, we will move into the _refactor_ phase.
 
 #### 4. Refactor I ####
 
@@ -8527,7 +8532,7 @@ Once all your tests pass, you can confidently refactor your code — restructure
 
 When refactoring, it’s critical to test early and often — if our tests turn red, then we know that something went wrong while we were refactoring, and we can undo those changes.
 
-A good place to start with refactoring is to restructure tests to reflect the four phases of a good test: *setup*, *exercise*, *verification*, *teardown*.
+A good place to start with refactoring is to restructure tests to reflect the four phases of a good test: _setup_, _exercise_, _verification_, _teardown_.
 
 Let’s consider the test for our Phrase.initials method. We could rewrite the test with setup, exercise, and verification stages to make it more expressive and maintainable.
 
@@ -8569,7 +8574,7 @@ const Phrase = {
 }
 ```
 
-Refactoring will look different for each project and each iteration of the *red-green-refactor cycle*. In some cases you won’t need to refactor at all! Regardless, you should consider how you can improve your code and — although it is optional — it can set you up for success moving forward.
+Refactoring will look different for each project and each iteration of the _red-green-refactor cycle_. In some cases you won’t need to refactor at all! Regardless, you should consider how you can improve your code and — although it is optional — it can set you up for success moving forward.
 
 #### 5. Getting into the Red II ####
 
@@ -8618,7 +8623,7 @@ describe('Phrase', () => {
 
 Although the new `it` block is similar to the existing example, the two together force you to implement a method that will return initials that pass both tests.
 
-The idea of TDD is to continue building tests and going through the *red-green-refactor* process until you feel confident that your implementation code performs as expected.
+The idea of TDD is to continue building tests and going through the _red-green-refactor_ process until you feel confident that your implementation code performs as expected.
 
 #### 6. Red to Green II ####
 
@@ -8659,7 +8664,7 @@ Sometimes refactoring can take place in test and implementation code, either one
 
 #### 8. Edge Case ####
 
-Now that we have written and refactored a few tests, it’s time to consider *edge cases*.
+Now that we have written and refactored a few tests, it’s time to consider _edge cases_.
 
 An edge case is a problem or situation that occurs only at an extreme (maximum or minimum) operating parameter — you can think of these as special cases that you need to account for.
 
@@ -8721,13 +8726,13 @@ At a high-level the process is:
 
 **The development process is guided by the red-green-refactor cycle.**
 
-**Red**
+> Red
 
 Write a test that covers the functionality you would like to see implemented. You don’t have to know what your code looks like at this point, you just have to know what it will do.
 
 Run the test. You should see it fail. Most test runners will output red for failure and green for success. While we say “failure” do not take this negatively. It’s a good sign! By seeing the test fail first, we know that once we make it pass, our code works.
 
-**Green**
+> Green
 
 Read the error message from the failing test, and write as little code as possible to fix the current error message. By only writing enough code to see our test pass, we tend to write less code as a whole. Continue this process until the test passes.
 
@@ -8735,7 +8740,7 @@ This may involve writing intermediary features covering lower level functionalit
 
 Do not focus on code quality at this point. Be shameless! We simply want to get our new test passing.
 
-**Refactor**
+> Refactor
 
 Clean up your code, reducing any duplication you may have introduced. This includes your code as well as your tests.
 
@@ -8807,7 +8812,7 @@ In this resource, you are presented with the documentation for the Chai assertio
 
 #### 1. Code Coverage ####
 
-In this article, you will learn about *code coverage* and *test coverage* – two metrics that organizations can use to determine the extent to which an application’s code has been tested – and why these metrics are useful.
+In this article, you will learn about _code coverage_ and _test coverage_ – two metrics that organizations can use to determine the extent to which an application’s code has been tested – and why these metrics are useful.
 
 ##### What is Code Coverage? #####
 
@@ -8819,10 +8824,10 @@ But what does it mean for code to be executed in a test? How rigorous does a tes
 
 Measuring code coverage is conducted using one or more criteria, depending on the organization’s standards for code coverage. Though this is not an exhaustive list, some key criteria to use when measuring code coverage include:
 
-* *Function Coverage*: Has each function been called?
-* *Statement Coverage*: Has each statement been executed?
-* *Path Coverage*: Has every edge in the [control-flow graph](https://en.wikipedia.org/wiki/Control-flow_graph) been executed?
-* *Condition Coverage*: Has each boolean sub-expression evaluated to be both true and false?
+* _Function Coverage_: Has each function been called?
+* _Statement Coverage_: Has each statement been executed?
+* _Path Coverage_: Has every edge in the [control-flow graph](https://en.wikipedia.org/wiki/Control-flow_graph) been executed?
+* _Condition Coverage_: Has each boolean sub-expression evaluated to be both true and false?
 
 Let’s look at an example of how these criteria can be used to determine code coverage. Here we have a very simple function that returns the sum of two arguments, if two arguments have been provided, and returns `null` otherwise:
 
@@ -8860,7 +8865,7 @@ numSum(false, 1);  // This should return null
 numSum();   // This should return null
 ```
 
-##### The 100% Code Coverage Myth #####
+#####  The 100% Code Coverage Myth #####
 
 And there we have it, we’ve achieved 100% coverage in each of the four criteria! So, we’re done testing, right? Well, not quite.
 
@@ -8876,7 +8881,7 @@ While there are [other coverage criteria](https://en.wikipedia.org/wiki/Code_cov
 
 Instead, we should consider the code coverage criteria as a set of guidelines to help you develop intuition for testing your code while remaining determined to write robust test suites that are specific in targeting the various use cases of our programs.
 
-##### Test Coverage #####
+#####  Test Coverage #####
 
 Another term you may hear with regards to testing is called test coverage. Test coverage differs from code coverage in that test coverage measures the percentage of the required features/specs that are tested, as opposed to the percentage of lines executed. These features/specs are typically defined in a [requirements document](https://en.wikipedia.org/wiki/Product_requirements_document) provided by a client or product designer.
 
@@ -8884,7 +8889,7 @@ Suppose you are building a mobile-native application that needs to work on phone
 
 Like code coverage, test coverage cannot guarantee that our program will not have unexpected behavior. However, the pursuit of high test coverage can lead us to identify bugs and unexpected behavior earlier on in the development process.
 
-##### Conclusion #####
+##### Conclusion: Code Coverage #####
 
 Code coverage measures the percentage of lines of code that are executed in a test while test coverage measures the percentage of required features that are tested. Though these metrics cannot guarantee bug-free code, by incorporating these two metrics into your test analysis, you can increase your confidence that your test suites are robust and that your products can satisfy your end users.
 
@@ -8894,7 +8899,7 @@ In this article, you’ll be introduced to the practice of mocking and how it ca
 
 ##### What is Mocking? #####
 
-*Mocking* is the process of creating a fake version of an external service for testing purposes, particularly in unit tests and integration tests. Mocking is effective in testing individual units of code without relying on the functionality of other services or units such as APIs or databases.
+_Mocking_ is the process of creating a fake version of an external service for testing purposes, particularly in unit tests and integration tests. Mocking is effective in testing individual units of code without relying on the functionality of other services or units such as APIs or databases.
 
 > Another word that is used to describe this practice is stubbing. [While there is a difference](https://dev.to/snird/the-difference-between-mocks-and-stubs-explained-with-js-kkc), it’s not a very relevant difference in this scope and context.
 
@@ -8920,16 +8925,17 @@ While it’s helpful to use mocks in unit tests, we should avoid using mocks in 
 
 In our blog application, we use an intermediate function to format incoming data from the database for our new feature that will render the data. To test this integration, we would no longer mock how that raw data is formatted and then displayed. We would, however, still mock the raw data coming in from the database.
 
-##### Summary #####
+##### Summary: Mocking In Tests #####
 
 Mocks are helpful tools that allow us to more accurately test units of code by limiting the impacts of other potential sources for bugs to emerge from. Though they can be useful in unit testing, we should make sure to use mocks sparingly to ensure that integration of internal services can be tested comprehensively.
 
 #### 3. Spies with Sinon ####
 
 Step aside, James Bond! In this article, you’ll learn about spies in the context of testing and about the Sinon.js library.
+
 ##### What are Spies? #####
 
-In testing, a *spy* is a function that observes and records information about another function’s calls including arguments, return value, the this value, and exceptions thrown (if any). The information that is observed by the spy can then be used in assertions for testing.
+In testing, a _spy_ is a function that observes and records information about another function’s calls including arguments, return value, the this value, and exceptions thrown (if any). The information that is observed by the spy can then be used in assertions for testing.
 
 As an example, let’s say we are testing a top-secret application with a feature to receive a message, display for 5 seconds, then delete it. We can wrap a spy around this unit to keep track of how many messages were received, what the messages said, if any errors were thrown, etc. Using its stealthy powers of espionage, a spy won’t change anything about how the function operates, it will just observe what happens.
 
@@ -8974,7 +8980,7 @@ Finally, to ensure that the method returns to its original, un-spied-on state, w
 
 There are too many properties and methods available to spied-on functions to cover in one article and even to commit to memory, so we recommend that you check out the [documentation](https://sinonjs.org/releases/latest/spies/) to find the right tools for your needs.
 
-##### Summary #####
+##### Summary: Spies with Sinon #####
 
 Spies are an incredibly useful tool that serves as a means for observing and recording information about how our methods are used in tests. Though there are a number of JavaScript libraries that provide spying functionality, Sinon.js is well known and used widely, including at Codecademy!
 
@@ -9024,15 +9030,15 @@ Explore asynchronous programming and how it allows applications/apps to run oper
 
 Before we define asynchronous code, let’s first start with synchronous code. We don’t even have to start with code, let’s use a real-life example.
 
-Consider the building of a house. We would first need to first lay down the bricks that make our foundation. Then, we layer more bricks on top of each other, building the house from the ground up. We can’t skip a level and expect our house to be stable. Therefore, the laying of bricks happens *synchronously*, or in sequential order.
+Consider the building of a house. We would first need to first lay down the bricks that make our foundation. Then, we layer more bricks on top of each other, building the house from the ground up. We can’t skip a level and expect our house to be stable. Therefore, the laying of bricks happens _synchronously_, or in sequential order.
 
-Likewise, synchronous code executes in sequential order — it starts with the code at the top of the file and executes line by line until it gets to the end of the file. This type of behavior is known as *blocking* (or blocking code) since each line of code cannot execute until the previous line finishes.
+Likewise, synchronous code executes in sequential order — it starts with the code at the top of the file and executes line by line until it gets to the end of the file. This type of behavior is known as _blocking_ (or blocking code) since each line of code cannot execute until the previous line finishes.
 
 ##### What is Asynchronous Code? ####
 
-Let’s begin again with examining a real-life scenario, like baking a cake. We could start to preheat the oven and prepare our cake’s ingredients while we wait for our oven to heat up. The wait for the oven and the preparation of ingredients can happen at the same time, and thus these actions happen *asynchronously*.
+Let’s begin again with examining a real-life scenario, like baking a cake. We could start to preheat the oven and prepare our cake’s ingredients while we wait for our oven to heat up. The wait for the oven and the preparation of ingredients can happen at the same time, and thus these actions happen _asynchronously_.
 
-Similarly, asynchronous code can be executed in parallel to other code that is already running. Without the need to wait for other code to finish before executing, our apps can save time and be more efficient. This type of behavior is considered *non-blocking*.
+Similarly, asynchronous code can be executed in parallel to other code that is already running. Without the need to wait for other code to finish before executing, our apps can save time and be more efficient. This type of behavior is considered _non-blocking_.
 
 ##### Asynchronous Code Under the Hood #####
 
@@ -9051,7 +9057,7 @@ Thread 2: prepare ingredients -> bake-cake
 
 We won’t discuss in-depth how many threads an app can access but we should note that the more threads we have, the more tasks we can run concurrently. Also, in most modern-day computers, multithreading is achieved by having a CPU that has multiple cores or by some other technology.
 
-#### Asynchronous Code in Web Development ####
+####  Asynchronous Code in Web Developments ####
 
 Similar to how asynchronous behavior is useful in baking a cake, it can also be helpful for web programming. If we use synchronous (blocking) code in the browser, we might be stopping a user from being able to interact with a web app until the code is done running. This isn’t a great user experience. If our app takes a long time to load, our users might think that something’s wrong and might even opt to browse a different site!
 
@@ -9065,13 +9071,13 @@ Synchronous code and asynchronous code both have roles to play in programming. U
 
 ##### Asynchronous Code in Web Development #####
 
-JavaScript provides us with a seamless web browsing experience using asynchronous code. Sites often allow us to perform different interactions like scrolling through content, clicking to create a pop-up modal, typing out text, etc. When a site is set up to respond to different user actions at the same time, it’s likely that this site is using asynchronous JavaScript code. Such code takes into consideration how users might use the site without *blocking* them (forcing the user to wait for code from one interaction to finish before moving on to the next).
+JavaScript provides us with a seamless web browsing experience using asynchronous code. Sites often allow us to perform different interactions like scrolling through content, clicking to create a pop-up modal, typing out text, etc. When a site is set up to respond to different user actions at the same time, it’s likely that this site is using asynchronous JavaScript code. Such code takes into consideration how users might use the site without _blocking_ them (forcing the user to wait for code from one interaction to finish before moving on to the next).
 
 It is our job as developers to think about how much time it takes to complete a task and how to plan around that wait. Tasks like contacting the back-end to retrieve information, querying our database for user information, or making a request to an external server, like a 3rd party API, take varying amounts of time. Since we aren’t sure when we’ll get this information back, we can use asynchronous code to run these tasks in the background. Let’s see how JavaScript handles asynchronous code.
 
 ##### JavaScript and Asynchronous Code #####
 
-JavaScript is a *single-threaded* language. This means it has a single thread that can carry out one task at a time. However, Javascript has what is known as the *event loop*, a specific design that allows it to perform asynchronous tasks even while only using a single thread (more on this later!). Let’s examine some examples of asynchronous code in Javascript!
+JavaScript is a _single-threaded_ language. This means it has a single thread that can carry out one task at a time. However, Javascript has what is known as the _event loop_, a specific design that allows it to perform asynchronous tasks even while only using a single thread (more on this later!). Let’s examine some examples of asynchronous code in Javascript!
 
 ##### Asynchronous Callbacks #####
 
@@ -9135,7 +9141,7 @@ While we wait for our alert to chime in every 5 minutes, our users could still u
 
 With `setInterval()`, we can programmatically create an alarm, a countdown timer, set the frequency of an animation, and so much more!
 
-##### Review #####
+##### Review: Asynchronous JS #####
 
 Asynchronous code can really benefit sites and apps that rely on actions that take time. Even though JavaScript is a single-threaded language, it can still execute asynchronous code using the event loop. We took a look at some of the main ways javascript accomplishes synchronicity via callbacks, setTimeout(), and setInterval(). With this new knowledge, let’s continue to implement asynchronicity into our programs!
 
@@ -9182,7 +9188,7 @@ In this case, JavaScript is still single-threaded, but the event loop is enablin
 
 ##### Concurrency in JavaScript #####
 
-Usually when we think about *concurrency* in programming, it means that two or more procedures are executed at the same time on the same shared resources. Since JavaScript is single-threaded, as we saw in the `for` loop example, we’ll never have that flavor of “true” concurrency. However, we can emulate concurrency using the event loop.
+Usually when we think about _concurrency_ in programming, it means that two or more procedures are executed at the same time on the same shared resources. Since JavaScript is single-threaded, as we saw in the `for` loop example, we’ll never have that flavor of “true” concurrency. However, we can emulate concurrency using the event loop.
 
 ##### What Is the Event Loop? #####
 
@@ -9198,7 +9204,7 @@ Diagram of pieces that make up the browser runtime and JavaScript engine. A heap
 
 ##### Understand the Components of the Event Loop #####
 
-The *event loop* is made up of these parts:
+The _event loop_ is made up of these parts:
 
 * Memory Heap
 * Call Stack
@@ -9210,11 +9216,11 @@ Let’s take a closer look at each part before we put it all together.
 
 ###### The Heap ######
 
-The *heap* is a block of memory where we store objects in an unordered manner. JavaScript variables and objects that are currently in use are stored in the heap.
+The _heap_ is a block of memory where we store objects in an unordered manner. JavaScript variables and objects that are currently in use are stored in the heap.
 
 ###### The Call Stack ######
 
-The *stack*, or *call stack*, tracks what function is currently being run in your code.
+The _stack_, or _call stack_, tracks what function is currently being run in your code.
 
 When you invoke a function, a frame is added to the stack. Frames connect that function’s arguments and local variables from the heap. Frames enter the stack in a last in, first out (LIFO) order. In the code snippet below, a series of nested functions are declared, then `foo()` is called and logged.
 
@@ -9233,13 +9239,13 @@ The function executing at any given point in time is at the top of the stack. In
 
 ![(>)](https://static-assets.codecademy.com/Courses/Learn-JavaScript/Event-Loop-and-Concurrency/call-stack-applet/assets/JS-Callstack-5.svg)
 
-You might have noticed that `global()` is at the bottom of the stack–when you first initiate a program, the *global execution context* is added to the call stack, which contains the global variable and lexical environment. Each subsequent frame for a called function has a function execution context that includes the function’s lexical and variable environment.
+You might have noticed that `global()` is at the bottom of the stack–when you first initiate a program, the _global execution context_ is added to the call stack, which contains the global variable and lexical environment. Each subsequent frame for a called function has a function execution context that includes the function’s lexical and variable environment.
 
 So when we say the call stack tracks what function is currently being run in our code, what we are tracking is the current execution context. When a function runs to completion, it is popped off of the call stack. The memory, or the frame, is cleared.
 
 ##### The Event Queue #####
 
-The *event queue* is a list of messages corresponding to functions that are waiting to be processed. In the diagram, these messages are entering the event queue from sources such as various web APIs or async functions that were called and are returning additional events to be handled by the stack. Messages enter the queue in a first in, first out (FIFO) order. No code is executed in the event queue; instead, it holds functions that are waiting to be added back into the stack.
+The _event queue_ is a list of messages corresponding to functions that are waiting to be processed. In the diagram, these messages are entering the event queue from sources such as various web APIs or async functions that were called and are returning additional events to be handled by the stack. Messages enter the queue in a first in, first out (FIFO) order. No code is executed in the event queue; instead, it holds functions that are waiting to be added back into the stack.
 
 ##### The Event Loop #####
 
@@ -9272,7 +9278,7 @@ console.log("This is the last line of code in app.js.");
 7. `console.log("I'm going to be queued in the Event Loop.");` is added to the stack, executes, gets popped
 8. `usesetTimeout` pops off of the stack.
 
-##### Summary #####
+##### Summary: Concurrency Model in JS #####
 
 Thanks to the event loop, JavaScript is a single-threaded, event-driven language that can run non-blocking code asynchronously. The Event Loop can be summarized as: when code is executed, it is handled by the heap and call stack, which interact with Node and Web APIs. Those APIs enable concurrency and pass asynchronous messages back to the stack via an event queue. The event queue’s interaction with the call stack is managed by an event loop. All together, those parts maintain the order of code execution when we run asynchronous functions.
 
@@ -9301,11 +9307,11 @@ getBeans();
 console.log("Describe what happens with this `console.log()` statement as well.");
 ```
 
-**Your response**
+> Your response
 
 the first console.log statement (inside the async function getBeans) gets executed first then the other console.log statements have a timeout set for 1 sec therefore the last console.log statement will print followed by the one in the shopForBeans func and then the second one inside the getBeans func.
 
-**Our answer**
+> Our answer
 
 The code will execute and log text in this order:
 
@@ -9321,7 +9327,7 @@ The stack will be clear afterward, so the response event in the event queue will
 
 ### Learn JavaScript Syntax: Promises ###
 
-**Introduction**
+> Introduction
 
 In web development, asynchronous programming is notorious for being a challenging topic.
 
@@ -9349,7 +9355,7 @@ This lesson will teach you how modern JavaScript handles asynchronicity using th
 Promises are objects that represent the eventual outcome of an asynchronous operation. A `Promise` object can be in one of three states:
 
 * **Pending**: The initial state— the operation has not completed yet.
-* **Fulfilled**: The operation has completed successfully and the promise now has a *resolved value*. For example, a request’s promise might resolve with a JSON object as its value.
+* **Fulfilled**: The operation has completed successfully and the promise now has a _resolved value_. For example, a request’s promise might resolve with a JSON object as its value.
 * **Rejected**: The operation has failed and the promise has a reason for the failure. This reason is usually an `Error` of some kind.
 We refer to a promise as settled if it is no longer pending— it is either fulfilled or rejected. Let’s think of a dishwasher as having the states of a promise:
 
@@ -9369,7 +9375,7 @@ const executorFunction = (resolve, reject) => { };
 const myFirstPromise = new Promise(executorFunction);
 ```
 
-The `Promise` constructor method takes a function parameter called the *executor function* which runs automatically when the constructor is called. The executor function generally starts an asynchronous operation and dictates how the promise should be settled.
+The `Promise` constructor method takes a function parameter called the _executor function_ which runs automatically when the constructor is called. The executor function generally starts an asynchronous operation and dictates how the promise should be settled.
 
 The executor function has two function parameters, usually referred to as the `resolve()` and `reject()` functions. The `resolve()` and `reject()` functions aren’t defined by the programmer. When the `Promise` constructor runs, JavaScript will pass **its own** `resolve()` and `reject()` functions into the executor function.
 
@@ -9401,7 +9407,7 @@ In our example, `myFirstPromise` resolves or rejects based on a simple condition
 
 #### 3. The Node setTimeout() Function ####
 
-Knowing how to construct a promise is useful, but most of the time, knowing how to *consume*, or use, promises will be key. Rather than constructing promises, you’ll be handling `Promise` objects returned to you as the result of an asynchronous operation. These promises will start off pending but settle eventually.
+Knowing how to construct a promise is useful, but most of the time, knowing how to _consume_, or use, promises will be key. Rather than constructing promises, you’ll be handling `Promise` objects returned to you as the result of an asynchronous operation. These promises will start off pending but settle eventually.
 
 Moving forward, we’ll be simulating this by providing you with functions that return promises which settle after some time. To accomplish this, we’ll be using `setTimeout()`. `setTimeout()` is a Node API (a comparable API is provided by web browsers) that uses callback functions to schedule tasks to be performed after a delay. `setTimeout()` has two parameters: a callback function and a delay in milliseconds.
 
@@ -9440,10 +9446,10 @@ In the case of our dishwasher promise, the dishwasher will run **then**:
 * If our promise rejects, this means we have dirty dishes, and we’ll add soap and run the dishwasher again.
 * If our promise fulfills, this means we have clean dishes, and we’ll put the dishes away.
 
-`.then()` is a higher-order function— it takes two callback functions as arguments. We refer to these callbacks as *handlers*. When the promise settles, the appropriate handler will be invoked with that settled value.
+`.then()` is a higher-order function— it takes two callback functions as arguments. We refer to these callbacks as _handlers_. When the promise settles, the appropriate handler will be invoked with that settled value.
 
-* The first handler, sometimes called `onFulfilled`, is a *success handler*, and it should contain the logic for the promise resolving.
-* The second handler, sometimes called `onRejected`, is a *failure handler*, and it should contain the logic for the promise rejecting.
+* The first handler, sometimes called `onFulfilled`, is a _success handler_, and it should contain the logic for the promise resolving.
+* The second handler, sometimes called `onRejected`, is a _failure handler_, and it should contain the logic for the promise rejecting.
 
 We can invoke `.then()` with one, both, or neither handler! This allows for flexibility, but it can also make for tricky debugging. If the appropriate handler is not provided, instead of throwing an error, `.then()` will just return a promise with the same settled value as the promise it was called on. One important feature of `.then()` is that it always returns a promise. We’ll return to this in more detail in a later exercise and explore why it’s so important.
 
@@ -9498,11 +9504,11 @@ Let’s break down what’s happening in the example code:
 * `prom` is a promise which will randomly either resolve with `'Yay!'` or reject with `'Ohhh noooo!'`.
 * We pass two handler functions to `.then()`. The first will be invoked with `'Yay!'` if the promise resolves, and the second will be invoked with `'Ohhh noooo!'` if the promise rejects.
 
-> Note: The success callback is sometimes called the “success handler function” or the `onFulfilled` function. The failure callback is sometimes called the “failure handler function” or the `onRejected` function. 
+> Note: The success callback is sometimes called the “success handler function” or the `onFulfilled` function. The failure callback is sometimes called the “failure handler function” or the `onRejected` function.
 
 #### 6. Using catch() with Promises ####
 
-One way to write cleaner code is to follow a principle called *separation of concerns*. Separation of concerns means organizing code into distinct sections each handling a specific task. It enables us to quickly navigate our code and know where to look if something isn’t working.
+One way to write cleaner code is to follow a principle called _separation of concerns_. Separation of concerns means organizing code into distinct sections each handling a specific task. It enables us to quickly navigate our code and know where to look if something isn’t working.
 
 Remember, `.then()` will return a promise with the same settled value as the promise it was called on if no appropriate handler was provided. This implementation allows us to separate our resolved logic from our rejected logic. Instead of passing both handlers into one `.then()`, we can chain a second `.then()` with a failure handler to a first `.then()` with a success handler and both cases will be handled.
 
@@ -9545,7 +9551,7 @@ One common pattern we’ll see with asynchronous programming is multiple operati
 
 We take our dirty clothes and put them in the washing machine. If the clothes are cleaned, **then** we’ll want to put them in the dryer. After the dryer runs, if the clothes are dry, **then** we can fold them and put them away.
 
-This process of chaining promises together is called *composition*. Promises are designed with composition in mind! Here’s a simple promise chain in code:
+This process of chaining promises together is called _composition_. Promises are designed with composition in mind! Here’s a simple promise chain in code:
 
 ```js
 firstPromiseFunction()
@@ -9620,12 +9626,12 @@ When done correctly, promise composition is a great way to handle situations whe
 
 For us to consider our house clean, we need our clothes to dry, our trash bins emptied, and the dishwasher to run. We need **all** of these tasks to complete but not in any particular order. Furthermore, since they’re all getting done asynchronously, they should really all be happening at the same time!
 
-To maximize efficiency we should use *concurrency*, multiple asynchronous operations happening together. With promises, we can do this with the function `Promise.all()`.
+To maximize efficiency we should use _concurrency_, multiple asynchronous operations happening together. With promises, we can do this with the function `Promise.all()`.
 
 `Promise.all()` accepts an array of promises as its argument and returns a single promise. That single promise will settle in one of two ways:
 
 If every promise in the argument array resolves, the single promise returned from `Promise.all()` will resolve with an array containing the resolve value from each promise in the argument array.
-If any promise from the argument array rejects, the single promise returned from `Promise.all()` will immediately reject with the reason that promise rejected. This behavior is sometimes referred to as *failing fast*.
+If any promise from the argument array rejects, the single promise returned from `Promise.all()` will immediately reject with the reason that promise rejected. This behavior is sometimes referred to as _failing fast_.
 
 Let’s look at a code example:
 
@@ -9670,7 +9676,7 @@ Introduction
 
 Often in web development, we need to handle asynchronous actions— actions we can wait on while moving on to other tasks. We make requests to networks, databases, or any number of similar operations. JavaScript is non-blocking: instead of stopping the execution of code while it waits, JavaScript uses an [event-loop](https://youtu.be/8aGhZQkoFbQ) which allows it to efficiently execute other tasks while it awaits the completion of these asynchronous actions.
 
-Originally, JavaScript used callback functions to handle asynchronous actions. The problem with callbacks is that they encourage complexly nested code which quickly becomes difficult to read, debug, and scale. With ES6, JavaScript integrated native [promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) which allow us to write significantly more readable code. JavaScript is continually improving, and [ES8](https://en.wikipedia.org/wiki/ECMAScript#8th_Edition_-_ECMAScript_2017) provides a new syntax for handling our asynchronous action, *`async...await`*. The `async...await` syntax allows us to write asynchronous code that reads similarly to traditional synchronous, imperative programs.
+Originally, JavaScript used callback functions to handle asynchronous actions. The problem with callbacks is that they encourage complexly nested code which quickly becomes difficult to read, debug, and scale. With ES6, JavaScript integrated native [promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) which allow us to write significantly more readable code. JavaScript is continually improving, and [ES8](https://en.wikipedia.org/wiki/ECMAScript#8th_Edition_-_ECMAScript_2017) provides a new syntax for handling our asynchronous action, _`async...await`_. The `async...await` syntax allows us to write asynchronous code that reads similarly to traditional synchronous, imperative programs.
 
 The `async...await` syntax is [syntactic sugar](https://en.wikipedia.org/wiki/Syntactic_sugar)— it doesn’t introduce new functionality into the language, but rather introduces a new syntax for using promises and [generators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator). Both of these were already built in to the language. Despite this, `async...await` powerfully improves the readability and scalability of our code.
 
@@ -9882,7 +9888,7 @@ In the `waiting()` function, we pause our function until the first promise resol
 
 In our `concurrent()` function, both promises are constructed without using `await`. We then `await` each of their resolutions to print them to the console.
 
-With our `concurrent()` function both promises’ asynchronous operations can be run simultaneously. If possible, we want to get started on each asynchronous operation as soon as possible! Within our `async` functions we should still take advantage of *concurrency*, the ability to perform asynchronous actions at the same time.
+With our `concurrent()` function both promises’ asynchronous operations can be run simultaneously. If possible, we want to get started on each asynchronous operation as soon as possible! Within our `async` functions we should still take advantage of _concurrency_, the ability to perform asynchronous actions at the same time.
 
 Note: if we have multiple truly independent promises that we would like to execute fully in parallel, we must use individual `.then()` functions and avoid halting our execution with `await`.
 
@@ -9927,9 +9933,9 @@ In our above example, we `await` the resolution of a `Promise.all()`. This `Prom
 
 Understand the basics of how your web browser communicates with the internet.
 
-##### Background: #####
+##### Background #####
 
-This page is generated by a web of HTML, CSS, and Javascript, sent to you by Codecademy via the internet. The internet is made up of a bunch of resources hosted on different servers. The term “resource” corresponds to any entity on the web, including HTML files, stylesheets, images, videos, and scripts. To access content on the internet, your browser must ask these servers for the resources it wants, and then display these resources to you. This protocol of requests and responses enables you view *this* page in your browser.
+This page is generated by a web of HTML, CSS, and Javascript, sent to you by Codecademy via the internet. The internet is made up of a bunch of resources hosted on different servers. The term “resource” corresponds to any entity on the web, including HTML files, stylesheets, images, videos, and scripts. To access content on the internet, your browser must ask these servers for the resources it wants, and then display these resources to you. This protocol of requests and responses enables you view _this_ page in your browser.
 
 This article focuses on one fundamental part of how the internet functions: HTTP.
 
@@ -9945,11 +9951,11 @@ When you type an address such as www.codecademy.com into your browser, you are c
 
 In this situation, your computer, which is making the request, is called the client. The URL you are requesting is the address that belongs to the server.
 
-Once the TCP connection is established, the client sends a HTTP *GET* request to the server to retrieve the webpage it should display. After the server has sent the response, it closes the TCP connection. If you open the website in your browser again, or if your browser automatically requests something from the server, a new connection is opened which follows the same process described above. GET requests are one kind of HTTP method a client can call. You can learn more about the other common ones (*POST, PUT and DELETE*) [in this article](https://www.codecademy.com/articles/what-is-rest).
+Once the TCP connection is established, the client sends a HTTP _GET_ request to the server to retrieve the webpage it should display. After the server has sent the response, it closes the TCP connection. If you open the website in your browser again, or if your browser automatically requests something from the server, a new connection is opened which follows the same process described above. GET requests are one kind of HTTP method a client can call. You can learn more about the other common ones (_POST, PUT and DELETE_) [in this article](https://www.codecademy.com/articles/what-is-rest).
 
 Let’s explore an example of how GET requests (the most common type of request) are used to help your computer (the client) access resources on the web.
 
-Suppose you want to check out the latest course offerings from http://codecademy.com. After you type the URL into your browser, your browser will extract the **`http`** part and recognize that it is the name of the network protocol to use. Then, it takes the domain name from the URL, in this case “codecademy.com”, and asks the internet Domain Name Server to return an Internet Protocol (IP) address.
+Suppose you want to check out the latest course offerings from <http://codecademy.com>. After you type the URL into your browser, your browser will extract the **`http`** part and recognize that it is the name of the network protocol to use. Then, it takes the domain name from the URL, in this case “codecademy.com”, and asks the internet Domain Name Server to return an Internet Protocol (IP) address.
 
 Now the client knows the destination’s IP address. It then opens a connection to the server at that address, using the **`http`** protocol as specified. It will initiate a GET request to the server which contains the IP address of the host and optionally a data payload. The GET request contains the following text:
 
@@ -9981,7 +9987,7 @@ HTTP/1.1 404 NOT FOUND
 
 In this case, the server identifies that it understands the HTTP protocol, but the **`404 NOT FOUND`** status code signifies that the specific piece of content requested was not found. This might happen if the content was moved or if you typed in the URL path incorrectly or if the page was removed. You can read more about the 404 status code, commonly called a 404 error, [here](https://www.codecademy.com/articles/http-errors-404).
 
-##### An Analogy: #####
+##### An Analogy #####
 
 It can be tricky to understand how HTTP functions because it’s difficult to examine what your browser is actually doing. (And perhaps also because we explained it using acronyms that may be new to you.) Let’s review what we learned by using an analogy that could be more familiar to you.
 
@@ -10004,9 +10010,10 @@ HTTPS is important to use when passing sensitive or personal information to and 
 #### 2. Introduction to Web APIs ####
 
 Learn what APIs are and how they’re useful tools for web development.
+
 ##### What are APIs? #####
 
-An *Application Programming Interface* (*API*) is a software tool that makes it easier for developers to interact with another application to use some of that application’s functionality. Like tools in the physical world, APIs are built to solve specific, repeated, and potentially complex problems.
+An _Application Programming Interface_ (_API_) is a software tool that makes it easier for developers to interact with another application to use some of that application’s functionality. Like tools in the physical world, APIs are built to solve specific, repeated, and potentially complex problems.
 
 Imagine we needed to twist a screw into a piece of wood. We could try to take the screw and twist it in with our fingers, but that would be difficult and inefficient. Twisting one screw would be hard enough — having to do it multiple times would be near impossible! Instead, we could make the task much easier by using a tool that someone else created, in this case, a screwdriver! When used properly, the screwdriver can be used for one specific type of screw and can be reused for the same job over and over again!
 
@@ -10016,9 +10023,9 @@ Relating this analogy back to APIs, we probably don’t want to have to write up
 
 There are two main categories of web APIs: browser APIs and 3rd party APIs.
 
-*Browser APIs* are specific to writing code related to browsers and give developers access to information that the browser can also access. One example is the [geolocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API) which allows the program to know where a user is when accessing our app. This specific API requires that the user grant permissions to the browser to access their geolocation information. There are also browser APIs for audio, cryptography, VR, and much more. To see a comprehensive list of browser APIs and how to interact with them, check out [MDN’s documentation of web APIs](https://developer.mozilla.org/en-US/docs/Web/API).
+_Browser APIs_ are specific to writing code related to browsers and give developers access to information that the browser can also access. One example is the [geolocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API) which allows the program to know where a user is when accessing our app. This specific API requires that the user grant permissions to the browser to access their geolocation information. There are also browser APIs for audio, cryptography, VR, and much more. To see a comprehensive list of browser APIs and how to interact with them, check out [MDN’s documentation of web APIs](https://developer.mozilla.org/en-US/docs/Web/API).
 
-*Third-party APIs* are apps that provide some type of functionality or information from a third-party, usually a company. For example, we could use the [OpenWeather API](https://openweathermap.org/) to get in-depth information about the weather in an area, forecasts, historical weather data, and more! On our own, we wouldn’t even have access to this data and we would certainly not want to write up this code ourselves just for one app!
+_Third-party APIs_ are apps that provide some type of functionality or information from a third-party, usually a company. For example, we could use the [OpenWeather API](https://openweathermap.org/) to get in-depth information about the weather in an area, forecasts, historical weather data, and more! On our own, we wouldn’t even have access to this data and we would certainly not want to write up this code ourselves just for one app!
 
 ##### Requesting Information from a Third-party API #####
 
@@ -10026,11 +10033,11 @@ Each API has a specific structure and protocol that we have to follow in order t
 
 ##### Rules and Requirements #####
 
-Organizations that maintain third-party APIs often set rules and requirements for how developers can interact with their APIs. For OpenWeather, we need to sign up for an account and generate a special token called an *API key* that grants our account the ability to make API requests. These API keys are unique to individual accounts and should be kept secret. OpenWeather provides some free functionality and some paid functionality. So before committing to a third-party API, check out their specifications which can often be found in the API documentation. Here’s OpenWeather’s documentation to look over as an example.
+Organizations that maintain third-party APIs often set rules and requirements for how developers can interact with their APIs. For OpenWeather, we need to sign up for an account and generate a special token called an _API key_ that grants our account the ability to make API requests. These API keys are unique to individual accounts and should be kept secret. OpenWeather provides some free functionality and some paid functionality. So before committing to a third-party API, check out their specifications which can often be found in the API documentation. Here’s OpenWeather’s documentation to look over as an example.
 
 ##### Making Requests #####
 
-Some of an API’s specifications relate to making a *request* for data. These specifications could include more parameters for specific information or the inclusion of an API key. For example, when using the OpenWeather API, we need to provide more information to search for weather information — such information could include: the name of a city, time of day, the type of forecast, etc. These specifications for making a request can also be found in the API documentation.
+Some of an API’s specifications relate to making a _request_ for data. These specifications could include more parameters for specific information or the inclusion of an API key. For example, when using the OpenWeather API, we need to provide more information to search for weather information — such information could include: the name of a city, time of day, the type of forecast, etc. These specifications for making a request can also be found in the API documentation.
 
 ##### Response Data #####
 
@@ -10045,7 +10052,7 @@ After we make a successful API request, the API sends back data. Many APIs forma
 }
 ```
 
-It’s then up to us how to determine how to *consume*, or use, this information in our apps. If we got back that sample JSON above, we could parse out the temperature information and display it on our app.
+It’s then up to us how to determine how to _consume_, or use, this information in our apps. If we got back that sample JSON above, we could parse out the temperature information and display it on our app.
 
 ##### Review: Response Data #####
 
@@ -10081,7 +10088,7 @@ By using a REST interface, different clients hit the same REST endpoints, perfor
 
 ##### Statelessness #####
 
-Systems that follow the REST paradigm are stateless, meaning that the server does not need to know anything about what state the client is in and vice versa. In this way, both the server and the client can understand any message received, even without seeing previous messages. This constraint of statelessness is enforced through the use of *resources*, rather than *commands*. Resources are the nouns of the Web - they describe any object, document, or *thing* that you may need to store or send to other services.
+Systems that follow the REST paradigm are stateless, meaning that the server does not need to know anything about what state the client is in and vice versa. In this way, both the server and the client can understand any message received, even without seeing previous messages. This constraint of statelessness is enforced through the use of _resources_, rather than _commands_. Resources are the nouns of the Web - they describe any object, document, or _thing_ that you may need to store or send to other services.
 
 Because REST systems interact through standard operations on resources, they do not rely on the implementation of interfaces.
 
@@ -10093,16 +10100,16 @@ Now, we’ll explore how the communication between the client and server actuall
 
 In the REST architecture, clients send requests to retrieve or modify resources, and servers send responses to these requests. Let’s take a look at the standard ways to make requests and send responses.
 
-##### Making Requests #####
+##### Making  Requests #####
 
 REST requires that a client make a request to the server in order to retrieve or modify data on the server. A request generally consists of:
 
 * an HTTP verb, which defines what kind of operation to perform
-* a *header*, which allows the client to pass along information about the request
+* a _header_, which allows the client to pass along information about the request
 * a path to a resource
 * an optional message body containing data
 
-##### HTTP Verbs #####
+#####  HTTP Verbs #####
 
 There are 4 basic HTTP verbs we use in requests to interact with resources in a REST system:
 
@@ -10123,7 +10130,7 @@ MIME Types, used to specify the content types in the **`Accept`** field, consist
 
 For example, a text file containing HTML would be specified with the type **`text/html`**. If this text file contained CSS instead, it would be specified as **`text/css`**. A generic text file would be denoted as **`text/plain`**. This default value, **`text/plain`**, is not a catch-all, however. If a client is expecting **`text/css`** and receives **`text/plain`**, it will not be able to recognize the content.
 
-##### Other types and commonly used subtypes: #####
+##### Other types and commonly used subtypes #####
 
 * **`image — image/png, image/jpeg, image/gif`**
 * **`audio — audio/wav, audio/mpeg`**
@@ -10177,15 +10184,15 @@ This would signify that the content requested is being returned in the response 
 
 Responses from the server contain status codes to alert the client to information about the success of the operation. As a developer, you do not need to know every status code (there are [many](http://www.restapitutorial.com/httpstatuscodes.html) of them), but you should know the most common ones and how they are used:
 
-|Status code      |	Meaning  |
+|Status code      | Meaning  |
 |-----------------|----------|
-|200 (OK)	        |  This is the standard response for successful HTTP requests.
-|201 (CREATED)	  | This is the standard response for an HTTP request that resulted in an item being successfully created.
-|204 (NO CONTENT) | 	This is the standard response for successful HTTP requests, where nothing is being returned in the response body.
-|400 (BAD REQUEST)| 	The request cannot be processed because of bad request syntax, excessive size, or another client error.
-|403 (FORBIDDEN)	| The client does not have permission to access this resource.
-|404 (NOT FOUND)  | 	The resource could not be found at this time. It is possible it was deleted, or does not exist yet.
-|500 (INTERNAL SERVER ERROR)	|The generic answer for an unexpected failure if there is no more specific information available.
+|200 (OK)         |  This is the standard response for successful HTTP requests.
+|201 (CREATED)   | This is the standard response for an HTTP request that resulted in an item being successfully created.
+|204 (NO CONTENT) |  This is the standard response for successful HTTP requests, where nothing is being returned in the response body.
+|400 (BAD REQUEST)|  The request cannot be processed because of bad request syntax, excessive size, or another client error.
+|403 (FORBIDDEN) | The client does not have permission to access this resource.
+|404 (NOT FOUND)  |  The resource could not be found at this time. It is possible it was deleted, or does not exist yet.
+|500 (INTERNAL SERVER ERROR) |The generic answer for an unexpected failure if there is no more specific information available.
 
 For each HTTP verb, there are expected status codes a server should return upon success:
 
@@ -10358,7 +10365,7 @@ Request- `DELETE /venues/:id/photos/:id` Response- 204 (NO CONTENT)
 
 A brief guide to understanding JSON and its use cases.
 
-##### Introduction #####
+##### Introduction: JSON #####
 
 In a world inundated with data, it is becoming more important to know how to work with a variety of data. As programmers, we need to be able to transfer our populated data structures from any language we choose to a format that is recognizable and readable by other languages and platforms. Fortunately for us, there exists such a data-exchange format.
 
@@ -10451,7 +10458,7 @@ This pretty much covers the basic description of JSON, its popularity, and its s
 
 A user guide on how to work with JSON in Javascript.
 
-##### Introduction #####
+##### Introduction: JSON in JS #####
 
 JSON, short for JavaScript Object Notation, is a language-independent data format that has been accepted as an industry standard. Because it is based on the JavaScript programming language, JSON’s syntax looks similar to a JavaScript object with [minor differences](https://www.codecademy.com/articles/what-is-json). We’ll take a look at the subtle difference between them. Later on, we’ll learn how to parse JSON and extract its content as JavaScript. Lastly, we’ll learn how to write a JSON object with JavaScript. So, let’s begin.
 
@@ -10486,7 +10493,7 @@ Notice a slight difference between the two formats.
 * The name portion in each JSON name-value pair and all string values must be enclosed in double-quotes while this is optional in JavaScript.
 * JavaScript accepts string values that are single or double-quoted, however, there exists JavaScript [coding guidelines](https://en.wikipedia.org/wiki/Programming_style) that prefer one style over another.
 
-#####  Reading a JSON String #####
+##### Reading a JSON String #####
 
 In a typical web application, the JSON data that we receive from a web request comes in the form of a string. At other times, JSON data is stored in a file that is used for authentication, configuration, or database storage. These files typically have a .json extension, and they have to be opened in order to retrieve the JSON string in it. In either case, we will need to convert the string to a format that we can use in order to access its parts. Each programming language has its own mechanism to handle this conversion. In JavaScript, for example, we have a built-in JSON class with a method called **`.parse()`** that takes a JSON string as a parameter and returns a JavaScript object.
 
@@ -10577,13 +10584,13 @@ Congratulations on reaching this milestone! With a little more practice, you wil
 
 #### 1. REQUESTS WITH FETCH API ####
 
-**Introduction to Requests with ES6**
+> Introduction to Requests with ES6
 
 Have you ever wondered what happens after you click a “Submit” button on a web page? For instance, if you are submitting information, where does the information go? How is the information processed? The answer to the previous questions revolves around [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
 
 There are many types of HTTP requests. The four most commonly used types of HTTP requests are GET, POST, PUT, and DELETE. In this lesson, we’ll cover GET and POST requests.
 
-With a GET request, we’re retrieving, or *getting*, information from some source (usually a website). For a POST request, we’re *posting* information to a source that will process the information and send it back.
+With a GET request, we’re retrieving, or _getting_, information from some source (usually a website). For a POST request, we’re _posting_ information to a source that will process the information and send it back.
 
 JavaScript uses an [event loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop) to handle asynchronous function calls. When a program is run, function calls are made and added to a stack. The functions that make requests that need to wait for servers to respond then get sent to a separate queue. Once the stack has cleared, then the functions in the queue are executed.
 
@@ -10775,13 +10782,13 @@ After this unit, you will be able to:
 
 A web application is an application software that does not require installation and can instead be accessed from a remote server via web browser. Web applications are made for interaction, allowing users to send and consume data between the browser and the web server. This interaction can be as simple as logging in to an account, or as complex as making a payment with your credit card.
 
-#### What is the Difference Between a Website and a Web Application? ####
+####  What is the Difference Between a Website and a Web Application?  ####
 
 While the terms website and web application are often used interchangeably, they can denote somewhat different things. Most commonly, a website is defined as a set of information-carrying pages that are inter-related and accessed through a web browser. A web application, on the other hand, is an application software that runs on a web server and is accessed by the user through a web browser.
 
 If a website could be said to be defined by its content, then a web application would be defined by its interaction with the user. As such, web applications are significantly more complicated than static websites, both in general architecture and features.
 
-#### Web Application Architecture ####
+####  Web Application Architecture ####
 
 In order to facilitate this complex flow of data, web applications are usually designed with different layers. The most common design paradigm is a three-layered design consisting of a presentation layer (web browser), application layer (server), and storage layer (database). In this system, the presentation layer is responsible for relaying user data to the application layer, which can process that data and do any number of things, including passing it to the storage layer for “safe-keeping.”
 
@@ -10805,7 +10812,6 @@ Imagine if there was a restaurant where you can only eat one part of your meal a
 
 In the following video, a user is navigating around Wikipedia. On the right, you may recognize the Elements tab of Chrome DevTools displaying an HTML file associated with the page in the browser.
 
-
 Every time a link is clicked a new page is displayed in DevTools, which means a request to the server was made and a new set of files was sent to be rendered in the browser. This is just like our burger, fries, and salad from our favorite restaurant. In terms of a web application where interactivity is key, these file requests can mean a slow user experience. That’s where the Single-Page Application comes in.
 
 #### Single-Page Applications ####
@@ -10815,7 +10821,6 @@ Wikipedia defines a single-page application (SPA) as “a web application that i
 If our favorite restaurant converts to the single-page approach, when we order our meal the server brings the fully prepared burger, fries, and a salad at once. We now have access to devour what we want without the server going to and from the kitchen. At times we may want ketchup for the fries, or some dressing for the salad, but those are delivered quickly and come from the kitchen already prepared. Just like a single-page application, you are given almost everything you need upfront but can still request smaller items to help with each item of the meal.
 
 Now we have a video of user interactions on the React home page, which is built as a single-page application. When looking at the Elements panel this time, each interaction changes only parts of the HTML file.
-
 
 The file stays constant while logic from the client-side JavaScript changes only what is needed to update the view. Requests for data are retrieved a lot quicker than files that need to be processed on a server and then rendered in the browser. SPAs focus on speed when it comes to user interaction and browser rendering times.
 
@@ -10845,7 +10850,7 @@ So, should your next project be a single-page application? Maybe. Maybe not. Lik
 * Search Engine Optimization (SEO) has some pitfalls when it comes to SPAs. Search engines, like Google or DuckDuckGo, index pages of a website to rank the content. This can be difficult with only one page that may not have content until it is loaded by JavaScript. SEO is an ever-changing world so strategies already exist to mitigate these downsides.
 * SPAs may not function as expected within the browser. For example, the back button or browsing history can act differently while using a single-page application. This can be frustrating for users who are expecting certain functionality within their browsers.
 
-#### Conclusion ####
+#### Conclusion: SPA ####
 
 Single-page applications provide a better user experience while running within a web browser. They are the right choice for applications that need to provide real-time or complex interaction with their users. Creating a SPA involves more than just a handful of HTML, CSS, and JavaScript files, but their complexity continues to be minimized by frameworks such as React and Vue.js. Even if your next application is not a SPA, knowing how to implement them is a must-have skill for a front-end developer.
 
@@ -10954,18 +10959,18 @@ const printCarInfo = ({model, maker, city}) => {
 printCarInfo(truck);
 // Prints: The 1977 Mustang convertible, or Ford, is in the city Detroit.
 ```
- 
+
 The `printCarInfo` function uses object destructuring to create three parameter variables: `model`, `maker`, and `city`. When the function is invoked with the `truck` object, these parameters are assigned the corresponding values from that object.
 
 Note that we don’t have to use every property from the truck object: we only create parameter variables for the values that we need.
 
-#### Conclusion ####
+#### Conclusion: Destructuring with JS ####
 
 Destructuring is a way to unpack values from arrays and objects and assign them to variables or parameters. There are even more cool things you can do with destructuring: renaming variables, assigning default values, ignoring values, etc. We encourage you to check out the [MDN documentation and experiment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment). Happy Coding!
 
 ### React: The Virtual DOM ###
 
-**Fighting Wasteful DOM Manipulation**
+> Fighting Wasteful DOM Manipulation
 
 #### The Problem ####
 
@@ -11050,7 +11055,7 @@ What kind of weird hybrid code is that? Is it JavaScript? HTML? Or something els
 
 It seems like it must be JavaScript, since it starts with `const` and ends with `;`. If you tried to run that in an HTML file, it wouldn’t work.
 
-However, the code also contains `<h1>Hello world</h1>`, which looks exactly like HTML. *That* part wouldn’t work if you tried to run it in a JavaScript file.
+However, the code also contains `<h1>Hello world</h1>`, which looks exactly like HTML. _That_ part wouldn’t work if you tried to run it in a JavaScript file.
 
 #### 3. The Mystery, Revealed ####
 
@@ -11062,17 +11067,17 @@ Does this code belong in a JavaScript file, an HTML file, or somewhere else?
 
 The answer is…a JavaScript file! Despite what it looks like, your code doesn’t actually contain any HTML at all.
 
-The part that looks like HTML, `<h1>Hello world</h1>`, is something called *JSX*.
+The part that looks like HTML, `<h1>Hello world</h1>`, is something called _JSX_.
 
 #### 4. What is JSX? ####
 
-*JSX* is a syntax extension for JavaScript. It was written to be used with React. JSX code looks a lot like HTML.
+_JSX_ is a syntax extension for JavaScript. It was written to be used with React. JSX code looks a lot like HTML.
 
 What does “syntax extension” mean?
 
 In this case, it means that JSX is not valid JavaScript. Web browsers can’t read it!
 
-If a JavaScript file contains JSX code, then that file will have to be *compiled*. That means that before the file reaches a web browser, a *JSX compiler* will translate any JSX into regular JavaScript.
+If a JavaScript file contains JSX code, then that file will have to be _compiled_. That means that before the file reaches a web browser, a _JSX compiler_ will translate any JSX into regular JavaScript.
 
 Codecademy’s servers already have a JSX compiler installed, so you don’t have to worry about that for now. Eventually we’ll walk through how to set up a JSX compiler on your personal computer.
 
@@ -11114,15 +11119,15 @@ const myTeam = {
 
 #### 7. Attributes In JSX ####
 
-JSX elements can have *attributes*, just like HTML elements can.
+JSX elements can have _attributes_, just like HTML elements can.
 
-A JSX attribute is written using HTML-like syntax: a *name*, followed by an equals sign, followed by a *value*. The value should be wrapped in quotes, like this:
+A JSX attribute is written using HTML-like syntax: a _name_, followed by an equals sign, followed by a _value_. The value should be wrapped in quotes, like this:
 
 ```js
 my-attribute-name="my-attribute-value"
 ```
 
-Here are some JSX elements with *attributes*:
+Here are some JSX elements with _attributes_:
 
 ```js
 <a href='http://www.example.com'>Welcome to the Web</a>;
@@ -11134,9 +11139,9 @@ A single JSX element can have many attributes, just like in HTML:
 
 #### 8. Nested JSX ####
 
-You can *nest* JSX elements inside of other JSX elements, just like in HTML.
+You can _nest_ JSX elements inside of other JSX elements, just like in HTML.
 
-Here’s an example of a JSX `<h1>` element, *nested* inside of a JSX `<a>` element:
+Here’s an example of a JSX `<h1>` element, _nested_ inside of a JSX `<a>` element:
 
 ```js
 <a href="https://www.example.com"><h1>Click me!</h1></a>
@@ -11164,7 +11169,7 @@ If a JSX expression takes up more than one line, then you must wrap the multi-li
 )
 ```
 
-*Nested* JSX expressions can be saved as variables, passed to functions, etc., just like non-nested JSX expressions can! Here’s an example of a *nested* JSX expression being saved as a variable:
+_Nested_ JSX expressions can be saved as variables, passed to functions, etc., just like non-nested JSX expressions can! Here’s an example of a _nested_ JSX expression being saved as a variable:
 
 ```js
  const theExample = (
@@ -11200,7 +11205,7 @@ const paragraphs = (
 );
 ```
 
-The *first opening tag* and the *final closing tag* of a JSX expression must belong to the same JSX element!
+The _first opening tag_ and the _final closing tag_ of a JSX expression must belong to the same JSX element!
 
 It’s easy to forget about this rule, and end up with errors that are tough to diagnose.
 
@@ -11246,7 +11251,7 @@ The first argument is appended to whatever element is selected by the second arg
 
 In the code editor, select **index.html**. See if you can find an element that would be selected by `document.getElementById('app')`.
 
-That element acted as a *container* for `ReactDOM.render()`‘s first argument! At the end of the previous exercise, this appeared on the screen:
+That element acted as a _container_ for `ReactDOM.render()`‘s first argument! At the end of the previous exercise, this appeared on the screen:
 
 ```js
 <main id="app">
@@ -11256,7 +11261,7 @@ That element acted as a *container* for `ReactDOM.render()`‘s first argument! 
 
 #### 12. Passing a Variable to ReactDOM.render() ####
 
-`ReactDOM.render()`‘s first argument should *evaluate* to a JSX expression, it doesn’t have to literally be a JSX expression.
+`ReactDOM.render()`‘s first argument should _evaluate_ to a JSX expression, it doesn’t have to literally be a JSX expression.
 
 The first argument could also be a variable, so long as that variable evaluates to a JSX expression.
 
@@ -11278,7 +11283,7 @@ ReactDOM.render(
 
 #### 13. The Virtual DOM ####
 
-One special thing about `ReactDOM.render()` is that it *only updates DOM elements that have changed*.
+One special thing about `ReactDOM.render()` is that it _only updates DOM elements that have changed_.
 
 That means that if you render the exact same thing twice in a row, the second render will do nothing:
 
@@ -11296,7 +11301,7 @@ ReactDOM.render(hello, document.getElementById('app'));
 
 This is significant! Only updating the necessary DOM elements is a large part of what makes React so successful.
 
-React accomplishes this thanks to something called the *virtual DOM*. Before moving on to the end of the lesson, read this [article about the Virtual DOM](https://www.codecademy.com/articles/react-virtual-dom).
+React accomplishes this thanks to something called the _virtual DOM_. Before moving on to the end of the lesson, read this [article about the Virtual DOM](https://www.codecademy.com/articles/react-virtual-dom).
 
 ### ADVANCED JSX ###
 
@@ -11337,15 +11342,15 @@ In JSX, you can’t use the word `class`! You have to use `className` instead:
 
 This is because JSX gets translated into JavaScript, and `class` is a reserved word in JavaScript.
 
-When JSX is *rendered*, JSX className attributes are automatically rendered as `class` attributes.
+When JSX is _rendered_, JSX className attributes are automatically rendered as `class` attributes.
 
 #### 2. Self-Closing Tags ####
 
-Another JSX ‘gotcha’ involves *self-closing tags*.
+Another JSX ‘gotcha’ involves _self-closing tags_.
 
 What’s a self-closing tag?
 
-Most HTML elements use two tags: *an opening tag* (`<div>`), and *a closing tag* (`</div>`). However, some HTML elements such as `<img>` and `<input>` use only one tag. The tag that belongs to a single-tag element isn’t an opening tag nor a closing tag; it’s a *self-closing tag*.
+Most HTML elements use two tags: _an opening tag_ (`<div>`), and _a closing tag_ (`</div>`). However, some HTML elements such as `<img>` and `<input>` use only one tag. The tag that belongs to a single-tag element isn’t an opening tag nor a closing tag; it’s a _self-closing tag_.
 
 When you write a self-closing tag in HTML, it is optional to include a forward-slash immediately before the final angle-bracket:
 
@@ -11365,7 +11370,7 @@ In JSX, you have to include the slash. If you write a self-closing tag in JSX an
 
 Fine in JSX:
 
-```js 
+```js
   <br />
 
 NOT FINE AT ALL in JSX:
@@ -11389,7 +11394,7 @@ Any code in between the tags of a JSX element will be read as JSX, not as regula
 
 You need a way to write code that says, “Even though I am located in between JSX tags, treat me like ordinary JavaScript and not like JSX.”
 
-You can do this by wrapping your code in *curly braces*.
+You can do this by wrapping your code in _curly braces_.
 
 #### 5. 20 Digits of Pi in JSX ####
 
@@ -11402,7 +11407,7 @@ Study the expression and notice the following:
 * The code is written in a JavaScript file. By default, it will all be treated as regular JavaScript.
 * Find `<div>` on line 5. From there up through `</div>`, the code will be treated as JSX.
 * Find `Math`. From there up through `(20)`, the code will be treated as regular JavaScript again.
-* The curly braces themselves won’t be treated as JSX nor as JavaScript. They are *markers* that signal the beginning and end of a JavaScript injection into JSX, similar to the quotation marks that signal the boundaries of a string.
+* The curly braces themselves won’t be treated as JSX nor as JavaScript. They are _markers_ that signal the beginning and end of a JavaScript injection into JSX, similar to the quotation marks that signal the boundaries of a string.
 
 #### 6. Variables in JSX ####
 
@@ -11439,7 +11444,7 @@ const panda = (
 );
 ```
 
-Notice how in this example, the <img />‘s attributes each get their own line. This can make your code more readable if you have a lot of attributes on one element.
+Notice how in this example, the `<img />`‘s attributes each get their own line. This can make your code more readable if you have a lot of attributes on one element.
 
 Object properties are also often used to set attributes:
 
@@ -11481,7 +11486,7 @@ You create an event listener by giving a JSX element a special attribute. Here�
 
 An event listener attribute’s name should be something like `onClick` or `onMouseOver`: the word on, plus the type of event that you’re listening for.
 
-An event listener attribute’s *value* should be a function. The above example would only work if `myFunc` were a valid function that had been defined elsewhere:
+An event listener attribute’s _value_ should be a function. The above example would only work if `myFunc` were a valid function that had been defined elsewhere:
 
 ```js
 function myFunc() {
@@ -11627,7 +11632,7 @@ When you make a list in JSX, sometimes your list will need to include something 
 </ul>
 ```
 
-A `key` is a JSX attribute. The attribute’s *name* is key. The attribute’s *value* should be something unique, similar to an `id` attribute.
+A `key` is a JSX attribute. The attribute’s _name_ is key. The attribute’s _value_ should be something unique, similar to an `id` attribute.
 
 `keys` don’t do anything that you can see! React uses them internally to keep track of lists. If you don’t use `keys` when you’re supposed to, React might accidentally scramble your list-items into the wrong order.
 
@@ -11692,7 +11697,7 @@ You are now ready to put your JSX knowledge to use! It’s time to move on to th
 
 ##### 1. Hello World, Part II... THE COMPONENT #####
 
-React applications are made out of *components*.
+React applications are made out of _components_.
 
 What’s a component?
 
@@ -11736,7 +11741,7 @@ This creates an object named React which contains methods necessary to use the R
 
 Later, we’ll go over where the React library is imported from, and how the importing process works. For now, just know that this is how we import the React library.
 
-You’ve already seen one of the methods contained in the React library: `React.createElement()`. Recall that when a JSX element is *compiled*, it transforms into a `React.createElement()` call.
+You’ve already seen one of the methods contained in the React library: `React.createElement()`. Recall that when a JSX element is _compiled_, it transforms into a `React.createElement()` call.
 
 For this reason, you have to import the React library, and save it in a variable named React, before you can use any JSX at all. `React.createElement()` must be available in order for JSX to work.
 
@@ -11762,11 +11767,11 @@ To clarify: the DOM is used in React applications, but it isn’t part of React.
 
 ##### 4. Create a Component Class #####
 
-You’ve learned that a *React component* is a small, reusable chunk of code that is responsible for one job, which often involves rendering HTML.
+You’ve learned that a _React component_ is a small, reusable chunk of code that is responsible for one job, which often involves rendering HTML.
 
-Here’s another fact about components: we can use a JavaScript class to define a new React component. We can also define components with JavaScript functions, but we’ll focus on class *components* first.
+Here’s another fact about components: we can use a JavaScript class to define a new React component. We can also define components with JavaScript functions, but we’ll focus on class _components_ first.
 
-All class components will have some methods and properties in common (more on this later). Rather than rewriting those same properties over and over again every time, we extend the *Component* class from the React library. This way, we can use code that we import from the React library, without having to write it over and over again ourselves.
+All class components will have some methods and properties in common (more on this later). Rather than rewriting those same properties over and over again every time, we extend the _Component_ class from the React library. This way, we can use code that we import from the React library, without having to write it over and over again ourselves.
 
 After we define our class component, we can use it to render as many instances of that component as we want.
 
@@ -11842,7 +11847,6 @@ Here’s what your class body would look like on its own, without the rest of th
 
 That doesn’t look like a set of instructions explaining how to build a React component! Yet that’s exactly what it is.
 
-
 ##### 7. The Render Function #####
 
 A component class is like a factory that builds components. It builds these components by consulting a set of instructions, which you must provide. Let’s talk about these instructions!
@@ -11881,7 +11885,7 @@ Of course, none of this explains the point of a render method. All you know so f
 
 ##### 8. Create a Component Instance #####
 
-`MyComponentClass` is now a working *component class*! It’s ready to follow its instructions and make some React components.
+`MyComponentClass` is now a working _component class_! It’s ready to follow its instructions and make some React components.
 
 So, let’s make a React component! It only takes one more line:
 
@@ -11942,7 +11946,7 @@ ReactDOM.render(
 6. Use an Event Listener in a Component
 7. Components Recap
 
-##### 1. Use Multiline JSX in a Component
+##### 1. Use Multiline JSX in a Component #####
 
 In this lesson, you will learn some common ways that JSX and React components work together. You’ll get more comfortable with both JSX and components, while picking up some new tricks.
 
@@ -12030,7 +12034,7 @@ In the above example, the line with the `const n` declaration will cause a `synt
 
 ##### 4. Use a Conditional in a Render Function #####
 
-How might you use a *conditional statement* inside of a `render()` function?
+How might you use a _conditional statement_ inside of a `render()` function?
 
 Select `TodaysPlan.js` to see one way of doing it.
 
@@ -12097,7 +12101,7 @@ render() {
 
 Recall that an event handler is a function that gets called in response to an event. In the above example, the event handler is `myFunc()`.
 
-In React, you define event handlers as *methods* on a component class. Like this:
+In React, you define event handlers as _methods_ on a component class. Like this:
 
 ```js
 class MyClass extends React.Component {
@@ -12114,7 +12118,7 @@ class MyClass extends React.Component {
 }
 ```
 
-Notice that the component class has two methods: `.myFunc()` and `.render()`. `.myFunc()` is being used as an *event handler*. `.myFunc()` will be called any time that a user hovers over the rendered `<div></div>`.
+Notice that the component class has two methods: `.myFunc()` and `.render()`. `.myFunc()` is being used as an _event handler_. `.myFunc()` will be called any time that a user hovers over the rendered `<div></div>`.
 
 ##### 7. Components Recap #####
 
@@ -12130,11 +12134,11 @@ You have spent a lot of time studying React components in isolation! Now, it’s
 
 Use create-react-app to bootstrap a React application on your own computer
 
-##### Introduction #####
+##### Introduction: React #####
 
-React is a user interfac0e framework developed by Facebook. It has a quickly growing developer adoption rate and was ranked as the most loved web framework in the [2019 Stack Overflow developer survey](https://insights.stackoverflow.com/survey/2019#most-loved-dreaded-and-wanted). This article will walk you through setting up your first React app and assumes you are familiar with text editors and command line navigation.
+React is a user interface framework developed by Facebook. It has a quickly growing developer adoption rate and was ranked as the most loved web framework in the [2019 Stack Overflow developer survey](https://insights.stackoverflow.com/survey/2019#most-loved-dreaded-and-wanted). This article will walk you through setting up your first React app and assumes you are familiar with text editors and command line navigation.
 
-##### 1. Setting Up the Boilerplate Application ##### 
+##### 1. Setting Up the Boilerplate Application #####
 
 It is possible to manually create a React app, but Facebook has created a Node package [create-react-app](https://create-react-app.dev/) to generate a boilerplate version of a React application.
 
@@ -12204,13 +12208,13 @@ create-react-app has taken care of setting up the main structure of the applicat
 
 Don’t worry if you don’t understand too much about webpack for now. One of the benefits of using create-react-app to set up our React application is that we’re able to bypass any sort of manual configuration for webpack. If you’re interested in delving deeper into it on your own, you can find a [high-level overview of webpack’s core concepts here](https://webpack.js.org/concepts/).
 
-**.gitignore**
+> .gitignore
 
 This is the standard file used by the source control tool git to determine which files and directories to ignore when committing code. While this file exists, create-react-app did not create a git repo within this folder. If you take a look at the file, it has taken care of ignoring a number of items (even .DS_Store for Mac users):
 
 ![createReactAppGitIgnore](https://content.codecademy.com/programs/react/creating-a-react-app/react_gitignore.png)
 
-**package.json**
+> package.json
 
 ![package_json](https://content.codecademy.com/courses/React/react_setup-037-package-json.png)
 
@@ -12223,23 +12227,23 @@ This file outlines all the settings for the React app.
 * **`scripts`** specifies aliases that you can use to access some of the react-scripts commands in a more efficient manner. For example, running `npm test` in your command line will run `react-scripts test --env=jsdom` behind the scenes.
 * You will also see two more attributes, `eslintConfig` and `browserslist`. Both of these are Node modules having their own set of values. `browserslist` provides information about browser compatibility of the app, while `eslintConfig` takes care of the [code linting](https://stackoverflow.com/questions/8503559/what-is-linting).
 
-**node_modules**
+> node_modules
 
 This directory contains dependencies and sub-dependencies of packages used by the current React app, as specified by package.json. If you take a look, you may be surprised by how many there are.
 
 Running `ls -1 | wc -l` within the **node_modules/** directory will yield more than 800 subfolders. This folder is automatically added to the .gitignore for good reason! Don’t worry, even with all these dependencies, the basic app will only be around 50 KB after being [minified](https://techterms.com/definition/minification) and compressed for production.
 
-**package-lock.json**
+> package-lock.json
 
 This file contains the exact dependency tree installed in node_modules/. This provides a way for teams working on private apps to ensure that they have the same version of dependencies and sub-dependencies. It also contains a history of changes to package.json, so you can quickly look back at dependency changes.
 
-**public**
+> public
 
 This directory contains assets that will be served directly without additional processing by webpack. index.html provides the entry point for the web app. You will also see a favicon (header icon) and a manifest.json.
 
 The manifest file configures how your web app will behave if it is added to an Android user’s home screen (Android users can “shortcut” web apps and load them directly from the Android UI). You can read more about it [here](https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/).
 
-**src**
+> src
 
 This contains the JavaScript that will be processed by webpack and is the heart of the React app. Browsing this folder, you see the main App JavaScript component (App.js), its associated styles (App.css), and test suite (App.test.js). index.js and its styles (index.css) provide an entry into the App and also kick off the registerServiceWorker.js. This service worker takes care of caching and updating files for the end-user. It allows for offline capability and faster page loads after the initial visit. More of this methodology is available here.
 
@@ -12310,15 +12314,15 @@ After this unit, you will be able to:
 
 ##### COMPONENTS RENDER OTHER COMPONENTS #####
 
-**Components Interact**
+> Components Interact
 
 A React application can contain dozens, or even hundreds, of components.
 
 Each component might be small and relatively unremarkable on its own. When combined, however, they can form enormous, fantastically complex ecosystems of information.
 
-In other words, React apps are made out of components, but what makes React special isn’t components themselves. What makes React special is the ways in which components *interact*.
+In other words, React apps are made out of components, but what makes React special isn’t components themselves. What makes React special is the ways in which components _interact_.
 
-This unit is an introduction to components *interacting*.
+This unit is an introduction to components _interacting_.
 
 1. A Component in a Render Function
 2. Apply a Component in a Render Function
@@ -12342,7 +12346,7 @@ class Example extends React.Component {
 
 You’ve seen render methods return `<div></div>`s, `<p></p>`s, and `<h1></h1>`s, just like in the above example.
 
-Render methods can also return another kind of JSX: *component instances*.
+Render methods can also return another kind of JSX: _component instances_.
 
 ```js
 class OMG extends React.Component {
@@ -12414,7 +12418,7 @@ When you `import` a variable from a file that is not the current file, then an `
 
 There are a few different ways to use `export`. In this course, we will be using a style called “named exports.” Here’s how named exports works:
 
-In one file, place the keyword `export` immediately before something that you want to *export*. That something can be any top-level `var`, `let`, `const`, `function`, or `class`:
+In one file, place the keyword `export` immediately before something that you want to _export_. That something can be any top-level `var`, `let`, `const`, `function`, or `class`:
 
 ```js
 // Manifestos.js:
@@ -12502,7 +12506,7 @@ Most of the information in `this.props` is pretty useless! But some of it is ext
 
 You can pass information to a React component.
 
-How? By giving that component an *attribute*:
+How? By giving that component an _attribute_:
 
 ```js
 <MyComponent foo="bar" />
@@ -12671,15 +12675,15 @@ Every component’s props object has a property named children.
 
 this.props.children will return everything in between a component’s opening and closing JSX tags.
 
-So far, all of the components that you’ve seen have been self-closing tags, such as <MyComponentClass />. They don’t have to be! You could write <MyComponentClass></MyComponentClass>, and it would still work.
+So far, all of the components that you’ve seen have been self-closing tags, such as `<MyComponentClass />`. They don’t have to be! You could write `<MyComponentClass></MyComponentClass>`, and it would still work.
 
-this.props.children would return everything in between <MyComponentClass> and </MyComponentClass>.
+this.props.children would return everything in between `<MyComponentClass>` and </MyComponentClass>.
 
-Look at BigButton.js. In Example 1, <BigButton>‘s this.props.children would equal the text, “I am a child of BigButton.”
+Look at BigButton.js. In Example 1, `<BigButton>`‘s `this.props.children` would equal the text, “I am a child of BigButton.”
 
-In Example 2, <BigButton>‘s this.props.children would equal a <LilButton /> component.
+In Example 2, `<BigButton>`‘s this.props.children would equal a `<LilButton />` component.
 
-In Example 3, <BigButton>‘s this.props.children would equal undefined.
+In Example 3, `<BigButton>`‘s this.props.children would equal undefined.
 
 If a component has more than one child between its JSX tags, then this.props.children will return those children in an array. However, if a component has only one child, then this.props.children will return the single child, not wrapped in an array.
 
@@ -12756,7 +12760,7 @@ Here are some of the skills that you have learned:
 
 [Dynamic information](http://www.teach-ict.com/as_a2_ict_new/ocr/AS_G061/311_data_info_knowledge/static_dynamic_data/miniweb/pg4.htm) is information that can change.
 
-React components will often need *dynamic information* in order to render. For example, imagine a component that displays the score of a basketball game. The score of the game might change over time, meaning that the score is dynamic. Our component will have to know the score, a piece of dynamic information, in order to render in a useful way.
+React components will often need _dynamic information_ in order to render. For example, imagine a component that displays the score of a basketball game. The score of the game might change over time, meaning that the score is dynamic. Our component will have to know the score, a piece of dynamic information, in order to render in a useful way.
 
 There are two ways for a component to get dynamic information: `props` and `state`. Besides `props` and `state`, every value used in a component should always stay exactly the same.
 
@@ -12768,7 +12772,7 @@ A React component can access dynamic information in two ways: `props` and `state
 
 Unlike props, a component’s state is not passed in from the outside. A component decides its own state.
 
-To make a component have `state`, give the component a *`state`* property. This property should be declared inside of a `constructor` method, like this:
+To make a component have `state`, give the component a _`state`_ property. This property should be declared inside of a `constructor` method, like this:
 
 ```js
 class Example extends React.Component {
@@ -12848,7 +12852,7 @@ Now, let’s say that `<Example />` were to call:
 this.setState({ hungry: true });
 ```
 
-After that call, here is what <Example />‘s state would be:
+After that call, here is what `<Example />`‘s state would be:
 
 ```js
 {
@@ -12880,6 +12884,7 @@ class Example extends React.Component {
   }
 }
 ```
+
 Notice how the method `makeSomeFog()` contains a call to `this.setState()`.
 
 You may have noticed a weird line in there:
@@ -12970,7 +12975,7 @@ that changes a virtual DOM object’s color to the new `this.state.color`, event
 
 If you call `.changeColor()`, shouldn’t you then also have to call `.render()` again? `.changeColor()` only makes it so that, the next time that you render, the color will be different. Why can you see the new background right away, if you haven’t re-rendered the component?
 
-*Here’s why: Any time that you call this.setState(), this.setState() AUTOMATICALLY calls .render() as soon as the state has changed.*
+_Here’s why: Any time that you call this.setState(), this.setState() AUTOMATICALLY calls .render() as soon as the state has changed._
 
 Think of `this.setState()` as actually being two things: `this.setState()`, immediately followed by `.render()`.
 
@@ -13082,7 +13087,7 @@ If that’s a bit confusing, don’t worry! The next two lessons will be example
 
 How does a stateless, child component update the state of the parent component? Here’s how that works:
 
-*1*
+> 1
 
 The parent component class defines a method that calls `this.setState()`.
 
@@ -13113,13 +13118,13 @@ class ParentClass extends React.Component {
 }
 ```
 
-*2*
+> 2
 
 The parent component binds the newly-defined method to the current instance of the component in its constructor. This ensures that when we pass the method to the child component, it will still update the parent component.
 
 For an example, look in **Step2.js** at the end of the `constructor()` method.
 
-*3*
+> 3
 
 Once the parent has defined a method that updates its state and bound to it, the parent then passes that method down to a child.
 
@@ -13160,7 +13165,7 @@ class ParentClass extends React.Component {
 }
 ```
 
-*4*
+> 4
 
 The child receives the passed-down function, and uses it as an event handler.
 
@@ -13391,9 +13396,9 @@ We’ve seen that React components can be highly dynamic. They get created, rend
 
 The component lifecycle has three high-level parts:
 
-* *Mounting*, when the component is being initialized and put into the DOM for the first time
-* *Updating*, when the component updates as a result of changed state or changed props
-* *Unmounting*, when the component is being removed from the DOM
+* _Mounting_, when the component is being initialized and put into the DOM for the first time
+* _Updating_, when the component updates as a result of changed state or changed props
+* _Unmounting_, when the component is being removed from the DOM
 Every React component you’ve ever interacted with does the first step at a minimum. If a component never mounted, you’d never see it!
 
 ![(>)](https://content.codecademy.com/courses/React/react_diagram-lifecycle-flow.png)
@@ -13499,9 +13504,9 @@ In our case, we’ll use it to clean up the clock’s interval.
 
 Remember the three parts of a component’s lifecycle:
 
-* *Mounting*, when the component is being initialized and put into the DOM for the first time
-* *Updating*, when the component updates as a result of changed state or changed props
-* *Unmounting*, when the component is being removed from the DOM
+* _Mounting_, when the component is being initialized and put into the DOM for the first time
+* _Updating_, when the component updates as a result of changed state or changed props
+* _Unmounting_, when the component is being removed from the DOM
 We’ve looked at mounting (`constructor()`, `render()`, and `componentDidMount()`). We’ve looked at unmounting (`componentWillUnmount()`). Let’s finish by looking at the updating phase.
 
 An update is caused by changes to props or state. You’ve already seen this happen a bunch of times. Every time you’ve called `setState()` with new data, you’ve triggered an update. Every time you change the props passed to a component, you’ve caused it to update.
@@ -13516,9 +13521,9 @@ The second, which we haven’t seen yet, is `componentDidUpdate()`. Just like `c
 
 We’ve come to the end of the lesson. We’ve learned about the three major phases of a component’s lifecycle:
 
-* *Mounting*, when the component is being initialized and put into the DOM for the first time. We saw that the `constructor`, `render()`, and `componentDidMount()` are called during this phase.
-* *Updating*, when the component updates as a result of changed state or changed props. We saw that `render()` and `componentDidUpdate()` are called during this phase.
-* *Unmounting*, when the component is being removed from the DOM. We saw that `componentWillUnmount()` was called here, which was a good time to clean things up.
+* _Mounting_, when the component is being initialized and put into the DOM for the first time. We saw that the `constructor`, `render()`, and `componentDidMount()` are called during this phase.
+* _Updating_, when the component updates as a result of changed state or changed props. We saw that `render()` and `componentDidUpdate()` are called during this phase.
+* _Unmounting_, when the component is being removed from the DOM. We saw that `componentWillUnmount()` was called here, which was a good time to clean things up.
 
 We also learned about setting up side-effects and tearing them down. We now know how to make more robust, complex components!
 
