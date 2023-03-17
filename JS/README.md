@@ -13530,3 +13530,5 @@ We also learned about setting up side-effects and tearing them down. We now know
 To your right is a reference that you can use. It shows the three phases of a component’s lifecycle and which methods are called at each phase. You can also refer to [this interactive diagram](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/).
 
 For more, you can read React’s official documentation. See “[State and Lifecycle](https://reactjs.org/docs/state-and-lifecycle.html” and the [docs for `React.Component`](https://reactjs.org/docs/react-component.html).
+
+#### Function Components and Hooks ####
