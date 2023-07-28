@@ -123,7 +123,7 @@
 <img src="image-location.jpg" />
 ```
 
-* The `<img>` tag has a required attribute called src. The src attribute must be set to the image’s source, or the location of the image.
+* The `<img>` tag has a required attribute called `src`. The src attribute must be set to the image’s source, or the location of the image.
 * The value of src must be the uniform resource locator (URL) of the image. A URL is the web address or local address where a file is stored.
 
 ### Image Alts ###
@@ -299,7 +299,7 @@ Let’s review what you’ve learned this lesson:
 
 * To add titles to rows and columns, you can use the table heading element: `<th>`.
 * The table heading element is used just like a table data element, except with a relevant title. Just like table data, a table heading must be placed within a table row.
-* Note, also, the use of the scope attribute, which can take one of two values:
+* Note, also, the use of the scope` attribute, which can take one of two values:
 
 ```TEXT
 row - this value makes it clear that the heading is for a row.
