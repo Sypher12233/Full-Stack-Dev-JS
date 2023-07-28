@@ -13532,3 +13532,1671 @@ To your right is a reference that you can use. It shows the three phases of a co
 For more, you can read React’s official documentation. See “[State and Lifecycle](https://reactjs.org/docs/state-and-lifecycle.html” and the [docs for `React.Component`](https://reactjs.org/docs/react-component.html).
 
 #### Function Components and Hooks ####
+
+##### 1. Function Components #####
+
+###### 1. Stateless Functional Components ######
+
+Take a look at Example.js.
+
+```js
+//Example.js
+
+
+// A component class written in the usual way:
+export class MyComponentClass extends React.Component {
+  render() {
+    return <h1>Hello world</h1>;
+  }
+}
+
+// The same component class, written as a stateless functional component:
+export const MyComponentClass = () => {
+  return <h1>Hello world</h1>;
+}
+
+// Works the same either way:
+ReactDOM.render(
+  <MyComponentClass />,
+  document.getElementById('app')
+);
+```
+
+The first `Example` component is defined as a JavaScript class, but it doesn’t have to be! In React, we can also define components as JavaScript functions — we call them function components to differentiate them from class components.
+
+In the latest versions of React, function components can do everything that class components can do. In most cases, however, function components offer a more elegant, concise way of creating React components. This lesson will focus on converting a class component to a function component and adding props, which are available in all versions of React.
+
+Compare the `Example` class component and the `Example` function component. For the most basic function components, all you need to do is remove the beginning `render() {` and ending `}` of the `render()` method:
+
+```js
+render() { // Delete this
+  return <h1>Hello</h1>
+} // Delete this
+```
+
+To put it in other words: the function component should return the same JSX that was originally returned by the `render()` method.
+
+###### 2. Function Components and Props ######
+
+Like any component, function components can receive information via props.
+
+To access these `props`, give your function component a parameter named `props`. Within the function body, you can access the props using this pattern: `props.propertyName`. You don’t need to use the `this` keyword.
+
+```js
+export function YesNoQuestion (props) {
+  return (
+    <div>
+      <p>{props.prompt}</p>
+      <input value="Yes" />
+      <input value="No" />
+    </div>
+  );
+}
+
+ReactDOM.render(
+  <YesNoQuestion prompt="Have you eaten an apple today?" />,
+  document.getElementById('app');
+);
+```
+
+In the above example, we pass a value of “Have you eaten an apple today?” as the prompt prop when rendering `YesNoQuestion`.
+
+###### 3. Review: Function Component ######
+
+* _Function components_ are React components defined as JavaScript functions
+* _Function components_ must return JSX
+* _Function components_ may accept a props parameter. Expect it to be a JavaScript object
+
+Although function components and class components can do the same things, you’ll see a lot of function components in the React documentation and example apps. Some developers prefer them over class components for their simplicity and straightforward features, like Hooks, which you’ll learn later in your coding journey.
+
+##### 2. The State Hook #####
+
+###### 1. Why Use Hooks? ######
+
+As React developers, we love breaking down complex problems into simple pieces.
+
+Classes, however, are not simple. They:
+
+* are difficult to reuse between components
+* are tricky and time-consuming to test
+* have confused many developers and caused lots of bugs
+
+The React core team heard all of this feedback from developers like us, and they engineered an incredible solution for us! React 16.8+ supports _Hooks_. With Hooks, we can use simple function components to do lots of the fancy things that we could only do with class components in the past.
+
+React Hooks, plainly put, are functions that let us manage the internal state of components and handle post-rendering side effects directly from our function components. Hooks don’t work inside classes — they let us use fancy React features without classes. Keep in mind that function components and React Hooks do not replace class components. They are completely optional; just a new tool that we can take advantage of.
+
+> Note: If you’re familiar with [lifecycle methods](https://reactjs.org/docs/state-and-lifecycle.html#adding-lifecycle-methods-to-a-class) of class components, you could say that Hooks let us “hook into” state and lifecycle features directly from our function components.
+
+React offers a number of built-in Hooks. A few of these include `useState()`, `useEffect()`, `useContext()`, `useReducer()`, and `useRef()`. See [the full list in the docs](https://reactjs.org/docs/hooks-reference.html). In this lesson, we’ll learn different ways to manage state in a function component.
+
+###### 2. Update Function Component State ######
+
+Let’s get started with the State Hook, the most common Hook used for building React components. The State Hook is a named export from the React library, so we import it like this:
+
+```js
+import React, { useState } from 'react';
+```
+
+`useState()` is a JavaScript function defined in the React library. When we call this function, it returns an array with two values:
+
+* _current state_ - the current value of this state
+* _state setter_ - a function that we can use to update the value of this state
+
+Because React returns these two values in an array, we can assign them to local variables, naming them whatever we like. For example:
+
+```js
+const [toggle, setToggle] = useState();
+```
+
+Let’s have a look at an example of a function component using the State Hook:
+
+```js
+import React, { useState } from "react";
+ 
+function Toggle() {
+  const [toggle, setToggle] = useState();
+ 
+  return (
+    <div>
+      <p>The toggle is {toggle}</p>
+      <button onClick={() => setToggle("On")}>On</button>
+      <button onClick={() => setToggle("Off")}>Off</button>
+    </div>
+  );
+}
+```
+
+Notice how the state setter function, `setToggle()`, is called by our `onClick` _event listeners_. To update the value of `toggle` and re-render this component with the new value, all we need to do is call the `setToggle()` function with the next state value as an argument.
+
+No need to worry about binding functions to class instances, working with constructors, or dealing with the `this` keyword. With the State Hook, updating state is as simple as calling a state setter function.
+
+Calling the state setter signals to React that the component needs to re-render, so the whole function defining the component is called again. The magic of `useState()` is that it allows React to keep track of the current value of state from one render to the next!
+
+###### 3. Initialize State ######
+
+Great work building out your first stateful function component in the last exercise. Just like you used the State Hook to manage a variable with string values, we can use the State Hook to manage the value of any [primitive data type](https://www.codecademy.com/courses/introduction-to-javascript/lessons/introduction-to-javascript/exercises/types) and even data collections like arrays and objects!
+
+Have a look at the following function component. What data type does this state variable hold?
+
+```js
+import React, { useState } from 'react';
+ 
+function ToggleLoading() {
+  const [isLoading, setIsLoading] = useState();
+ 
+  return (
+    <div>
+      <p>The data is {isLoading ? 'Loading' : 'Not Loading'}</p>
+      <button onClick={() => setIsLoading(true)}>
+        Turn Loading On
+      </button>
+      <button onClick={() => setIsLoading(false)}>
+        Turn Loading Off
+      </button>
+    </div>
+  );
+}
+```
+
+The `ToggleLoading()` function component above is using the simplest of all data types, a boolean. Booleans are frequently used in React applications to represent whether data has loaded or not. In the example above, we see that `true` and `false` values are passed to the state setter, `setIsLoading()`. This code works just fine as is, but what if we want our component to start off with `isLoading` set to `true`?
+
+To initialize our state with any value we want, we simply pass the initial value as an argument to the `useState()` function call.
+
+```js
+const [isLoading, setIsLoading] = useState(true);
+```
+
+There are three ways in which this code affects our component:
+
+* During the first render, the _initial state argument_ is used.
+* When the state setter is called, React ignores the initial state argument and uses the new value.
+* When the component re-renders for any other reason, React continues to use the same value from the previous render.
+
+If we don’t pass an initial value when calling `useState()`, then the current value of the state during the first render will be `undefined`. Often, this is perfectly fine for the machines, but it can be unclear to the humans reading our code. So, we prefer to explicitly initialize our state. If we don’t have the value needed during the first render, we can explicitly pass `null` instead of just passively leaving the value as `undefined`.
+
+###### 4. Use State Setter Outside of JSX ######
+
+Let’s see how to manage the changing value of a string as a user types into a text input field:
+
+```js
+import React, { useState } from 'react';
+ 
+export default function EmailTextInput() {
+  const [email, setEmail] = useState('');
+  const handleChange = (event) => {
+    const updatedEmail = event.target.value;
+    setEmail(updatedEmail);
+  }
+ 
+  return (
+    <input value={email} onChange={handleChange} />
+  );
+}
+```
+
+Let’s break down how this code works!
+
+* The square brackets on the left side of the assignment operator signal [array destructuring](https://www.codecademy.com/content-items/92a5f93c6dbc6794d83e00383fc3af68)
+* The local variable named email is assigned the current state value at index `0` from the array returned by `useState()`
+* The local variable named `setEmail()` is assigned a reference to the state setter function at index 1 from the array returned by `useState()`
+* It’s convention to name this variable using the current state variable (`email`) with “set” prepended
+
+The JSX input tag has an event listener called `onChange`. This event listener calls an event handler each time the user types something in this element. In the example above, our event handler is defined inside of the definition for our function component, but outside of our JSX. Earlier in this lesson, we wrote our event handlers right in our JSX. Those inline event handlers work perfectly fine, but when we want to do something more interesting than just calling the state setter with a static value, it’s a good idea to separate that logic from everything else going on in our JSX. This separation of concerns makes our code easier to read, test, and modify.
+
+This is so common in React code, that we can comfortably simplify this:
+
+```js
+const handleChange = (event) => {
+  const newEmail = event.target.value;
+  setEmail(newEmail);
+}
+```
+
+To this:
+
+```js
+const handleChange = (event) => setEmail(event.target.value);
+```
+
+Or even, use [object destructuring](https://www.codecademy.com/content-items/92a5f93c6dbc6794d83e00383fc3af68?) to just write this:
+
+```js
+const handleChange = ({target}) => setEmail(target.value);
+```
+
+All three of these code snippets behave the same way, so there really isn’t a right and wrong between these different ways of doing this. We’ll use the last, most concise version moving forward.
+
+###### 5. Set From Previous State ######
+
+Often, the next value of our state is calculated using the current state. In this case, it is best practice to update state with a callback function. If we do not, we risk capturing outdated, or “stale”, state values.
+
+Let’s take a look at the following code:
+
+```js
+import React, { useState } from 'react';
+ 
+export default function Counter() {
+  const [count, setCount] = useState(0);
+ 
+  const increment = () => setCount(prevCount => prevCount + 1);
+ 
+  return (
+    <div>
+      <p>Wow, you've clicked that button: {count} times</p>
+      <button onClick={increment}>Click here!</button>
+    </div>
+  );
+}
+```
+
+When the button is pressed, the `increment()` event handler is called. Inside of this function, we use our `setCount()` state setter in a new way! Because the next value of `count` depends on the previous value of `count`, we pass a callback function as the argument for `setCount()` instead of a value (as we’ve done in previous exercises).
+
+```js
+setCount(prevCount => prevCount + 1)
+```
+
+When our state setter calls the callback function, this _state setter callback function_ takes our previous `count` as an argument. The value returned by this state setter callback function is used as the next value of `count` (in this case `prevCount + 1`). Note: We can just call `setCount(count +1)` and it would work the same in this example… but for reasons that are out of scope for this lesson, it is safer to use the callback method. If you’d like to learn more about why the callback method is safer, [this section of the docs](https://reactjs.org/docs/react-component.html#setstate) is a great place to start.
+
+###### 6. Arrays in State ######
+
+Think about the last time that you ordered a pizza online. Mmmmm…
+
+Part of the magical website that brought you tasty food was built with code like this:
+
+```js
+import React, { useState } from "react";
+ 
+const options = ["Bell Pepper", "Sausage", "Pepperoni", "Pineapple"];
+ 
+export default function PersonalPizza() {
+  const [selected, setSelected] = useState([]);
+ 
+  const toggleTopping = ({target}) => {
+    const clickedTopping = target.value;
+    setSelected((prev) => {
+     // check if clicked topping is already selected
+      if (prev.includes(clickedTopping)) {
+        // filter the clicked topping out of state
+        return prev.filter(t => t !== clickedTopping);
+      } else {
+        // add the clicked topping to our state
+        return [clickedTopping, ...prev];
+      }
+    });
+  };
+ 
+  return (
+    <div>
+      {options.map(option => (
+        <button value={option} onClick={toggleTopping} key={option}>
+          {selected.includes(option) ? "Remove " : "Add "}
+          {option}
+        </button>
+      ))}
+      <p>Order a {selected.join(", ")} pizza</p>
+    </div>
+  );
+}
+```
+
+JavaScript arrays are the best data model for managing and rendering JSX lists. In this example, we are using two arrays:
+
+* `options` is an array that contains the names of all of the pizza toppings available
+* `selected` is an array representing the selected toppings for our personal pizza
+
+The `options` array contains static data, meaning that it does not change. We like to define static data models outside of our function components since they don’t need to be recreated each time our component re-renders. In our JSX, we use the `map` method to render a button for each of the toppings in our `options` array.
+
+The `selected` array contains dynamic data, meaning that it changes, usually based on a user’s actions. We initialize `selected` as an empty array. When a button is clicked, the `toggleTopping` event handler is called. Notice how this event handler uses information from the event object to determine which topping was clicked.
+
+When updating an array in state, we do not just add new data to the previous array. We replace the previous array with a brand new array. This means that any information that we want to save from the previous array needs to be explicitly copied over to our new array. That’s what this [spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) does for us: `...prev`.
+
+Notice how we use the `includes()`, `filter()`, and `map()` methods of our arrays. If these are new to you, or you just want a refresher, take a minute to review these array methods. We don’t need to be full-fledged JavaScript gurus to build React UIs, but know that investing time to [strengthen our JavaScript skills](https://www.codecademy.com/learn/introduction-to-javascript), will always help us do more faster (and have a lot more fun doing it) as React developers.
+
+###### 7. Objects in State ######
+
+When we work with a set of related variables, it can be very helpful to group them in an object. Let’s look at an example!
+
+```js
+export default function Login() {
+  const [formState, setFormState] = useState({});
+ 
+  const handleChange = ({ target }) => {
+    const { name, value } = target;
+    setFormState((prev) => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+ 
+  return (
+    <form>
+      <input
+        value={formState.firstName}
+        onChange={handleChange}
+        name="firstName"
+        type="text"
+      />
+      <input
+        value={formState.password}
+        onChange={handleChange}
+        type="password"
+        name="password"
+      />
+    </form>
+  );
+}
+```
+
+A few things to notice:
+
+* We use a state setter callback function to update state based on the previous value
+* The spread syntax is the same for objects as for arrays: `{ ...oldObject, newKey: newValue }`
+* We reuse our event handler across multiple inputs by using the input tag’s `name` attribute to identify which input the change event came from
+
+Once again, when updating the state with `setFormState()` inside a function component, we do not modify the same object. We must copy over the values from the previous object when setting the next value of state. Thankfully, the spread syntax makes this super easy to do!
+
+Anytime one of the input values is updated, the `handleChange()` function will be called. Inside of this event handler, we use object destructuring to unpack the `target` property from our `event` object, then we use object destructuring again to unpack the `name` and `value` properties from the `target` object.
+
+Inside of our state setter callback function, we wrap our curly brackets in parentheses like so: `setFormState((prev) => ({ ...prev }))`. This tells JavaScript that our curly brackets refer to a new object to be returned. We use `...,` the spread operator, to fill in the corresponding fields from our previous state. Finally, we overwrite the appropriate key with its updated value. Did you notice the square brackets around the `name`? This [Computed Property Name](http://eloquentcode.com/computed-property-names-in-javascript) allows us to use the string value stored by the name variable as a property key!
+
+###### 8. Separate Hooks for Separate States ######
+
+While there are times when it can be helpful to store related data in a data collection like an array or object, it can also be helpful to separate data that changes separately into completely different state variables. Managing dynamic data is much easier when we keep our data models as simple as possible.
+
+For example, if we had a single object that held state for a subject you are studying at school, it might look something like this:
+
+```js
+function Subject() {
+  const [state, setState] = useState({
+    currentGrade: 'B',
+    classmates: ['Hasan', 'Sam', 'Emma'],
+    classDetails: {topic: 'Math', teacher: 'Ms. Barry', room: 201};
+    exams: [{unit: 1, score: 91}, {unit: 2, score: 88}]);
+  });
+```
+
+This would work, but think about how messy it could get to copy over all the other values when we need to update something in this big state object. For example, to update the grade on an exam, we would need an event handler that did something like this:
+
+```js
+setState((prev) => ({
+ ...prev,
+  exams: prev.exams.map((exam) => {
+    if( exam.unit === updatedExam.unit ){
+      return { 
+        ...exam,
+        score: updatedExam.score
+      };
+    } else {
+      return exam;
+    }
+  }),
+}));
+```
+
+Yikes! Complex code like this is likely to cause bugs! Luckily, there is another option… We can make more than one call to the State Hook. In fact, we can make as many calls to useState() as we want! It’s best to split state into multiple state variables based on which values tend to change together. We can rewrite the previous example as follows…
+
+```js
+function Subject() {
+  const [currentGrade, setGrade] = useState('B');
+  const [classmates, setClassmates] = useState(['Hasan', 'Sam', 'Emma']);
+  const [classDetails, setClassDetails] = useState({topic: 'Math', teacher: 'Ms. Barry', room: 201});
+  const [exams, setExams] = useState([{unit: 1, score: 91}, {unit: 2, score: 88}]);
+  // ...
+}
+```
+
+Managing dynamic data with separate state variables has many advantages, like making our code more simple to write, read, test, and reuse across components.
+
+Often, we find ourselves packaging up and organizing data in collections to pass between components, then separating that very same data within components where different parts of the data change separately. The wonderful thing about working with Hooks is that we have the freedom to organize our data the way that makes the most sense to us!
+
+If you’d like, have a look at another example of using [multiple State Hooks for managing separate data](https://reactjs.org/docs/hooks-state.html#tip-using-multiple-state-variables).
+
+###### 9. Review: State Hooks ######
+
+Awesome work, we can now build “stateful” function components using the `useState` React Hook!
+
+* With React, we feed static and dynamic data models to JSX to render a view to the screen
+* Use Hooks to “hook into” internal component state for managing dynamic data in function components
+* We employ the State Hook by using the code below:
+  * `currentState` to reference the current value of state
+  * `stateSetter` to reference a function used to update the value of this state
+  * the `initialState` argument to initialize the value of state for the component’s first render
+
+  ```js
+  const [currentState, stateSetter] = useState( initialState );
+  ```
+  
+* Call state setters in event handlers
+* Define simple event handlers inline with our JSX event listeners and define complex event handlers outside of our JSX
+* Use a state setter callback function when our next value depends on our previous value
+* Use arrays and objects to organize and manage related data that tends to change together
+* Use the spread syntax on collections of dynamic data to copy the previous state into the next state like so: `setArrayState((prev) => [ ...prev ])` and `setObjectState((prev) => ({ ...prev }))`
+* Split state into multiple, simpler variables instead of throwing it all into one state object
+
+##### 3. THE EFFECT HOOK #####
+
+###### 1. Why Use useEffect? ######
+
+Before Hooks, function components were only used to accept data in the form of props and return some JSX to be rendered. However, as we learned in the last lesson, the State Hook allows us to manage dynamic data, in the form of component state, within our function components.
+
+In this lesson, we’ll use the Effect Hook to run some JavaScript code after each render, such as:
+
+* fetching data from a backend service
+* subscribing to a stream of data
+* managing timers and intervals
+* reading from and making changes to the DOM
+
+**Why after each render?**
+
+Most interesting components will re-render multiple times throughout their lifetime and these key moments present the perfect opportunity to execute these “side effects”.
+
+There are three key moments when the Effect Hook can be utilized:
+
+1. When the component is first added, or _mounted_, to the DOM and renders
+1. When the state or props change, causing the component to re-render
+1. When the component is removed, or _unmounted_, from the DOM.
+
+Later on in this lesson, we’ll learn how to further fine-tune exactly when this code executes.
+
+###### 2. Function Component Effects ######
+
+Let’s break down how our `PageTitle()` function component is using the Effect Hook to execute some code after each render!
+
+```js
+import React, { useState, useEffect } from 'react';
+ 
+function PageTitle() {
+  const [name, setName] = useState('');
+ 
+  useEffect(() => {
+    document.title = `Hi, ${name}`;
+  });
+ 
+  return (
+    <div>
+      <p>Use the input field below to rename this page!</p>
+      <input onChange={({target}) => setName(target.value)} value={name} type='text' />
+    </div>
+  );
+}
+```
+
+First, we import the Effect Hook from the `react` library, like so:
+
+```js
+import { useEffect } from 'react';
+```
+
+The Effect Hook is used to call another function that does something for us so there is nothing returned when we call the `useEffect()` function.
+
+The first argument passed to the `useEffect()` function is the callback function that we want React to call after each time this component renders. We will refer to this callback function as our _effect_.
+
+In our example, the effect is:
+
+```js
+() => { document.title = `Hi, ${name}`; }
+```
+
+In our effect, we assign the value of the `name` variable to the `document.title` within a string. For more on this syntax, have a look at this [explanation of the document’s title property](https://developer.mozilla.org/en-US/docs/Web/API/Document/title).
+
+Notice how we use the current state inside of our effect. Even though our effect is called after the component renders, we still have access to the variables in the scope of our function component! When React renders our component, it will update the DOM as usual, and then run our effect after the DOM has been updated. This happens for every render, including the first and last one.
+
+###### 3. Clean Up Effects ######
+
+Some effects require cleanup. For example, we might want to add event listeners to some element in the DOM, beyond the JSX in our component. When we [add event listeners to the DOM](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener), it is important to remove those event listeners when we are done with them to avoid [memory leaks](https://auth0.com/blog/four-types-of-leaks-in-your-javascript-code-and-how-to-get-rid-of-them/)!
+
+Let’s consider the following effect:
+
+```js
+useEffect(()=>{
+  document.addEventListener('keydown', handleKeyPress);
+  // Specify how to clean up after the effect:
+  return () => {
+    document.removeEventListener('keydown', handleKeyPress);
+  };
+})
+```
+
+If our effect didn’t return a _cleanup function_, then a new event listener would be added to the DOM’s `document` object every time that our component re-renders. Not only would this cause bugs, but it could cause our application performance to diminish and maybe even crash!
+
+Because effects run after every render and not just once, React calls our cleanup function before each re-render and before unmounting to clean up each effect call.
+
+If our effect returns a function, then the `useEffect()` Hook always treats that as a cleanup function. React will call this cleanup function before the component re-renders or unmounts. Since this cleanup function is optional, it is our responsibility to return a cleanup function from our effect when our effect code could create memory leaks.
+
+###### 4. Control When Effects Are Called ######
+
+The `useEffect()` function calls its first argument (the effect) after each time a component renders. We’ve learned how to return a cleanup function so that we don’t create performance issues and other bugs, but sometimes we want to skip calling our effect on re-renders altogether.
+
+It is common, when defining function components, to run an effect only when the component mounts (renders the first time), but not when the component re-renders. The Effect Hook makes this very easy for us to do! If we want to only call our effect after the first render, we pass an empty array to `useEffect()` as the second argument. This second argument is called the dependency array.
+
+The dependency array is used to tell the `useEffect()` method when to call our effect and when to skip it. Our effect is always called after the first render but only called again if something in our dependency array has changed values between renders.
+
+We will continue to learn more about this second argument over the next few exercises, but for now, we’ll focus on using an empty dependency array to call an effect when a component first mounts, and if a cleanup function is returned by our effect, calling that when the component unmounts.
+
+```js
+useEffect(() => {
+  alert("component rendered for the first time");
+  return () => {
+    alert("component is being removed from the DOM");
+  };
+}, []);
+```
+
+Without passing an empty array as the second argument to the `useEffect()` above, those alerts would be displayed before and after every render of our component, which is clearly not when those messages are meant to be displayed. Simply, passing `[]` to the `useEffect()` function is enough to configure when the effect and cleanup functions are called!
+
+###### 5. Fetch Data ######
+
+When building software, we often start with default behaviors then modify them to improve performance. We’ve learned that the default behavior of the Effect Hook is to call the effect function after every single render. Next, we learned that we can pass an empty array as the second argument for `useEffect()` if we only want our effect to be called after the component’s first render. In this exercise, we’ll learn to use the dependency array to further configure exactly when we want our effect to be called!
+
+When our effect is responsible for fetching data from a server, we pay extra close attention to when our effect is called. Unnecessary round trips back and forth between our React components and the server can be costly in terms of:
+
+* Processing
+* Performance
+* Data usage for mobile users
+* API service fees
+
+When the data that our components need to render doesn’t change, we can pass an empty dependency array, so that the data is fetched after the first render. When the response is received from the server, we can use a state setter from the State Hook to store the data from the server’s response in our local component state for future renders. Using the State Hook and the Effect Hook together in this way is a powerful pattern that saves our components from unnecessarily fetching new data after every render!
+
+An empty dependency array signals to the Effect Hook that our effect never needs to be re-run, that it doesn’t depend on anything. Specifying zero dependencies means that the result of running that effect won’t change and calling our effect once is enough.
+
+A dependency array that is not empty signals to the Effect Hook that it can skip calling our effect after re-renders unless the value of one of the variables in our dependency array has changed. If the value of a dependency has changed, then the Effect Hook will call our effect again!
+
+Here’s a nice example from the [official React docs](https://reactjs.org/docs/hooks-effect.html#tip-optimizing-performance-by-skipping-effects):
+
+```js
+useEffect(() => {
+  document.title = `You clicked ${count} times`;
+}, [count]); // Only re-run the effect if the value stored by count changes
+```
+
+###### 6. Rules of Hooks ######
+
+There are two main rules to keep in mind when using Hooks:
+
+* only call Hooks at the top level
+* only call Hooks from React functions
+
+As we have been practicing with the State Hook and the Effect Hook, we’ve been following these rules with ease, but it is helpful to keep these two rules in mind as you take your new understanding of Hooks out into the wild and begin using [more Hooks](https://reactjs.org/docs/hooks-reference.html) in your React applications.
+
+When React builds the Virtual DOM, the library calls the functions that define our components over and over again as the user interacts with the user interface. React keeps track of the data and functions that we are managing with Hooks based on their order in the function component’s definition. For this reason, we always call our Hooks at the top level; we never call hooks inside of loops, conditions, or nested functions.
+
+Instead of confusing React with code like this:
+
+```js
+if (userName !== '') {
+  useEffect(() => {
+    localStorage.setItem('savedUserName', userName);
+  });
+}
+```
+
+We can accomplish the same goal, while consistently calling our Hook every time:
+
+```js
+useEffect(() => {
+  if (userName !== '') {
+    localStorage.setItem('savedUserName', userName);
+  }
+});
+```
+
+Secondly, Hooks can only be used in React Functions. We cannot use Hooks in class components and we cannot use Hooks in regular JavaScript functions. We’ve been working with `useState()` and `useEffect()` in function components, and this is the most common use. The only other place where Hooks can be used is within custom hooks. Custom Hooks are incredibly useful for organizing and reusing stateful logic between function components. For more on this topic, head to the [React Docs](https://reactjs.org/docs/hooks-custom.html).
+
+###### 7. Separate Hooks for Separate Effects ######
+
+When multiple values are closely related and change at the same time, it can make sense to group these values in a collection like an object or array. Packaging data together can also add complexity to the code responsible for managing that data. Therefore, it is a good idea to separate concerns by managing different data with different Hooks.
+
+Compare the complexity here, where data is bundled up into a single object:
+
+```js
+// Handle both position and menuItems with one useEffect hook.
+const [data, setData] = useState({ position: { x: 0, y: 0 } });
+useEffect(() => {
+  get('/menu').then((response) => {
+    setData((prev) => ({ ...prev, menuItems: response.data }));
+  });
+  const handleMove = (event) =>
+    setData((prev) => ({
+      ...prev,
+      position: { x: event.clientX, y: event.clientY }
+    }));
+  window.addEventListener('mousemove', handleMove);
+  return () => window.removeEventListener('mousemove', handleMove);
+}, []);
+```
+
+To the simplicity here, where we have separated concerns:
+
+```js
+// Handle menuItems with one useEffect hook.
+const [menuItems, setMenuItems] = useState(null);
+useEffect(() => {
+  get('/menu').then((response) => setMenuItems(response.data));
+}, []);
+ 
+// Handle position with a separate useEffect hook.
+const [position, setPosition] = useState({ x: 0, y: 0 });
+useEffect(() => {
+  const handleMove = (event) =>
+    setPosition({ x: event.clientX, y: event.clientY });
+  window.addEventListener('mousemove', handleMove);
+  return () => window.removeEventListener('mousemove', handleMove);
+}, []);
+```
+
+It is not always obvious [whether to bundle data together or separate it](https://reactjs.org/docs/hooks-faq.html#should-i-use-one-or-many-state-variables), but with practice, we get better at organizing our code so that it is easier to understand, add to, reuse, and test!
+
+###### 8. Review: Effect Hook ######
+
+In this lesson, we learned how to write effects that manage timers, manipulate the DOM, and fetch data from a server. In earlier versions of React, we could only have executed this type of code [in the lifecycle methods of class components](https://reactjs.org/docs/state-and-lifecycle.html#adding-lifecycle-methods-to-a-class), but with the Effect Hook, we can perform these types of actions in function components with ease!
+
+Let’s review the main concepts from this lesson:
+
+* `useEffect()` - we can import this function from the `'react'` library and call it in our function components
+* _effect_ - refers to a function that we pass as the first argument of the `useEffect()` function. By default, the Effect Hook calls this effect after each render
+* _cleanup function_ - the function that is optionally returned by the effect. If the effect does anything that needs to be cleaned up to prevent memory leaks, then the effect returns a cleanup function, then the Effect Hook will call this cleanup function before calling the effect again as well as when the component is being unmounted
+* _dependency array_ - this is the optional second argument that the `useEffect()` function can be called with in order to prevent repeatedly calling the effect when this is not needed. This array should consist of all variables that the effect depends on.
+
+The Effect Hook is all about scheduling when our effect’s code gets executed. We can use the dependency array to configure when our effect is called in the following ways:
+
+|Dependency Array | Effect called after first render & …           |
+|-----------------|------------------------------------------------|
+|undefined        | every re-render                                |
+|Empty array      | no re-renders                                  |
+|Non-empty array  | when any value in the dependency array changes |
+
+Hooks gives us the flexibility to organize our code in different ways, grouping related data as well as separating concerns to keep code simple, error-free, reusable, and testable!
+
+#### Intermediate React ####
+
+##### 1. Style #####
+
+###### 1. Advanced React Techniques ######
+
+In this unit, you will learn a variety of useful techniques that React programmers are expected to know.
+
+You’ll learn how to make a _propType_, how to write a form, and how to use styles.
+
+You’ll also be introduced to your second programming pattern: dividing components into _presentational components_ and _container components_.
+
+###### 2. Inline Styles ######
+
+There are many different ways to use styles in React. This lesson is focused on one of them: _inline styles_.
+
+An inline style is a style that’s written as an _attribute_, like this:
+
+```html
+<h1 style={{ color: 'red' }}>Hello world</h1>
+```
+
+Notice the double curly braces. What are those for?
+
+The _outer_ curly braces inject JavaScript into JSX. They say, “everything between us should be read as JavaScript, not JSX.”
+
+The _inner_ curly braces create a JavaScript object literal. They make this a valid JavaScript object:
+
+```js
+{ color: 'red' }
+```
+
+If you inject an object literal into JSX, and your entire injection is _only_ that object literal, then you will end up with double curly braces. There’s nothing unusual about how they work, but they look funny and can be confusing.
+
+###### 3. Make A Style Object Variable ######
+
+That’s all that you need to apply basic styles in React! Simple and straightforward.
+
+One problem with this approach is that it becomes obnoxious if you want to use more than just a few styles. An alternative that’s often nicer is to store a style object in a variable, and then inject that variable into JSX.
+
+Look in the code editor for an example. The style object is defined on lines 3-6, and then injected on line 11.
+
+```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+const styleMe = <h1 style={{ background: 'lightblue', color: 'darkred' }}>Please style me! I am so bland!</h1>;
+
+ReactDOM.render(
+  styleMe, 
+  document.getElementById('app')
+)
+```
+
+If you aren’t used to using modules, then this code may have made you twitch uncontrollably:
+
+```js
+const style = {
+  color: 'darkcyan',
+  background: 'mintcream'
+};
+```
+
+Defining a variable named style in the top-level scope would be an extremely bad idea in many JavaScript environments! In React, however, it’s totally fine.
+
+Remember that every file is invisible to every other file, except for what you choose to expose via module.exports. You could have 100 different files, all with global variables named style, and there could be no conflicts.
+
+###### 4. Style Name Syntax ######
+
+In regular JavaScript, style _names_ are written in hyphenated-lowercase:
+
+```js
+const styles = {
+  'margin-top': '20px',
+  'background-color': 'green'
+};
+```
+
+In React, those same names are instead written in camelCase:
+
+```js
+const styles = {
+  marginTop: '20px',
+  backgroundColor: 'green'
+};
+```
+
+This has zero effect on style property _values_, only on style property names.
+
+###### 5. Style Value Syntax ######
+
+In the last exercise, you learned how style _names_ are slightly different in React than they are in regular JavaScript.
+
+In this exercise, you will learn how style _values_ are slightly different in React than they are in regular JavaScript.
+
+In regular JS, style values are almost always strings. Even if a style value is numeric, you usually have to write it as a string so that you can specify a unit. For example, you have to write `"450px"` or `"20%"`.
+
+In React, if you write a style value as a number, then the unit `"px"` is assumed.
+
+How convenient! If you want a font size of `30px`, you can write:
+
+```js
+{ fontSize: 30 }
+```
+
+If you want to use units other than “px,” you can use a string:
+
+```js
+{ fontSize: "2em" }
+```
+
+Specifying “px” with a string will still work, although it’s redundant.
+
+A few specific styles will _not automatically_ fill in the “px” for you. These are styles where you aren’t likely to use “px” anyway, so you don’t really have to worry about it. [Here is a list of styles that don’t assume “px”](https://github.com/facebook/react/blob/4131af3e4bf52f3a003537ec95a1655147c81270/src/renderers/dom/shared/CSSProperty.js#L15-L59).
+
+###### 6. Share Styles Across Multiple Components ######
+
+What if you want to reuse styles for several different components?
+
+One way to make styles _reusable_ is to keep them in a separate JavaScript file. This file should _export_ the styles that you want to reuse, via `export`. You can then `import` your styles into any component that wants them.
+
+In the code editor, move back and forth between facebookStyles.js and FacebookColorThief.js to see a styles file in action.
+
+```js
+//FacebookColorThief.js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { colorStyles } from './facebookStyles';
+
+let divStyle = {
+  backgroundColor: colorStyles.darkBlue,
+  color: colorStyles.white
+};
+
+export class Wow extends React.Component {
+  render() {
+    return (
+      <div style={divStyle}>
+        Wow, I stole these colors from Facebook!
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(
+  <Wow />, 
+  document.getElementById('app')
+);
+
+//facebookStyles.js
+// facebook color palette
+const blue = 'rgb(139, 157, 195)';
+const darkBlue = 'rgb(059, 089, 152)';
+const lightBlue = 'rgb(223, 227, 238)';
+const grey = 'rgb(247, 247, 247)';
+const white = 'rgb(255, 255, 255)';
+
+const colorStyles = {
+  blue: blue,
+  darkBlue: darkBlue,
+  lightBlue: lightBlue,
+  grey: grey,
+  white: white
+};
+```
+
+##### 2. CONTAINER COMPONENTS FROM PRESENTATIONAL COMPONENTS #####
+
+###### 1. Separate Container Components From Presentational Components ######
+
+In this lesson, you will learn a programming pattern that will help organize your React code.
+
+As you continue building your React application, you will soon realize that one component has too many responsibilities, but how do you know when you have reached that point?
+
+_Separating container components from presentational components_ helps to answer that question. It shows you when it might be a good time to divide a component into smaller components. It also shows you how to perform that division.
+
+###### 2. Create Container Component ######
+
+Separating container components from presentational components is a popular React programming pattern. It is a special application of the concepts learned in the [Stateless Components From Stateful Components](https://www.codecademy.com/courses/react-102/lessons/stateless-inherit-stateful-intro/exercises/stateless-inherit-stateful) module.
+
+If a component has to have state, make calculations based on props, or manage any other complex logic, then that component shouldn’t also have to render HTML-like JSX.
+
+The functional part of a component (state, calculations, etc.) can be separated into a _container component_.
+
+###### 3. Separate Presentational Component ######
+
+Now that we’ve created a container component for the logic, we can dedicate the original component, `GuineaPigs`, to be a presentational component.
+
+The presentational component’s only job is to contain HTML-like JSX. It should be an exported component and will not render itself because a presentational component will always get rendered by a container component.
+
+As a separate example, say we have `Presentational` and `Container` components. **Presentational.js** must export the component class (or function, when applicable):
+
+```js
+export class Presentational extends Component {
+```
+
+**Container.js** must import that component:
+
+```js
+import { Presentational } from 'Presentational.js';
+```
+
+###### 4. Render Presentational Component in Container Component ######
+
+We now have a container component (**containers**/**GuineaPigsContainer.js**) for logic and a presentational component (**components**/**GuineaPigs.js**) for rendering JSX!
+
+The container component should now render the presentational component instead of rendering JSX.
+
+###### 5. Remove Logic from Presentational Component ######
+
+Our container component now renders the `GuineaPigs` presentational component instead of JSX statements!
+
+The last step to separating the container component from the presentational component is to remove redundant logic in the presentational component. The presentational component should be left with the render function that contains JSX statements.
+
+###### 6. Review: Container and Presentational Components ######
+
+Here are the steps we took:
+
+1. Identified that the original component needed to be refactored: it was handling both calculations/logic and presentation/rendering
+1. Copied the original component to a new **containers/** folder and renamed it `GuineaPigsContainer`
+1. Removed all of the presentation/rendering code from the container component
+1. Removed all of the calculation/logic code from the presentational component
+1. Accessed the presentational component from within the container using `import` and `export`
+1. Edited the container’s `render()` method to render the presentational component with the proper props
+
+In this programming pattern, the container component does the work of figuring out what to display. The presentational component does the work of actually displaying it. If a component does a significant amount of work in both areas, then that’s a sign that you should use this pattern!
+
+If you’d like to learn more about this pattern, here are some articles to start with:
+
+* [Container Components](https://medium.com/@learnreact/container-components-c0e67432e005)
+* [Presentational and Container Components](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0)
+
+##### 3. PROPTYPES #####
+
+###### 1. propTypes ######
+
+In this lesson, you will learn to use an important React feature called `propTypes`.
+
+`propTypes` are useful for two reasons. The first reason is _prop validation_.
+
+_Validation_ can ensure that your props are doing what they’re supposed to be doing. If props are missing, or if they’re present but they aren’t what you’re expecting, then a warning will print in the console.
+
+This is useful, but reason #2 is arguably more useful: _documentation_.
+
+_Documenting_ `props` makes it easier to glance at a file and quickly understand the component class inside. When you have a lot of files, and you will, this can be a huge benefit.
+
+###### 2. Apply PropTypes ######
+
+In the code editor, take a look at `MessageDisplayer`‘s render function.
+
+Notice the expression `this.props.message`. From this expression, you can deduce that `MessageDisplayer` expects to get passed a `prop` named `message`. Somewhere, at some time, this code is expected to execute:
+
+```jsx
+<MessageDisplayer message="something" />
+```
+
+If a component class expects a `prop`, then you can use `propTypes` for that component class!
+
+In order to start using `propTypes`, we need to import the `'prop-types'` library.
+
+```js
+import PropTypes from 'prop-types';
+```
+
+Then, you can declare `propTypes` as a static property for your component after the component has been defined. See the example of a `propTypes` property on lines 11-13. Notice that the _value_ of `propTypes` is an object, not a function!
+
+The second step is to add properties to the `propTypes` object. For each `prop` that your component class expects to receive, there can be one property on your `propTypes` object.
+
+`MessageDisplayer` only expects one `prop`: `message`. Therefore, its `propTypes` object only has one property.
+
+###### 3. Add Properties to PropTypes ######
+
+In the code editor, look at the property on `MessageDisplayer‘`s `propTypes` object:
+
+```js
+// Message Displayer.js
+import React from 'react';
+import PropTypes from 'prop-types';
+
+export class MessageDisplayer extends React.Component {
+  render() {
+    return <h1>{this.props.message}</h1>;
+  }
+}
+
+// This propTypes object should have
+// one property for each expected prop:
+MessageDisplayer.propTypes = {
+  message: PropTypes.string
+};
+```
+
+What are the properties on `propTypes` supposed to _be_, exactly?
+
+The _name_ of each property in `propTypes` should be the name of an expected `prop`. In our case, `MessageDisplayer` expects a `prop` named `message`, so our property’s _name_ is `message`.
+
+The _value_ of each property in `propTypes` should fit this pattern:
+
+```js
+PropTypes.expected_data_type_goes_here
+```
+
+Since `message` is presumably going to be a string, we chose `PropTypes.string`. You can see this on line 13. Notice the difference in capitalization between the `propTypes` object and `PropTypes`!
+
+Each property on the `propTypes` object is called a `propType`.
+
+Select the next file in the code editor, **Runner.js**. Find `Runner`‘s `propTypes` object.
+
+`Runner` has six propTypes! Look at each one. Note that bool and func are abbreviated, but all other data types are spelled normally.
+
+If you add `.isRequired` to a `propType`, then you will get a console warning if that `prop` _isn’t_ sent.
+
+Try to find all six `props` from the `propTypes` object in `Runner`‘s render function: `this.props.message`, `this.props.style`, etc.
+
+###### 4. PropTypes in Function Components ######
+
+Remember function components? You can see some familiar ones in Example.js.
+
+```js
+// Example.js
+// Normal way to display a prop:
+export class MyComponentClass extends React.Component {
+  render() {
+    return <h1>{this.props.title}</h1>;
+  }
+}
+
+// Functional component way to display a prop:
+export const MyComponentClass = (props) => {
+  return <h1>{props.title}</h1>;
+}
+
+// Normal way to display a prop using a variable:
+export class MyComponentClass extends React.component {
+  render() {
+    let title = this.props.title;
+    return <h1>{title}</h1>;
+  }
+}
+
+// Functional component way to display a prop using a variable:
+export const MyComponentClass = (props) => {
+  let title = props.title;
+  return <h1>{title}</h1>;
+}
+```
+
+How could you write propTypes for a function component?
+
+```js
+// Usual way:
+class Example extends React.component{
+ 
+}
+ 
+Example.propTypes = {
+ 
+};
+...
+ 
+// Function component way:
+const Example = (props) => {
+  // ummm ??????
+}
+```
+
+It turns out the process is fairly similar. To write `propTypes` for a function component, you define a `propTypes` object as a property of the _function component itself_. Here’s what that looks like:
+
+```js
+const Example = (props) => {
+  return <h1>{props.message}</h1>;
+}
+ 
+Example.propTypes = {
+  message: PropTypes.string.isRequired
+};
+```
+
+##### 4. React Forms #####
+
+###### 1. React Forms ######
+
+This unit’s final lesson is about forms.
+
+Think about how forms work in a typical, non-React environment. A user types some data into a form’s input fields, and the server doesn’t know about it. The server remains clueless until the user hits a “submit” button, which sends all of the form’s data over to the server simultaneously.
+
+In React, as in many other JavaScript environments, this is not the best way of doing things.
+
+The problem is the period of time during which a form thinks that a user has typed one thing, but the server thinks that the user has typed a different thing. What if, during that time, a third part of the website needs to know what a user has typed? It could ask the form or the server and get two different answers. In a complex JavaScript app with many moving, interdependent parts, this kind of conflict can easily lead to problems.
+
+In a React form, you want the server to know about every new character or deletion, as soon as it happens. That way, your screen will always be in sync with the rest of your application.
+
+###### 2. Input onChange ######
+
+A traditional form doesn’t update the server until a user hits “submit.” But you want to update the server any time a user enters or deletes any character.
+
+###### 3. Write an Input Event Handler ######
+
+In this exercise, you will define a function that gets called whenever a user enters or deletes any character.
+
+This function will be an _event handler_. It will listen for `change` events. You can see an example of an event handler listening for change events in **Example.js**.
+
+```js
+// Example.js File
+import React from 'react';
+
+export class Example extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { userInput: '' };
+
+    this.handleChange = this.handleChange.bind(this);
+  } 
+  handleChange(e) {
+    this.setState({
+      userInput: e.target.value
+    });
+  }
+
+  render() {
+    return (
+      <input 
+        onChange={this.handleChange} 
+        type="text" />
+    );
+  }
+}
+```
+
+###### 4. Set the Input's Initial State ######
+
+Good! Any time that someone types or deletes in `<input />`, the `.handleUserInput()` method will update `this.state.userInput` with the `<input />`‘s text.
+
+Since you’re using `this.setState`, that means that `Input` needs an initial state! What should this.state‘s initial value be?
+
+Well, `this.state.userInput` will be displayed in the `<input />`. What should the initial text in the `<input />` be, when a user first visits the page?
+
+The initial text should be blank! Otherwise it would look like someone had already typed something.
+
+```js
+// Input.js File
+import React from "react";
+import ReactDOM from "react-dom";
+
+export class Input extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { userInput: "" };
+    this.handleUserInput = this.handleUserInput.bind(this);
+  }
+
+  handleUserInput(e) {
+    this.setState({ userInput: e.target.value });
+  }
+
+  render() {
+    return (
+      <div>
+        <input type="text" value={this.state.userInput} onChange={this.handleUserInput} />
+        <h1>{this.state.userInput}</h1>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<Input />, document.getElementById("app"));
+```
+
+###### 5. Update an Input's Value ######
+
+When a user types or deletes in the `<input />`, then that will trigger a _change event_, which will call `handleUserInput`. That’s good!
+
+`handleUserInput` will set `this.state.userInput` equal to whatever text is currently in the input field. That’s also good!
+
+There’s only one problem: you can set `this.state.userInput` to whatever you want, but `<input />` won’t care. You need to somehow make the `<input />`‘s text responsive to `this.state.userInput`.
+
+Easy enough! You can control an `<input />`‘s text by setting its value attribute.
+
+###### 6. Controlled vs Uncontrolled ######
+
+There are two terms that will probably come up when you talk about React forms: _controlled component_ and _uncontrolled component_. Like automatic binding, _controlled_ vs _uncontrolled components_ is a topic that you should be familiar with, but don’t need to understand deeply at this point.
+
+An `uncontrolled component` is a component that maintains its own internal state. A `controlled component` is a component that does not maintain any internal state. Since a controlled component has no state, it must be controlled by someone else.
+
+Think of a typical `<input type='text' />` element. It appears onscreen as a text box. If you need to know what text is currently in the box, then you can ask the `<input />`, possibly with some code like this:
+
+```js
+let input = document.querySelector('input[type="text"]');
+ 
+let typedText = input.value; // input.value will be equal to whatever text is currently in the text box.
+```
+
+The important thing here is that the `<input />` _keeps track_ of its own text. You can ask it what its text is at any time, and it will be able to tell you.
+
+The fact that `<input />` keeps track of information makes it an _uncontrolled component_. It maintains its own internal state, by remembering data about itself.
+
+A _controlled component_, on the other hand, has no memory. If you ask it for information about itself, then it will have to get that information through `props`. Most React components are controlled.
+
+In React, when you give an `<input />` a `value` attribute, then something strange happens: the `<input />` BECOMES controlled. It stops using its internal storage. This is a more ‘React’ way of doing things.
+
+You can find more information about controlled and uncontrolled components in the [React Forms documentation](https://reactjs.org/docs/forms.html).
+
+###### 7. React Forms Recap ######
+
+Great work! You just wrote your first React form.
+
+Notice that you didn’t use a submit button. You didn’t even use a `<form>` element! Your “form” was actually just an `<input />`.
+
+That won’t always be the case. You will still sometimes want a `<form>` element and a submit button, especially if you need to differentiate between a finished form and an in-progress form. But in some cases, it’s fine to have a “form” that is really just an input field.
+
+This is because, unlike in the traditional form paradigm, in React you re-send your form on every single character change. That removes the need to ever “submit” anything.
+
+That marks the end of this lesson! You’ve learned a wide variety of important techniques: inline styles, separating container and presentational components, stateless functional components, proptypes, and forms. These techniques will be invaluable as you continue to build out more React apps!
+
+#### LEARN REACT ROUTER V6 ####
+
+##### 1. What Is Routing? #####
+
+_Routing_ is the process by which a web application uses the current browser URL (**U**niform **R**esource **L**ocator) to determine what content to show a user. For example, a user visiting Wikipedia’s `/wiki/Node.js` page would expect to see something different from the `/wiki/React_(JavaScript_library)` page.
+
+By organizing an application’s content and displaying only what the user has requested to see, routing allows for rich, engaging, and clear user experiences.
+
+Before we dive into the lesson, let’s briefly go over the basic structure of URLs. Consider this URL:
+
+![URL breakdown](https://static-assets.codecademy.com/Courses/Learn-Node/http/url-dark.png)
+
+Every URL is essentially a request for some resource and each component of the URL serves to specify which resource is desired. URLs consist of several components, some of which are mandatory and some of which are optional:
+
+1. The scheme (eg. `HTTP, HTTPS, mailto`, etc), which specifies what protocol should be used to access the resource.
+1. The domain (eg. `codecademy.com`), which specifies the website that hosts the resource. The domain serves as the entry point for your application.
+1. The path (eg. `/articles`), which identifies the specific resource or page to be loaded and displayed to the user. This is where routing begins!
+1. The optional query string (eg. `?search=node`), which appears after a ‘?’ and assigns values to parameters. Common uses of query strings include search parameters and filters.
+
+Depending on the kind of application you build, there are different ways to handle the requests coming into your server. A popular back-end solution is to use the [Express](https://www.codecademy.com/learn/learn-express) routing framework. In this lesson, we will cover [React Router](https://reactrouter.com/en/main/), a popular front-end routing solution designed specifically for React applications.
+
+##### 2. Installing React Router #####
+
+In order to use React Router, you will need to include the [`react-router-dom` package](https://www.npmjs.com/package/react-router-dom) (the version of React Router built specifically for web browsers) in your project by using `npm` like so:
+
+```zsh
+npm install --save react-router-dom@6
+```
+
+Once you have added `react-router-dom` to your project, you can import one of its routers to add routing to your project. React Router provides multiple routers, however, the most common one is `createBrowserRouter`. The other options, and the reasons you might choose one over the other, are outside the scope of this lesson. If you are interested, you can read more about alternative routing options [here](https://reactrouter.com/en/main/routers/picking-a-router).
+
+To add a router to our project, we can import it at the top of our file, like so:
+
+```js
+import { createBrowserRouter } from 'react-router-dom';
+```
+
+Next, we’ll initialize our router by calling createBrowserRouter. This method accepts a list of JSX components (we’ll discuss this more in the upcoming exercises):
+
+```js
+import { createBrowserRouter } from 'react-router-dom';
+
+const router = createBrowserRouter( /* application routes are defined here */ );
+```
+
+The router serves as the basis for all the React Router logic. Without it, we’d get errors if we tried using React Router components or methods. Let’s practice defining a router for our application.
+
+##### 3. Providing A Router #####
+
+In the React Router paradigm, the different views of your application, also called _routes_ are just React components. To include them in your application, you will need to render them.
+
+The first step is to make our router available to our entire application by using React Router’s `RouterProvider`.
+
+```js
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+const router = createBrowserRouter( /* application routes are defined here */ );
+ 
+export default function App () {
+  return (
+    <RouterProvider router={ router } />
+  );
+}
+```
+
+`createBrowserRouter` will define a router that prevents URL changes from causing the page to reload. Instead, URL changes will allow the `router` to determine which of its defined routes to render while passing along information about the current URL’s path as props. We make our router available application-wide by providing it using `RouterProviderat` the root of our application.
+
+##### 4. Basic Routing with `<Route>` #####
+
+With our `router` in place, we can begin defining the different views, or _routes_, that our application will render for various URL paths. For example, we might want to render an `About` component for the `/about` path and a `SignUp` component for the `/sign-up` path. React Router gives us two options to define routes: JSX or objects. In this lesson, we’ll be learning to implement routes using JSX notation. If you’re interested, you can learn more about object notation [here](https://reactrouter.com/en/main/route/route).
+
+The `.createBrowserRouter` method accepts an array of `<Route>` objects, so we’ll need to use React Router’s `.createRoutesFromElements` method to configure our routes with JSX. We also need to use React Router’s `<Route>` component to define our routes. These components can be imported from the `react-router-dom` package, alongside the `.createBrowserRouter` method, like so:
+
+```js
+import { RouterProvider, createBrowserRouter, createRoutesFromElements, Route } from "react-router-dom"
+```
+
+The `<Route>` component is designed to render (or not render) a component based on the current URL path. Each `<Route>` component should include:
+
+1. A path prop indicating the exact URL path that will cause the route to render.
+1. An element prop describing the component to be rendered.
+
+For example, we can use `.createRoutesFromElements` to configure a `<Route>` that renders the `<About>` component when the URL path matches `'/about'`:
+
+```js
+import About from './About.js';
+import { RouterProvider, createBrowserRouter, Route } from 'react-router-dom';
+const router = createBrowserRouter(createRoutesFromElements(
+  <Route path='/about' element={ <About/> } />
+));
+ 
+export default function App () {
+  return (
+    <RouterProvider router={ router } />
+  );
+}
+```
+
+In many cases, there may be certain components, like sidebars, navigation bars, and footers, that we want to render with every page view. We can achieve this by defining a root-level component that contains layout elements we want to render consistently. We can then nest the rest of our routes within this root-level component, like so:
+
+```js
+/* imports ... */
+ 
+const router = createBrowserRouter(createRoutesFromElements(
+  <Route path='/' element={ <Root/> }>
+    // nested routes here will render along with the <Root/> component
+  </Route>
+));
+```
+
+With this route configuration, whenever a user navigates to one of the nested routes, that view will render, along with any elements we’ve defined in our `<Root/>` component. We’ll discuss root-level components and nested components in greater detail in the upcoming exercises. Before we move on, let’s practice adding routes to our application so that our application will render the correct component when we visit certain paths.
+
+##### 5. Linking to Routes #####
+
+In the last exercise, you used the URL bar to navigate to a path that matched one of your application’s routes. But how do you navigate from within the app itself?
+
+When building a website using HTML, we use the anchor (`<a>`) tag to create links to other pages. A side effect of the anchor tag is that it causes the page to reload. This can distract our users from the immersive experience of our smooth React application!
+
+React Router offers two solutions for this: the [`Link`](https://reactrouter.com/en/main/components/link) and [`NavLink`](https://reactrouter.com/en/main/components/nav-link) components, both of which can be imported from the `react-router-dom` package.
+
+```js
+import { createBrowserRouter, createRoutesFromElement, Route, Link, NavLink } from 'react-router-dom';
+```
+
+Both Link and NavLink components work much like anchor tags:
+
+* They have a `to` prop that indicates the location to redirect the user to, similar to the anchor tag’s `href` attribute.
+* They wrap some HTML to use as the display for the link.
+
+```js
+<Link to="/about">About</Link>
+<NavLink to="/about">About</NavLink>
+```
+
+Both of the above links will generate anchor (`<a>`) tags with the text “About”, which take the user to the `/about` view when clicked. However, the default behavior of an anchor tag – refreshing when the page loads – will be disabled. Note that if we preface the path provided to our `to` prop with a forward slash,`/`, as we did in the example above, this path will be treated as an **absolute** path. That is, React Router will assume this path is navigating from the root directory. We’ll talk more about how to define paths that are **relative** to our current directory in upcoming exercises.
+
+So, what’s the difference between a `Link` and a `NavLink`? When the URL path matches a `NavLink` component’s `to` prop, the link will automatically have an `'active'` class applied to it. This can be quite useful for building navigation menus, as we can define CSS styles for the `.active` class name to differentiate between active and inactive links, enabling users to quickly see which content they are viewing. We can also pass a function to `className` or `style` to further customize the styling of an active (or inactive) `NavLink`, like so:
+
+```js
+<NavLink 
+  to="about" 
+  className={ ({ isActive }) => isActive? 'activeNavLink' : 'inactiveNavLink'}
+  > About </NavLink>
+```
+
+In the example above we pass a function to the `className` prop which applies the `activeNavLink` class if the `NavLink` is active and `inactiveNavLink` otherwise.
+
+As we’ve seen in this exercise, `NavLink` and `Link` are great tools to use to help our users navigate our website. Let’s practice using `Link` and `NavLink` in our application so that our users can have an easier time navigating around.
+
+##### 6. Dynamic Routes #####
+
+So far, all the routes we’ve covered have been static, which means they match a single unique path. This works for predetermined routes that render a consistent view. But what if we need to build a route that is more flexible?
+
+For example, imagine a tech news site where each article is accessible from the path `'/articles/' + some-title` where `some-title` is unique for each article. Specifying a distinct route for every article would not only be verbose and time-consuming, but it would also require an impractical amount of maintenance should the path structure ever change or we need to add new articles.
+
+It would be much more convenient to define a single route that can match any path with the pattern `'/articles/' + someTitle` and know exactly which component to render. React Router allows us to do this by using **URL parameters** to create **dynamic routes**.
+
+URL parameters are dynamic segments of a URL that act as placeholders for more specific resources. They appear in a dynamic route as a colon (`:`) followed by a variable name, like so:
+
+```js
+const route = createBrowserRouter(createRoutesFromElement(
+  <Route path='/articles/:title' element={ <Article /> }/>
+))
+```
+
+Let’s break down this short, yet powerful demonstration of URL parameters:
+
+* In this example, the path prop `'articles/:title'` contains the URL parameter `:title`.
+* This means that when the user navigates to pages such as `'/articles/what-is-react'` or `'/articles/html-and-css'`, the `<Article />` component will render.
+* When the `Article` component is rendered in this way, it can access the actual value of that `:title` URL parameter (`what-is-react` or `html-and-css`) to determine which article to display (more on this in the next exercise). A single route can even have multiple parameters (eg. `'articles/:title/comments/:commentId'`) or none (eg. `'articles'`).
+
+##### 7. useParams #####
+
+It is common to use the value of URL parameters to determine what is displayed in the component that a dynamic route renders. For example, the `Article` component might need to display the title of the current article.
+
+React Router provides a hook, `useParams()`, for accessing the value of URL parameters. When called, `useParams()` returns an object that maps the names of URL Parameters to their values in the current URL.
+
+For example, consider the `Articles` component below which is rendered when by a route with the dynamic URL `'/articles/:title'`. Consider the following `Article` component, that will render when a user visits `/articles/objects`:
+
+```js
+import { Link, useParams } from 'react-router-dom';
+ 
+export default function Article() {
+ 
+  let { title } = useParams();
+  // title will be equal to the string 'objects'
+ 
+  // The title will be rendered in the <h1>
+  return (
+    <article>
+      <h1>{title}</h1>
+    </article>
+  );
+}
+```
+
+Let’s break down the example above.
+
+* First, the `useParams()` hook is imported from `react-router-dom`.
+* Then, inside the `Article` component, `useParams()` is called which returns an object.
+* [Destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) is then used to extract the value of the URL parameter from that object, storing it in a variable named `title`.
+* Finally, this `title` value is used to display the name of the article in the `<h1>` element.
+
+##### 8. [2022 Audit] Nested Routes #####
+
+Up to this point, we’ve been working with routers that are relatively small. As our application grows and we add more features, we may want additional components to render within our defined views depending on user actions.
+
+For example, suppose that we have an `About` page that will be rendered if we hit the path `/about`. We’d like to implement a new feature that will display a secret message in `About` if the path changes to `/about/secret`. We might try and do this:
+
+```js
+/* imports ... */
+const router = createBrowserRouter(createRoutesFromElement([
+  <Route path='/about' element={ <About/> }>  />,
+  <Route path='/about/secret' element={ <Secret/> }>  />
+]));
+```
+
+Since React Router matches paths _exactly_, if we go to the path `/about/secret`, it will only render `Secret` and not `About`. We’d like to render `About` when we hit `/about` and also render `Secret` below `About` when we hit `/about/secret`. We can do this using **nested routes**.
+
+A nested route, as the name suggests, is a `Route` within a `Route`. A `Route` containing one or more `Routes` nested within it is known as the **parent** route and a `Route` that is contained within another `Route` is known as the **child** route. When nesting Routes, the child Route path is _relative_ to the parent `Route`‘s `path` so we shouldn’t include the parent `path` in its `path` prop.
+
+For example, we can create a nested route by refactoring the code above, like so:
+
+```js
+/* imports ... */
+const router = createBrowserRouter(createRoutesFromElement(
+  <Route path='/about' element={ <About/> }> {/* About renders if path starts with /about */}
+    <Route path='secret' element={ <Secret/> }>  />  {/* we can exclude /about from this path since it is relative to its parent */}
+  </Route> 
+));
+```
+
+Using this nested route, the `About` component will render when the path starts with `/about`. If the path matches `/about/secret`, the Secret component will render in addition to the `About` component. Remember that a `Route` can be both a parent and child route if it is nested within a route and contains nested routes within it. The same parent/child properties would apply.
+
+Our router is configured to render our nested route, but if we ran this code we still wouldn’t see `Secret` rendered below `About`. That’s because we haven’t told `About` _where_ to render its child route element. To do this we need to make use of the React Router `Outlet` component in the parent `About` component, like so:
+
+```js
+import { Outlet } from 'react-router-dom';
+ 
+// Rendered when the user visits '/about'
+export default function About() {
+  return (
+    <main>
+       <h1>Lorem ipsum dolor sit amet.</h1>
+       <Outlet/>  {/* renders child element when user visits /about/secret */}
+    <main/>   
+  );
+}
+```
+
+Now when we visit `/about/secret` our router will render `About` and its child route component, `Secret`, wherever the `Outlet` component is defined in the parent. You can think of it as the router replacing `Outlet` with our defined child route.
+
+When using nested routes we can also make use of **index** routes. An index route is a `Route` that uses the `index` prop instead of a `path` prop and is special because it renders on its parent’s `path`. For example:
+
+```js
+/* imports ... */
+const router = createBrowserRouter(createRoutesFromElement(
+  <Route path='/about' element={ <About/> }> {/* About renders if path starts with /about */}
+    <Route index element={ <IndexComponent/> }>  />  {/* Will render when the path is /about */}
+    <Route path='secret' element={ <Secret/> }>  />  {/* Will render when the path is /about/secret */}
+  </Route> 
+));
+```
+
+We can think of an index route as a **default** `Route` that will render in its parent’s `Outlet` when the path matches the parent `path` exactly so there’s some content in that space.
+
+Nested routes give us fine-tuned control over what, when, and where certain elements appear within their parent `Route`. Let’s practice what we’ve learned by adding some nested routes to our application.
+
+##### 9. `<Navigate>` #####
+
+If you take anything away from this lesson, it should be that React Router treats everything as a component. To get fully comfortable using React Router in your code, you have to embrace this idea and the declarative coding style that follows from it. For the most part, this is pretty intuitive, but it can feel a bit counterintuitive when it comes to redirecting users.
+
+To appreciate the declarative pattern, consider a common case for redirecting a user: a user wants to access a `/profile` page that requires authentication but is not currently signed in.
+
+The `Navigate` component provided by React Router makes this easy! Like a `Link` or `NavLink`, the `Navigate` component has a `to` prop. However, where `Link` and `NavLink` must be clicked to navigate the user, once the `Navigate` component is rendered, the user will automatically be taken to the location specified by the `to` prop:
+
+```js
+import { Navigate } from 'react-router-dom';
+
+const UserProfile = ({ loggedIn }) => {
+  if (!loggedIn) {
+    return (
+      <Navigate to='/' />
+    )
+  }
+ 
+  return (
+    // ... user profile content here
+  )  
+}
+```
+
+In this example, when the `UserProfile` component renders, if the `loggedIn` prop is `false`, then the `Navigate` component will be returned and then rendered, sending the user to the `/` page. Otherwise, the component will render normally.
+
+##### 10. useNavigate #####
+
+In the previous exercise, you learned how to redirect declaratively by rendering a `Navigate` component that updates the browser’s current location. Though this approach follows React Router’s declarative coding style, it does introduce a few extra steps in the React rendering lifecycle:
+
+1. The `Navigate` component must be returned.
+1. The `Navigate` component is then rendered.
+1. The URL is updated.
+1. And finally the appropriate route is rendered.
+
+React Router also provides a mechanism for updating the browser’s location imperatively using the `useNavigate` hook.
+
+```js
+import { useNavigate } from 'react-router-dom';
+```
+
+The `useNavigate()` function returns a `navigate` function that allows us to specify a path where we’d like to navigate.
+
+Consider this example which immediately triggers a redirect back to the `/` page after a user successfully submits a `<form>`:
+
+```js
+import { useNavigate } from `react-router-dom`;
+ 
+export const ExampleForm = () => {
+ 
+  const navigate = useNavigate()
+ 
+  const handleSubmit = e => {
+    e.preventDefault();
+    navigate('/')
+  }
+ 
+  return (
+    <form onSubmit={handleSubmit}>
+      {/* form elements */ }
+    </form>
+  )
+}
+```
+
+By enabling imperative updates to the browser location, the `navigate` function allows you to respond immediately to user input without having to wait.
+
+The `useNavigate()` function also gives us the ability to programmatically navigate our users through their [history](https://developer.mozilla.org/en-US/docs/Web/API/Window/history) stack. Scenarios like enabling users to go forward or backward in an application, or redirecting users to their previous page after they’ve logged in, are great use cases for this functionality. To navigate a user through their history stack using `useNavigate()`, we’d pass in an integer to indicate where in the history we’d like to travel. A positive integer navigates forward and a negative integer navigates backward.
+
+For example:
+
+* `navigate(-1)` - navigate to the previous URL in the history stack.
+* `navigate(1)` - navigate to the next URL in the history stack.
+* `navigate(-3)` - navigate 3 URLs back in the history stack.
+
+Below, we can see how the `navigate()` function is used to enable a “Go Back” button:
+
+```js
+import { useNavigate } from `react-router-dom`
+ 
+export const BackButton = () => {
+  const navigate = useNavigate()
+ 
+  return (
+    <button onClick={() => navigate(-1)}>
+      Go Back
+    </button>
+  )
+}
+```
+
+Let’s practice using `useNavigate` to give our users the ability to navigate backward and forward no matter where they are in our application.
+
+##### 11. [2022 Audit] Query Parameters #####
+
+Query parameters appear in URLs beginning with a question mark (`?`) and are followed by a parameter name assigned to a value. They are optional and are most often used to search, sort and/or filter resources.
+
+For example, if you were to visit the URL below…
+
+`https://www.google.com/search?q=codecademy`
+
+… you would be taken to Google’s `/search` page displaying results for the search term `codecademy`. In this example, the name of the query parameter is q.
+
+Query parameters can be useful in determining which content to display to our user and React Router provides a mechanism for grabbing query parameter values with the `useSearchParams()` hook. This hook returns a [`URLSearchParams`](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams) object and a function we can use to update it.
+
+Consider this example of a `SortedList` component:
+
+```js
+import { useSearchParams } from 'react-router-dom';
+ 
+// Rendered when a user visits "/list?order=DESC"
+export const SortedList = (numberList) => {
+  const [ searchParams, setSearchParams ] = useSearchParams();
+  const sortOrder = searchParams.get('order');
+  console.log(sortOrder); // Prints "DESC"
+};
+```
+
+Let’s break down this example:
+
+* First, we import `useSearchParams()` and call it within `SortedList` to get the `URLSearchParams` object. This object has a `.get()` method for retrieving query parameter values.
+* Finally, to get the value of a specific query parameter, we pass in the name of the query parameter whose value we want to obtain, as a string (`'order'`), to the `queryParams.get()` method. The value (`'DESC'`) is then stored in the variable order.
+
+Let’s expand the `SortedList` example so that the component uses the `order` value to render a list of data either in ascending order, in descending order, or in its natural order.
+
+```js
+import { useSearchParams } from 'react-router-dom'
+ 
+// Rendered when a user visits "/list?order=DESC"
+export const SortedList = (numberList) => {
+  const [ searchParams, setSearchParams ] = useSearchParams();
+  const sortOrder = searchParams.get('order');
+ 
+  if (sortOrder === 'ASC') {
+    // render the numberList in ascending order
+  } else if (sortOrder === 'DESC') {
+    // render the numberList in descending order
+  } else {
+    // render the numberList as is
+  }
+}
+```
+
+Now, if the user were to visit `/list?order=DESC`, the value `'DESC'` would be extracted and we can render the `SortedList` component in descending order. Likewise, visiting `/list?order=ASC` will render the list in ascending order. Finally, since query parameters are optional, if we were to visit `/list`, the SortedList component would render in its natural order.
+
+Imagine we have a `List` component with a sort button that we wanted to use to update the URL to `/list?order=ASC`, then render `SortedList`. We can use the `setSearchParams()` function to do this. For example:
+
+```js
+import { useSearchParams } from 'react-router-dom';
+ 
+// Rendered when a user visits "/list"
+export const List = (numberList) => {
+  const [ searchParams, setSearchParams ] = useSearchParams();
+ 
+  // render the numberList in ascending order
+  <button click={ () => setSearchParams( {order: 'ASC'} ) }>
+    Sort 
+  </button>
+}
+```
+
+When a user clicks on the Sort button we’ll update the path to `/list?order=ASC`, which will cause our `SortedList` component to render.
+
+`useSearchParams` works great when we want to access the current path’s query parameters or alter them but what if we want to navigate to a path and include query parameters too? Well, for this scenario we’ll need to use the `createSearchParams()` utility function from `react-router-dom` with the `useNavigate` hook we learned about previously.
+
+For example, if we wanted to directly navigate to `/list?order=ASC` from the root (`/`) path we’d do something like this:
+
+```js
+import { useNavigate, createSearchParams } from 'react-router-dom';
+// get navigate function
+const navigate = useNavigate();
+ 
+// define an object where the key is is the query parameter name and value is query parameter value
+const searchQueryParams = {
+  order: 'ASC'
+}
+ 
+// use createSearchParams which takes an object and transforms it to a query string of 
+the form order=ASC
+const searchQueryString = createSearchParams(searchQueryParams);
+ 
+// force a navigate by passing in an object with pathname indicating that path to navigate and search indicating the query parameters to append
+navigate({
+  pathname:'/list',
+  search: `?${searchQueryString}`
+})
+```
+
+The important things to note about the example above are that we:
+
+* Define an object representing the query parameters we want and call it `searchQueryParams`.
+* Pass `searchQueryParams` to `createSearchParams` which will transform it from an object to a query string form.
+* Call `useNavigate` and pass an object with `pathname` and `search` keys where `pathname` is a string indicating where to navigate to and `search` is a string indicating the query string to append to the path.
+
+Note that we need to include the `?` which is why we use a template string here.
+
+Great job learning about query parameters let’s now practice adding some filtering to our articles by using them.
+
+##### 12. Review: React Router V6 #####
+
+* Install `react-router-dom` and add it to a React application.
+* Enable routing by using `RouterProvider` and providing a `router`.
+* Creating a router using `createBrowserRouter()`.
+* Use `createRoutesFromElements()` to configure a router.
+* Use the `Route` component to add static and dynamic routes to an application.
+* Use `Link` and `NavLink` components to add links to an application.
+* Access the values of URL parameters using React Router’s `useParams` hook.
+* Create nested routes using `Route`, `Outlet`, and relative `path`s.
+* Declaratively redirect users by rendering React Router’s `Navigate` component
+* Imperatively redirect users via the useNavigate hook.
+* Access and set the value of query parameters using React Router’s `useSearchParams` hook.
